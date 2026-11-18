@@ -61,6 +61,12 @@ transport host. There is no account, cookie or persistent session. Errors expose
 fixed codes. `make serve` keeps access logging disabled. T7 still must verify
 full-stack logs, retention, deletion and runtime egress restrictions.
 
+Synchronous source/retrieval work runs in a worker thread so one private lookup
+does not block the API event loop. A concurrency regression verifies that an
+urgent request returns while another retrieval waits. Model admission, resource
+limits and timeouts remain T6/T7 work. Clear cancels browser requests/rendering;
+already-running backend work may finish before its worker is released.
+
 Bounded known urgency fields are inspected before validating the surrounding
 envelope. Recognised urgency wins even when another envelope field is malformed.
 Urgent, forbidden, referral and invalid routes never enter downstream analysis,
@@ -121,7 +127,7 @@ and no external page requests. Mocks do not enable the server or approve real co
 API tests independently use the actual safety/retrieval/source pipeline with
 synthetic bytes. The hostile mock is a DOM attack test, not source-valid evidence.
 
-378 offline tests and 269 safety tests passed; three new schemas match their
+379 offline tests and 270 safety tests passed; three new schemas match their
 typed contracts. Real laptop/model integration, legal recall, corpus rights/gaps,
 actual reviews and complete runtime privacy remain pending. Commands, failures,
 screenshots and delivery receipts are in `turn-logs/T5.md`.

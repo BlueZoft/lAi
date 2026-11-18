@@ -1,4 +1,7 @@
+import asyncio
 from collections.abc import AsyncIterator
+from datetime import date
+from threading import Event
 
 import pytest
 from answer_helpers import service
@@ -6,6 +9,8 @@ from conftest import RetrievalContext
 from httpx import ASGITransport, AsyncClient
 
 from lai.api import MAX_BODY_BYTES, create_app
+from lai.retrieval.models import RetrievalResult
+from lai.triage.contracts import TriageRequest
 from lai.triage.templates import load_templates
 
 pytestmark = [pytest.mark.anyio, pytest.mark.safety]
@@ -224,6 +229,45 @@ async def client_citation_keys() -> tuple[str, ...]:
 async def test_host_header_cannot_open_the_private_app(client: AsyncClient) -> None:
     response = await client.post("/api/answers", json={}, headers={"host": "example.invalid"})
     assert response.status_code == 400
+
+
+async def test_urgent_request_finishes_while_private_retrieval_is_waiting(
+    retrieval_context: RetrievalContext,
+) -> None:
+    engine = service(retrieval_context)
+    started, release, finished = Event(), Event(), Event()
+
+    class WaitingPath:
+        def run(self, request: TriageRequest, as_of: date) -> RetrievalResult:
+            started.set()
+            release.wait(10)
+            finished.set()
+            return RetrievalResult(status="abstained")
+
+    engine.navigator.downstream = WaitingPath()
+    async with AsyncClient(
+        transport=ASGITransport(app=create_app(engine)), base_url="http://testserver"
+    ) as instance:
+        pending = asyncio.create_task(
+            instance.post(
+                "/api/answers", json={"scenario": {"text": "documents catalogue", "language": "en"}}
+            )
+        )
+        try:
+
+            async def wait_started() -> None:
+                while not started.is_set():
+                    await asyncio.sleep(0.005)
+
+            await asyncio.wait_for(wait_started(), timeout=3)
+            urgent = await asyncio.wait_for(
+                instance.post("/api/answers", json={"scenario": {"text": "child abuse"}}), timeout=3
+            )
+            assert urgent.json()["status"] == "immediate_escalation"
+            assert not finished.is_set()
+        finally:
+            release.set()
+            await pending
 
 
 async def test_unexpected_service_error_returns_fixed_code(

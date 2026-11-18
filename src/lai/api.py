@@ -9,6 +9,7 @@ from zoneinfo import ZoneInfo
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import HTMLResponse, JSONResponse, Response
+from starlette.concurrency import run_in_threadpool
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from lai import __version__
@@ -152,7 +153,9 @@ def create_app(service: AnswerService | None = None) -> FastAPI:
         except Exception:
             return JSONResponse({"error": "invalid_json"}, status_code=400)
         try:
-            result = service.answer(payload, datetime.now(ZoneInfo("Asia/Colombo")).date())
+            result = await run_in_threadpool(
+                service.answer, payload, datetime.now(ZoneInfo("Asia/Colombo")).date()
+            )
             return JSONResponse(result.model_dump(mode="json"))
         except Exception:
             return JSONResponse({"error": "answer_unavailable"}, status_code=503)

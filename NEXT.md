@@ -30,7 +30,7 @@ routes remain withheld; source-listing verification does not approve public use.
 
 T5 adds source-revalidated extractive answers, version/language/text-bound gloss
 approvals, a bounded API, Sinhala-first UI and an offline synthetic review packet.
-Verification passes 378 offline tests and 269 safety tests. Local Chromium checks
+Verification passes 379 offline tests and 270 safety tests. Local Chromium checks
 passed; these do not establish legal/language approval. See `docs/turn-logs/T5.md`
 and annotated `t5-answers` for delivery evidence.
 
