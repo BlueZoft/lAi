@@ -1,5 +1,6 @@
 """Enforce file categories and size limits for tracked and non-ignored files."""
 
+import argparse
 import subprocess
 from pathlib import Path
 
@@ -40,20 +41,23 @@ BLOCKED_SUFFIXES = {
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=ROOT)
+    root = parser.parse_args().root.resolve()
     result = subprocess.run(
         ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
-        cwd=ROOT,
+        cwd=root,
         check=True,
         capture_output=True,
     )
     names = sorted(set(result.stdout.decode().strip("\0").split("\0")) - {""})
     violations: list[str] = []
     for name in names:
-        path = ROOT / name
+        path = root / name
         parts = Path(name).parts
         if (
             path.is_symlink()
-            or BLOCKED_DIRECTORIES.intersection(parts)
+            or parts[0] in BLOCKED_DIRECTORIES
             or path.suffix.lower() in BLOCKED_SUFFIXES
             or path.name == ".env"
             or path.name.startswith(".env.")

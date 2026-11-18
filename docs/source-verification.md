@@ -1,8 +1,10 @@
 # Source verification register
 
-The following assertions came from the project brief. They are research inputs,
-all UNVERIFIED in T1 as of 18 November 2026. Nothing here authorises their display
-as verified law, an accurate contact directory or measured legal retrieval.
+The table preserves the project brief's research inputs and their T1 verification
+requirements. T2 metadata observations below update the dataset discovery and
+counts. Legal status, contact details and legal retrieval performance remain
+UNVERIFIED. Nothing here authorises display as verified law or an accurate
+contact directory.
 Future checks must record source, inspected content, date and reviewer role.
 Verified legal claims use `[PERISHABLE: verified YYYY-MM]` after that check.
 
@@ -29,3 +31,23 @@ are recorded in the turn log. Reachability alone never verifies page content.
 
 No hotline number, case name or purported authoritative legal extract is included
 in the prototype. Uncertainty remains visible until evidence is obtained.
+
+## T2 metadata observations on 18 November 2026
+
+S01–S04 have partial direct evidence in `corpus-inventory.md`. The actual index
+is `nuuuwan/lk_datasets`, with 26 reported datasets and 303,457 document rows.
+The complete inspected Acts TSV contains 3,979 language-version rows. The
+government Acts data begins in 1981, while a distinct Parliament pipeline reports
+older metadata and incomplete extraction. Both layouts were sampled. The
+inspected code-repository licences declare MIT. Original PDF rights remain
+UNVERIFIED.
+
+English, Sinhala and Tamil source extracts were measured. The Sinhala/Tamil
+samples contain replacement characters, and an older English sample has
+ambiguous section ordering. These observations support explicit quality and
+structural quarantine. The source report records hashes and commits. Full-corpus
+coverage, upstream update guarantees, engine reproducibility, maintainer-specific
+collections and HuggingFace contents remain UNVERIFIED.
+
+S05–S11 remain pending their scheduled primary-source or measurement work. No
+PDPA commencement, statute applicability or referral number was verified in T2.

@@ -1,0 +1,247 @@
+{
+  "$defs": {
+    "Extraction": {
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "enum": [
+            "plain_text",
+            "native_pdf",
+            "ocr"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "tool": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Tool",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "fonts": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Fonts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "method",
+        "tool",
+        "version"
+      ],
+      "title": "Extraction",
+      "type": "object"
+    },
+    "Instrument": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "act",
+            "ordinance",
+            "regulation",
+            "bill",
+            "gazette",
+            "judgment"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "number": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Number"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "maximum": 2200,
+              "minimum": 1700,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Year"
+        },
+        "synthetic": {
+          "default": false,
+          "title": "Synthetic",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "kind"
+      ],
+      "title": "Instrument",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "format": "uri",
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "canonical_url": {
+          "anyOf": [
+            {
+              "maxLength": 2048,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "format": "uri",
+          "title": "Canonical Url"
+        },
+        "publisher": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "official",
+            "mirror",
+            "manual"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "revision": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Revision",
+          "type": "string"
+        },
+        "licence": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Licence",
+          "type": "string"
+        },
+        "metadata_reviewed": {
+          "default": false,
+          "title": "Metadata Reviewed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "url",
+        "publisher",
+        "role",
+        "fetched_at",
+        "revision",
+        "licence"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "instrument": {
+      "$ref": "#/$defs/Instrument"
+    },
+    "language": {
+      "enum": [
+        "en",
+        "si",
+        "ta"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "expected_raw_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Expected Raw Sha256",
+      "type": "string"
+    },
+    "expected_text_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Expected Text Sha256",
+      "type": "string"
+    },
+    "extraction": {
+      "$ref": "#/$defs/Extraction"
+    },
+    "acquisition": {
+      "default": "upstream",
+      "enum": [
+        "upstream",
+        "manual_seed",
+        "synthetic"
+      ],
+      "title": "Acquisition",
+      "type": "string"
+    },
+    "gap_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+        "type": "string"
+      },
+      "title": "Gap Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "source",
+    "instrument",
+    "language",
+    "expected_raw_sha256",
+    "expected_text_sha256",
+    "extraction"
+  ],
+  "title": "SourceManifest",
+  "type": "object"
+}

@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "EvidenceAnchor": {
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "exclusiveMinimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "start",
+        "end",
+        "text_sha256"
+      ],
+      "title": "EvidenceAnchor",
+      "type": "object"
+    },
+    "VersionEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "relation": {
+          "enum": [
+            "amends",
+            "repeals",
+            "commences",
+            "supersedes"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_node": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Node",
+          "type": "string"
+        },
+        "target_node": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Target Node",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceAnchor"
+        },
+        "effective_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective On"
+        },
+        "reviewed": {
+          "default": false,
+          "title": "Reviewed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "relation",
+        "source_node",
+        "target_node",
+        "evidence"
+      ],
+      "title": "VersionEdge",
+      "type": "object"
+    },
+    "VersionNode": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "raw_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Sha256",
+          "type": "string"
+        },
+        "extracted_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Extracted Text Sha256",
+          "type": "string"
+        },
+        "instrument_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si",
+            "ta"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "section_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Section Number"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "exclusiveMinimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "record_id",
+        "raw_sha256",
+        "extracted_text_sha256",
+        "instrument_id",
+        "language",
+        "section_number",
+        "start",
+        "end",
+        "text_sha256"
+      ],
+      "title": "VersionNode",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "nodes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/VersionNode"
+      },
+      "title": "Nodes",
+      "type": "array"
+    },
+    "edges": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/VersionEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+    }
+  },
+  "title": "VersionGraph",
+  "type": "object"
+}

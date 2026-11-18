@@ -4,6 +4,8 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
+from lai.corpus.graph import VersionGraph
+from lai.corpus.models import IngestionRecord, SourceManifest
 from lai.safety import LaunchGate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,3 +29,20 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
     schema = json.loads((ROOT / "schemas/launch-gate.schema.json").read_text())
     with pytest.raises(ValidationError):
         Draft202012Validator(schema).validate(invalid)
+
+
+@pytest.mark.parametrize(
+    ("name", "contract"),
+    [
+        ("source-manifest", SourceManifest),
+        ("ingestion-record", IngestionRecord),
+        ("version-graph", VersionGraph),
+    ],
+)
+def test_corpus_schemas_match_typed_contracts(
+    name: str,
+    contract: type[SourceManifest] | type[IngestionRecord] | type[VersionGraph],
+) -> None:
+    schema = json.loads((ROOT / f"schemas/{name}.schema.json").read_text())
+    Draft202012Validator.check_schema(schema)
+    assert schema == contract.model_json_schema()

@@ -1,24 +1,33 @@
 # Ordered remaining work
 
-## T1 completion evidence
+## Delivery evidence
 
 Local verification passed with 33 tests, PostgreSQL 16/pgvector started, the
 first commit was pushed to `main` and its GitHub Actions run passed. See
 `docs/turn-logs/T1.md` for executed commands and the annotated `t1-architecture`
-tag for the final commit's delivery receipt. The next implementation turn is T2.
+tag for the final commit's delivery receipt.
 
-## T2 — Corpus pipeline
+T2 implements hash-verified intake, provenance schemas, deduplication, quality
+quarantine, exact section spans, manual-seed mapping and a version-evidence
+graph. The latest local suite passed 96 tests. Read `docs/turn-logs/T2.md` and
+the `t2-corpus` annotation for delivery and remote CI evidence.
 
-1. Inventory the maintainer's actual document repositories and upstream datasets
-   through authorised read access. Verify counts, dates, schemas, hashes,
-   canonical sources and licence evidence. Do not download the full corpus into
-   this container. Report actual inspected samples with personal data excluded.
-2. Implement provenance schemas, content-hash dedupe, idempotent ingestion and
-   section-boundary parsing against tiny synthetic fixtures.
-3. Implement quality scores, empty/garbled OCR and legacy-font detection, verified
-   conversion interfaces and quarantine. Gate retrieval eligibility.
-4. Implement the amendment/commencement graph with uncertain states and temporal
-   evidence. Add a manual pre-1981 seeding path and coverage closure rules.
+## Source and corpus follow-up
+
+1. Obtain the maintainer's actual legal-document repository URLs. Eleven public
+   repository roots/READMEs were inspected, and no corpus was identified there.
+   Private/unlisted and nested corpus contents remain UNVERIFIED. A question is
+   pending. Add the identified sources to the inventory before selecting them.
+2. Inspect official publisher content and original PDF terms when access is
+   available. Current requests to `documents.gov.lk` and `huggingface.co` are
+   blocked by destination policy. GitHub's API is also blocked, while HTML/raw/Git
+   routes work. Full mirror equivalence and rights remain UNVERIFIED.
+3. On TARGET B, implement and measure upstream batch adapters, OCR and extraction
+   reproducibility. Add verified legacy-font conversion only with source-aligned
+   evidence. Sinhala/Tamil structural parsers and schedules remain unsupported.
+4. Build a human-labelled text/parsing quality sample set. Close foundational
+   gaps only with complete source/version evidence and attorney review. The
+   current corpus score is a provisional engineering gate.
 
 ## T3 — Retrieval
 

@@ -1,16 +1,16 @@
 # Runtime artefacts and all private/local configuration
 .env
 .env.*
-.local/
-data/
-models/
-corpus/
-embeddings/
-vectorstores/
-databases/
-archives/
-backups/
-reports/
+/.local/
+/data/
+/models/
+/corpus/
+/embeddings/
+/vectorstores/
+/databases/
+/archives/
+/backups/
+/reports/
 
 # Python and tooling
 .venv/

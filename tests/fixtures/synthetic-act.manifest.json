@@ -1,0 +1,30 @@
+{
+  "schema_version": "1",
+  "source": {
+    "url": "https://example.invalid/synthetic-act",
+    "publisher": "SYNTHETIC publisher",
+    "role": "official",
+    "fetched_at": "2026-11-18T00:00:00Z",
+    "revision": "synthetic-revision-1",
+    "licence": "Apache-2.0 (synthetic fixture)",
+    "metadata_reviewed": true
+  },
+  "instrument": {
+    "id": "synthetic-office-instrument",
+    "kind": "act",
+    "number": "SYNTHETIC-A",
+    "year": 2099,
+    "synthetic": true
+  },
+  "language": "en",
+  "expected_raw_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+  "expected_text_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+  "extraction": {
+    "method": "plain_text",
+    "tool": "synthetic-fixture",
+    "version": "1",
+    "fonts": []
+  },
+  "acquisition": "synthetic",
+  "gap_ids": []
+}

@@ -5,6 +5,7 @@ export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
 RUN = $(UV) run --frozen --offline
 HOST ?= 127.0.0.1
 PORT ?= 8000
+INGEST_ARGS ?= --manifest tests/fixtures/synthetic-act.manifest.json --raw tests/fixtures/synthetic-act.txt --text tests/fixtures/synthetic-act.txt
 
 setup:
 	$(UV) sync --frozen
@@ -29,8 +30,7 @@ test:
 verify: lint typecheck schema hygiene test
 
 ingest:
-	@echo "UNAVAILABLE: ingestion is scheduled for T2. No documents were ingested." >&2
-	@exit 2
+	$(RUN) python -m lai.corpus.cli ingest $(INGEST_ARGS)
 
 serve:
 	$(RUN) uvicorn lai.api:app --host $(HOST) --port $(PORT) --no-access-log

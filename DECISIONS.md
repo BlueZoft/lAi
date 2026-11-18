@@ -64,6 +64,82 @@ review/measurement condition is required plus the brief's institutional or free
 referral-first delivery condition. Release evidence needs independent review.
 A true flag alone does not establish the underlying event occurred.
 
+## ADR-0005 — Immutable intake staging before PostgreSQL indexing
+
+Accepted on 18 November 2026.
+
+T2 stages raw bytes, unmodified UTF-8 extraction, acquisition records and derived
+graphs in ignored files. PostgreSQL/pgvector indexing remains T3. These files are
+ingestion artefacts with no query index or additional database service.
+
+Verify expected raw/text SHA-256 before side effects. Write blobs through
+temporary files, fsync and atomic no-overwrite links, then publish the acquisition
+record last. A retry reuses matching files and rejects conflicting contents.
+Tests exercise concurrent writers, an interrupted record commit and corruption.
+
+Acquisition records preserve each source/revision/date observation. Version-node
+identity uses content, instrument, language and section anchors. Reacquiring the
+same content through a mirror retains the version identity. Canonical selection
+requires equivalent raw/text hashes, language and complete instrument metadata,
+then prefers eligible, reviewed official sources and uses deterministic ties.
+Conflicting identities require investigation. No fuzzy merging is performed.
+
+Hashes establish byte integrity. Extraction fidelity and source authority still
+need review. Future changes to canonical record serialisation or policy require
+an explicit version and compatibility strategy for published records.
+
+## ADR-0006 — Conservative quality and section eligibility
+
+Accepted on 18 November 2026.
+
+Use documented heuristics for empty/short extraction, script mismatch, replacement
+characters, private-use glyphs, control characters, mojibake, repeated letters and
+known legacy fonts. The score is an engineering gate whose accuracy still needs
+human-labelled measurement. Every issue quarantines the document.
+
+Real samples exposed two defects before delivery. A long underscore divider
+triggered repeated-letter detection, and combining marks depressed readability.
+The policy now checks repeated alphabetic glyphs and excludes combining marks
+from the readability denominator. Synthetic regression tests cover both.
+
+English Acts and ordinances support exact section spans, subsections and inserted
+section labels. Duplicate, missing or unordered headings, schedules and unsupported
+languages/instrument types remain quarantined. Sinhala/Tamil quality measurement
+works now. Their section parsers and verified legacy-font conversions require
+further work. No conversion mapping is guessed.
+
+## ADR-0007 — Explicit version evidence and source selection
+
+Accepted on 18 November 2026.
+
+Store manually evidenced amends, repeals, commences and supersedes edges. Validate
+endpoints, source spans, hashes and same-provision supersession, and reject
+supersession cycles. Status inspection revalidates evidence. Only reviewed,
+readable-source edges with known effective dates reached at the requested date
+contribute recorded status. Every result retains `coverage_unverified`.
+
+The graph never automatically edits statutory text or creates a consolidated
+edition. A typed `reviewed` flag records an operator assertion whose supporting
+human review remains a launch prerequisite. No legal relationship was inferred
+from the real research samples.
+
+The observed index is `nuuuwan/lk_datasets`, and its Acts source is
+`nuuuwan/lk_legal_docs` on a dedicated data branch. The separate Parliament Acts
+pipeline offers older material with different extraction coverage. Prefer the
+original official publisher when verified, retain pinned mirrors as acquisitions,
+and use the older pipeline as supplementary gap research. Primary-source checks,
+PDF rights and the maintainer's unidentified corpora remain UNVERIFIED.
+
+## ADR-0008 — Scope runtime-directory ignores to the checkout root
+
+Accepted on 18 November 2026.
+
+T1's unanchored `corpus/` ignore also hid `src/lai/corpus/`. Anchor runtime data
+directories to the checkout root and align the file guard with that scope.
+Corpus documents remain forbidden in Git. A regression test permits source
+modules while rejecting a root corpus artefact. Wheel inspection also confirms
+that the intake modules are packaged and runtime corpus artefacts are excluded.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

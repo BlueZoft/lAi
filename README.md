@@ -10,8 +10,10 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T1 provides the architecture, development checks and a health endpoint. Search,
-legal answers, ingestion, models and a user interface are pending. Every release
+T2 provides offline corpus intake, provenance schemas, quality quarantine,
+section parsing and a version-evidence graph. The health endpoint remains the
+only application endpoint. Search, legal answers, models and a user interface
+are pending. Every release
 gate starts closed. GitHub's repository page reported the repository as public
 during T1. Recommend making it private until the T8 gate passes, because unfinished
 legal material can be mistaken for a usable service.
@@ -31,8 +33,7 @@ make serve
 database password. The default uv cache lives under ignored `.local/`, which
 works with the cloud container's read-only home directory. An existing
 `UV_CACHE_DIR` setting takes precedence. `verify` runs lint, types, schema checks,
-repository hygiene
-and tests with Internet sockets disabled. After installation, verification uses
+repository hygiene and tests with Internet sockets disabled. After installation, verification uses
 no network, GPU, database or model. `serve` binds to `127.0.0.1:8000` and disables
 access logs. `GET /health` reports `navigator_enabled: false`.
 
@@ -57,8 +58,8 @@ restoring a cloud snapshot.
 | `make setup` | Frozen dependency installation and ignored local configuration |
 | `make lint` | Ruff lint and formatting checks |
 | `make test` | Deterministic unit and safety tests |
-| `make verify` | All required T1 checks |
-| `make ingest` | Explicitly unavailable until T2, exits unsuccessfully |
+| `make verify` | Lint, types, schemas, file guard and offline tests |
+| `make ingest` | Stage the tiny synthetic Act fixture into ignored `data/corpus/` |
 | `make serve` | Local health endpoint |
 | `make eval` | Explicitly unavailable until T8, exits unsuccessfully |
 
@@ -81,18 +82,21 @@ text and offer a professional referral. Deterministic triage runs first and can
 stop retrieval. Model output never decides escalation or generates legal advice.
 
 Start with administrative navigation. Dangerous matters require escalation.
-Legal claims, phone numbers and corpus coverage supplied in the brief remain
-unverified until primary-source checks are recorded.
+Legal claims and contact numbers await primary-source verification. The
+inventory records observed upstream counts and extraction limits. Your own
+legal-document repository URLs remain UNVERIFIED pending identification.
 
 - Read [the architecture](docs/architecture.md), [decisions](DECISIONS.md) and
   [contributor rules](AGENTS.md).
 - Follow [the remaining work](NEXT.md), [risk register](docs/risk-register.md) and
   [corpus gaps](docs/corpus-gaps.md).
-- Inspect [the T1 evidence](docs/turn-logs/T1.md) and
+- Inspect [the corpus inventory](docs/corpus-inventory.md),
+  [intake guide](docs/corpus-intake.md), [T2 evidence](docs/turn-logs/T2.md) and
   [source verification register](docs/source-verification.md).
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.
 AGPL-3.0 would require corresponding source for modified network services, which
 may protect public contributions while complicating some institutional adoption.
-Upstream corpus licensing and attribution are assessed separately during T2.
+Upstream code repositories declare MIT. Preserve their notices for material
+covered by that licence. Original government PDF rights await publisher review.
 No corpus, model, database, credentials or personal data belongs in Git.
