@@ -1,7 +1,9 @@
 # Architecture
 
-Status is T1 design, 18 November 2026. Only the health API, release gate and
-development checks are implemented. The diagram includes planned components.
+Status is T3, 18 November 2026. Intake, version evidence, source-anchored private
+hybrid retrieval and the health API are implemented. Public request routing,
+deterministic triage, gloss assembly and the user interface are pending. The
+diagram includes those planned components.
 
 ## Two targets
 

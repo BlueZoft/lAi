@@ -8,6 +8,8 @@ from jsonschema import Draft202012Validator
 from lai.corpus.graph import VersionGraph, document_nodes
 from lai.corpus.ingest import ingest_document
 from lai.corpus.models import IngestionRecord, SourceManifest
+from lai.retrieval.evaluation import EvaluationDataset
+from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +34,21 @@ def main() -> None:
         ("source-manifest", SourceManifest, manifest.model_dump(mode="json")),
         ("ingestion-record", IngestionRecord, record.model_dump(mode="json")),
         ("version-graph", VersionGraph, graph.model_dump(mode="json")),
+        ("retrieval-policy", RetrievalPolicy, RetrievalPolicy().model_dump(mode="json")),
+        (
+            "retrieval-result",
+            RetrievalResult,
+            RetrievalResult(status="abstained", reasons=("retrieval_disabled",)).model_dump(
+                mode="json"
+            ),
+        ),
+        (
+            "evaluation-dataset",
+            EvaluationDataset,
+            EvaluationDataset.model_validate_json(
+                (ROOT / "tests/fixtures/retrieval-queries.json").read_bytes()
+            ).model_dump(mode="json"),
+        ),
     )
     for name, contract, example in examples:
         schema = json.loads((ROOT / f"schemas/{name}.schema.json").read_text())

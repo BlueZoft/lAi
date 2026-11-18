@@ -140,6 +140,96 @@ Corpus documents remain forbidden in Git. A regression test permits source
 modules while rejecting a root corpus artefact. Wheel inspection also confirms
 that the intake modules are packaged and runtime corpus artefacts are excluded.
 
+## ADR-0009 — Exact cosine and sparse token-weight ranking
+
+Accepted on 18 November 2026.
+
+Use PostgreSQL 16/pgvector `vector(1024)` for dense vectors and JSONB sparse
+token weights with a GIN key index. BGE-M3's documented dense dimension is 1024
+and its input context is 8192 tokens. Native sparse weights and dense cosine
+produce independent top-15 lists, fused with reciprocal-rank constant 60.
+
+Start with exact cosine ranking so approximate-index recall introduces no
+additional calibration variable. ANN indexing and reranking require measured
+benefit, memory and legal recall. Reranking remains optional and deferred.
+The deterministic fake has a configuration-specific identity and accepts only
+synthetic sources. Collections reject incompatible model identities/dimensions.
+
+## ADR-0010 — Source and version checks before candidate publication
+
+Accepted on 18 November 2026.
+
+Whole-section chunks reuse T2 graph node identities and preserve the original
+UTF-8 extraction. Every result revalidates its acquisition, source bytes, section
+span/hash and scoped document/provision graph evidence. Known amendment, repeal
+or supersession evidence excludes affected text pending review. Every displayed
+candidate carries complete provenance and legal-currency warnings.
+
+Synthetic and real source scopes are explicit. Retrieval defaults disabled.
+The private research interface returns at least two distinct logical provisions
+or abstains. Language versions and mirror acquisitions cannot inflate that count.
+The HTTP API exposes health while T4 triage and T5 assembly are pending.
+
+Active source selection is explicit. Equivalent acquisitions use T2 canonical
+selection, while conflicting versions of the same instrument/language require
+operator selection before batch updates. Replacing a document is transactional,
+retains acquisition history and removes its old chunks when it becomes
+quarantined. A single SQL statement obtains both ranking channels from one
+database snapshot. Tests exercise rollback, retry and separate concurrent writers.
+
+## ADR-0011 — Separate the lightweight environment and local model profile
+
+Accepted on 18 November 2026.
+
+Keep default installation and CI free of model inference dependencies. Declare
+the optional frozen `models` extra with FlagEmbedding 1.4.2, observed in PyPI
+metadata, and CPU PyTorch wheels for Linux x86-64. Other platforms retain their
+resolved platform-specific packages. Model profile installation and inference
+were not executed in this container and remain UNVERIFIED.
+
+The local adapter consumes a caller-selected model directory/revision, sets
+offline library flags and disables remote model code. It checks token counts
+before encoding to prevent silent truncation and requests dense/sparse output
+with batch size one. The explicit acquisition helper pins the resolved model
+revision, checks supplied publisher LFS hashes, retains notices and writes a
+stream-verified checksum manifest. Real SDK inference and capacity belong to
+TARGET B. No legal-quality claim follows from adapter contract tests.
+
+## ADR-0012 — Private local database connections and credential-safe errors
+
+Accepted on 18 November 2026.
+
+The managed rootless Docker daemon reported no published TCP mapping for the
+internal database network. A preserved-volume recreation reproduced that result.
+Bind the PostgreSQL Unix socket inside owner-only `.local/` and let the local
+driver prefer it. Loopback TCP remains a supported connector route when present.
+The database stays attached to its internal network.
+
+The first failed TCP connection's test traceback exposed the generated local
+development password. That credential was rotated immediately through the local
+database role and ignored password file. The connector now uses a temporary
+mode-0600 libpq passfile, keeps its contents out of driver arguments, deletes it
+after connection and emits a fixed error on failure. Regression tests check
+argument/traceback redaction and fresh-setup private directory permissions.
+
+This recovery concerns the dedicated synthetic development stack. Production
+systems were not accessed. The T7 full logging/privacy review remains required.
+
+## ADR-0013 — Provisional thresholds and measured synthetic evaluation
+
+Accepted on 18 November 2026.
+
+Default policy uses a provisional dense floor of 0.5, two minimum candidates,
+five displayed candidates and a pool of 15. The explicit synthetic demonstration
+uses a 0.05 floor for feature-hash vectors. Ranking scores remain raw scores with
+an unvalidated-threshold warning. No probability of legal correctness is emitted.
+
+Evaluation reports Recall@1/5/15, mean reciprocal rank and abstention rate with
+dataset/backend identity. Five invented queries exercise English, Sinhala, Tamil
+and a bounded Singlish lookup. Unknown explicit Singlish abstains. Latin script
+alone does not determine language. Actual cross-lingual legal recall, translation
+coverage and threshold calibration remain UNVERIFIED until TARGET B/T8 review.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

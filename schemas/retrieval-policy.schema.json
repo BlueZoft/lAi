@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "enabled": {
+      "default": false,
+      "title": "Enabled",
+      "type": "boolean"
+    },
+    "source_scope": {
+      "default": "synthetic",
+      "enum": [
+        "synthetic",
+        "real"
+      ],
+      "title": "Source Scope",
+      "type": "string"
+    },
+    "minimum_candidates": {
+      "default": 2,
+      "maximum": 15,
+      "minimum": 2,
+      "title": "Minimum Candidates",
+      "type": "integer"
+    },
+    "maximum_candidates": {
+      "default": 5,
+      "maximum": 15,
+      "minimum": 2,
+      "title": "Maximum Candidates",
+      "type": "integer"
+    },
+    "pool_size": {
+      "default": 15,
+      "maximum": 100,
+      "minimum": 2,
+      "title": "Pool Size",
+      "type": "integer"
+    },
+    "minimum_dense_similarity": {
+      "default": 0.5,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Minimum Dense Similarity",
+      "type": "number"
+    },
+    "acquisition_warning_days": {
+      "default": 90,
+      "minimum": 1,
+      "title": "Acquisition Warning Days",
+      "type": "integer"
+    }
+  },
+  "title": "RetrievalPolicy",
+  "type": "object"
+}

@@ -12,6 +12,12 @@ quarantine, exact section spans, manual-seed mapping and a version-evidence
 graph. The latest local suite passed 96 tests. Read `docs/turn-logs/T2.md` and
 the `t2-corpus` annotation for delivery and remote CI evidence.
 
+T3 adds source-anchored hybrid retrieval, deterministic and local BGE-M3 adapters,
+PostgreSQL/pgvector migration and indexing, multilingual query handling, strict
+multiple-candidate/abstention contracts and aggregate evaluation. The local suite
+passes 150 offline tests and five isolated PostgreSQL tests. Read
+`docs/turn-logs/T3.md` and the `t3-retrieval` annotation for delivery receipts.
+
 ## Source and corpus follow-up
 
 1. Obtain the maintainer's actual legal-document repository URLs. Eleven public
@@ -29,14 +35,19 @@ the `t2-corpus` annotation for delivery and remote CI evidence.
    gaps only with complete source/version evidence and attorney review. The
    current corpus score is a provisional engineering gate.
 
-## T3 — Retrieval
+## Retrieval measurement follow-up on TARGET B
 
-1. Add PostgreSQL/pgvector schema and migrations plus marked integration tests.
-2. Implement fake and real embedding interfaces, dense/sparse hybrid ranking,
-   Sinhala/Tamil/English/Singlish handling and section-aware candidates.
-3. Anchor citations and enforce several eligible candidates, version checks,
-   confidence thresholds and abstention. Add measurement scripts. Measure legal
-   recall on TARGET B and qualify provisional thresholds.
+1. Install the locked optional model profile, acquire a pinned BGE-M3 snapshot
+   with the provided helper, and measure RAM, latency and retrieval quality.
+   Actual SDK inference, model acquisition and laptop capacity remain UNVERIFIED.
+2. Use a human-verified legal dataset to calibrate similarity thresholds and
+   measure legal recall. Five synthetic-query measurements establish engineering
+   behaviour. Legal recall and launch thresholds remain UNVERIFIED.
+3. Supply reviewed Singlish transliteration data or a measured bounded adapter.
+   The production default abstains for explicit Singlish without an adapter.
+4. Measure oversized-section handling and any future subsection subdivision,
+   ONNX/quantisation or reranker. Whole sections above the model's context are
+   rejected before encoding. No reranker has been measured.
 
 ## T4 — Safety spine
 

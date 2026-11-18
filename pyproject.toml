@@ -12,11 +12,26 @@ license = "Apache-2.0"
 dependencies = [
   "fastapi>=0.115,<1",
   "pydantic>=2.10,<3",
+  "psycopg[binary]>=3.2,<4",
   "uvicorn>=0.34,<1",
 ]
 
 [project.scripts]
 lai-corpus = "lai.corpus.cli:main"
+lai-retrieval = "lai.retrieval.cli:main"
+
+[project.optional-dependencies]
+models = ["FlagEmbedding==1.4.2", "torch>=2.6,<3"]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [dependency-groups]
 dev = [

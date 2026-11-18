@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "citation": {
+          "$ref": "#/$defs/Citation"
+        },
+        "dense_similarity": {
+          "title": "Dense Similarity",
+          "type": "number"
+        },
+        "sparse_score": {
+          "title": "Sparse Score",
+          "type": "number"
+        },
+        "fusion_score": {
+          "title": "Fusion Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "text",
+        "citation",
+        "dense_similarity",
+        "sparse_score",
+        "fusion_score"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "title": "Instrument Type",
+          "type": "string"
+        },
+        "instrument_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "number": {
+          "minLength": 1,
+          "title": "Number",
+          "type": "string"
+        },
+        "year": {
+          "title": "Year",
+          "type": "integer"
+        },
+        "section": {
+          "title": "Section",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si",
+            "ta"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "canonical_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Canonical Url"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "source_revision": {
+          "title": "Source Revision",
+          "type": "string"
+        },
+        "raw_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Sha256",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "section_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Section Sha256",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        },
+        "amendment_status": {
+          "enum": [
+            "unknown",
+            "amendment_recorded",
+            "repeal_recorded"
+          ],
+          "title": "Amendment Status",
+          "type": "string"
+        },
+        "commencement_status": {
+          "enum": [
+            "unknown",
+            "commencement_recorded"
+          ],
+          "title": "Commencement Status",
+          "type": "string"
+        },
+        "staleness_warnings": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Staleness Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "instrument_type",
+        "instrument_id",
+        "number",
+        "year",
+        "section",
+        "language",
+        "source_url",
+        "canonical_url",
+        "retrieved_at",
+        "source_revision",
+        "raw_sha256",
+        "text_sha256",
+        "section_sha256",
+        "start",
+        "end",
+        "amendment_status",
+        "commencement_status",
+        "staleness_warnings"
+      ],
+      "title": "Citation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": [
+        "candidates",
+        "abstained"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "candidates": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "reasons": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reasons",
+      "type": "array"
+    },
+    "warnings": {
+      "default": [
+        "thresholds_unvalidated"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "RetrievalResult",
+  "type": "object"
+}

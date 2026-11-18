@@ -3,9 +3,12 @@ from pathlib import Path
 
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
+from pydantic import BaseModel
 
 from lai.corpus.graph import VersionGraph
 from lai.corpus.models import IngestionRecord, SourceManifest
+from lai.retrieval.evaluation import EvaluationDataset
+from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,11 +40,14 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
         ("source-manifest", SourceManifest),
         ("ingestion-record", IngestionRecord),
         ("version-graph", VersionGraph),
+        ("retrieval-policy", RetrievalPolicy),
+        ("retrieval-result", RetrievalResult),
+        ("evaluation-dataset", EvaluationDataset),
     ],
 )
 def test_corpus_schemas_match_typed_contracts(
     name: str,
-    contract: type[SourceManifest] | type[IngestionRecord] | type[VersionGraph],
+    contract: type[BaseModel],
 ) -> None:
     schema = json.loads((ROOT / f"schemas/{name}.schema.json").read_text())
     Draft202012Validator.check_schema(schema)

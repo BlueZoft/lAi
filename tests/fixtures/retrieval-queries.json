@@ -1,0 +1,47 @@
+{
+  "schema_version": "1",
+  "kind": "synthetic",
+  "cases": [
+    {
+      "id": "english-forms",
+      "query": "forms",
+      "language_hint": "en",
+      "relevant_chunk_ids": [
+        "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc"
+      ]
+    },
+    {
+      "id": "sinhala-forms",
+      "query": "පෝරම",
+      "language_hint": "si",
+      "relevant_chunk_ids": [
+        "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc"
+      ]
+    },
+    {
+      "id": "tamil-forms",
+      "query": "படிவம்",
+      "language_hint": "ta",
+      "relevant_chunk_ids": [
+        "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc"
+      ]
+    },
+    {
+      "id": "singlish-forms",
+      "query": "porma",
+      "language_hint": "si-Latn",
+      "relevant_chunk_ids": [
+        "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc"
+      ]
+    },
+    {
+      "id": "english-sources",
+      "query": "source",
+      "language_hint": "en",
+      "relevant_chunk_ids": [
+        "3b2d0abf08f45362ab2a503992da80d40b402c3ab7b41f1d7e990be14851bef2",
+        "1b752dfe407d5544536dc29dc90c9accfc4905f3d8699561bf15a7d3bbfffa0e"
+      ]
+    }
+  ]
+}

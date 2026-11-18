@@ -9,7 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     local = ROOT / ".local"
+    if local.is_symlink():
+        raise SystemExit("Local private configuration directory must not be a symlink")
     local.mkdir(mode=0o700, exist_ok=True)
+    local.chmod(0o700)
+    (local / "postgres-socket").mkdir(mode=0o700, exist_ok=True)
     password = local / "postgres.password"
     try:
         descriptor = os.open(password, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)

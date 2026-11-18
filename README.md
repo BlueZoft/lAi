@@ -10,10 +10,10 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T2 provides offline corpus intake, provenance schemas, quality quarantine,
-section parsing and a version-evidence graph. The health endpoint remains the
-only application endpoint. Search, legal answers, models and a user interface
-are pending. Every release
+T3 provides offline corpus intake, provenance, quality quarantine, section parsing,
+a version-evidence graph and private hybrid retrieval. The HTTP API exposes a
+health endpoint. User-facing retrieval awaits deterministic T4 triage and T5
+assembly. Actual model quality and legal recall remain UNVERIFIED. Every release
 gate starts closed. GitHub's repository page reported the repository as public
 during T1. Recommend making it private until the T8 gate passes, because unfinished
 legal material can be mistaken for a usable service.
@@ -48,7 +48,10 @@ docker compose exec -T db psql -U lai -d lai -v ON_ERROR_STOP=1 \
 docker compose stop db
 ```
 
-The database binds to loopback port 54329 and an internal Docker network. Runtime
+The local driver uses a private Unix socket under `.local/postgres-socket` when
+available. This supports the cloud's rootless internal network, whose configured
+loopback port is not published by the daemon. The connector also supports loopback
+port 54329 when available. Runtime
 egress testing and the full laptop application arrive in T7. Image pulls and
 dependency installation need network access. Live processes are restarted after
 restoring a cloud snapshot.
@@ -61,7 +64,8 @@ restoring a cloud snapshot.
 | `make verify` | Lint, types, schemas, file guard and offline tests |
 | `make ingest` | Stage the tiny synthetic Act fixture into ignored `data/corpus/` |
 | `make serve` | Local health endpoint |
-| `make eval` | Explicitly unavailable until T8, exits unsuccessfully |
+| `make eval` | Aggregate fake-backend measurements on five tiny synthetic queries |
+| `make test-local` | Five PostgreSQL tests in a disposable synthetic database |
 
 ## Two targets
 
@@ -91,7 +95,8 @@ legal-document repository URLs remain UNVERIFIED pending identification.
 - Follow [the remaining work](NEXT.md), [risk register](docs/risk-register.md) and
   [corpus gaps](docs/corpus-gaps.md).
 - Inspect [the corpus inventory](docs/corpus-inventory.md),
-  [intake guide](docs/corpus-intake.md), [T2 evidence](docs/turn-logs/T2.md) and
+  [intake guide](docs/corpus-intake.md), [retrieval guide](docs/retrieval.md),
+  [T3 evidence](docs/turn-logs/T3.md) and
   [source verification register](docs/source-verification.md).
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.

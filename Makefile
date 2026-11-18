@@ -1,4 +1,4 @@
-.PHONY: setup lint typecheck schema hygiene test verify ingest serve eval
+.PHONY: setup lint typecheck schema hygiene test test-local verify ingest serve eval
 
 UV ?= uv
 export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
@@ -27,6 +27,9 @@ hygiene:
 test:
 	$(RUN) pytest
 
+test-local:
+	$(RUN) pytest -o addopts="-ra --strict-markers" -m local tests/test_postgres.py
+
 verify: lint typecheck schema hygiene test
 
 ingest:
@@ -36,5 +39,4 @@ serve:
 	$(RUN) uvicorn lai.api:app --host $(HOST) --port $(PORT) --no-access-log
 
 eval:
-	@echo "UNAVAILABLE: evaluation is scheduled for T8. No metrics were produced." >&2
-	@exit 2
+	$(RUN) python -m lai.retrieval.cli demo
