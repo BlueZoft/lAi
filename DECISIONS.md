@@ -230,6 +230,52 @@ and a bounded Singlish lookup. Unknown explicit Singlish abstains. Latin script
 alone does not determine language. Actual cross-lingual legal recall, translation
 coverage and threshold calibration remain UNVERIFIED until TARGET B/T8 review.
 
+## ADR-0014 — Deterministic gate before the entire downstream path
+
+Accepted on 18 November 2026.
+
+Introduce `SafetyNavigator` with closed defaults. Urgency precedes request
+validation so a known flag or bounded text signal still escalates when another
+field is malformed. All other invalid input abstains before analysis, models or
+retrieval. Advice requests, limitation questions and substantive domains cannot
+enter procedural navigation. Limitation results carry a mandatory fixed warning,
+with no deadline calculation. Future product endpoints must use this gate.
+
+Use a provisional versioned lexical baseline with Sinhala/Tamil/Singlish seeds,
+Unicode normalisation and limited obfuscation handling. Quotation/negation never
+suppresses a matched urgent signal. This accepts false positives while measured
+coverage and safeguarding review remain absent. No claim of exhaustive detection
+or real-world safety follows from the synthetic tests. Keep navigation disabled.
+
+## ADR-0015 — Review-gated fixed bilingual safety copy
+
+Accepted on 18 November 2026.
+
+Ship six fixed safety messages in English and Sinhala as UNREVIEWED seeds.
+No query interpolation or runtime model-generated safety/legal prose is allowed.
+Only complete, dated attorney and language approvals enable the selected copy;
+missing or future approval suppresses the entire selected message set. T5 must
+treat unavailable reviewed copy as a closed product flow. Review metadata records
+assertions and does not replace independent review or the launch gate.
+
+## ADR-0016 — Withhold referral details until primary-source verification
+
+Accepted on 18 November 2026.
+
+Official Ministry, Legal Aid Commission and Bar Association HTTPS requests were
+blocked by destination policy. The user approved six specific host grants; the
+network-only draft was saved without changing scripts, repository membership,
+credentials or publication. The observed running policy still lacks the grants.
+Saving a draft does not establish applied access or content verification.
+
+Record pending targets, dates and blockers, with no numbers, addresses, hours,
+regional claims or service promises. Runtime selectors exclude unverified,
+future and expired records. Verified entries require a primary-source digest,
+inspection date, method and review due date within 90 days; that interval is a
+provisional engineering maximum. Current contacts, regional counters, emergency
+routes and the attorney-review route remain explicitly UNVERIFIED. This external
+T4 work must resume after settings application; it is not completed by schema tests.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

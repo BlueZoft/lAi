@@ -1,4 +1,4 @@
-.PHONY: setup lint typecheck schema hygiene test test-local verify ingest serve eval
+.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval
 
 UV ?= uv
 export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
@@ -26,6 +26,9 @@ hygiene:
 
 test:
 	$(RUN) pytest
+
+safety:
+	$(RUN) pytest -m "safety and not local and not gpu and not network"
 
 test-local:
 	$(RUN) pytest -o addopts="-ra --strict-markers" -m local tests/test_postgres.py

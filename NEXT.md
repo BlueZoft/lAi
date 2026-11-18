@@ -18,6 +18,13 @@ multiple-candidate/abstention contracts and aggregate evaluation. The local suit
 passes 150 offline tests and five isolated PostgreSQL tests. Read
 `docs/turn-logs/T3.md` and the `t3-retrieval` annotation for delivery receipts.
 
+T4 implements deterministic safety routing, all six urgent classes, forbidden
+advice/limitation flags, strict contracts, review-gated bilingual copy and an
+expiry-gated referral register. Verification passes 318 offline tests, including
+215 safety tests. See `docs/turn-logs/T4.md` and the `t4-safety` tag receipt.
+Official referral verification remains blocked; the register has no active
+contacts. This is an explicit incomplete T4 external prerequisite.
+
 ## Source and corpus follow-up
 
 1. Obtain the maintainer's actual legal-document repository URLs. Eleven public
@@ -49,15 +56,23 @@ passes 150 offline tests and five isolated PostgreSQL tests. Read
    ONNX/quantisation or reranker. Whole sections above the model's context are
    rejected before encoding. No reranker has been measured.
 
-## T4 — Safety spine
+## T4 external verification and review follow-up
 
-1. Ship the wider taxonomy and deterministic pre-retrieval triage. Prove all six
-   urgent classes short-circuit retrieval and model calls, including malformed
-   and adversarial input. Add forbidden advice and limitation-period flags.
-2. Create English/Sinhala refusal and abstention templates with review states.
-3. Verify Legal Aid Commission, regional counters and emergency routes against
-   primary sources. Build versioned referral data and the Bar Association review
-   route. Current contacts and numbers are UNVERIFIED and are absent from T1.
+1. Apply the user-approved six-domain network draft in environment settings.
+   Draft persistence does not establish live access. Recheck official sources:
+   `moj.gov.lk`, `legalaid.gov.lk` and `basl.lk`, plus their `www` forms.
+   Initial HTTPS requests were denied by destination policy (CONNECT 403).
+2. Verify Legal Aid Commission services, regional counters, emergency routes and
+   the Bar Association route to attorney review. Save dated primary-source
+   evidence, digest and review expiry in the versioned register before activating
+   details. No contact numbers, addresses, hours or service commitments are active.
+3. Obtain attorney/safeguarding and Sinhala language review of the taxonomy,
+   rules and all 12 fixed templates. All copy remains UNREVIEWED and withheld by
+   the approved-message selector. Negation/quotation deliberately does not cancel
+   an urgent signal. Measure false negatives and positives on reviewed scenarios.
+4. Expand measured language coverage, especially dialects, code-switching, Tamil
+   and Singlish. Current multilingual seeds and obfuscation tests establish
+   deterministic examples only. Tamil/Singlish non-urgent navigation abstains.
 
 ## T5 — Assembly and interface
 

@@ -51,3 +51,22 @@ collections and HuggingFace contents remain UNVERIFIED.
 
 S05–S11 remain pending their scheduled primary-source or measurement work. No
 PDPA commencement, statute applicability or referral number was verified in T2.
+
+## T4 referral attempts on 18 November 2026
+
+S09 and S10 remain UNVERIFIED. Direct HTTPS requests to `https://moj.gov.lk/`,
+`https://legalaid.gov.lk/` and `https://basl.lk/` each failed with curl exit 56,
+CONNECT tunnel response 403 and HTTP result 000. The running policy was observed
+restricted/enforced and omitted these domains. No primary page was inspected.
+
+The user approved these three domains and their `www` forms. The setup tool
+confirmed a saved restricted-network draft preserving package-manager presets.
+Its save does not apply live settings or publish a version. Verification must
+resume after the settings are applied. Legal Aid Commission service scope,
+eligibility, regional counters, current contacts, emergency routes and the Bar
+Association review/referral service remain UNVERIFIED. No partnership is asserted.
+
+`src/lai/triage/data/referrals.json` records pending research targets, attempted
+dates and blockers. These are excluded by `active_referrals`. There are no active
+phone numbers, addresses, hours or regional-service claims. See `docs/safety.md`
+for the evidence/expiry contract and the remaining primary-source procedure.

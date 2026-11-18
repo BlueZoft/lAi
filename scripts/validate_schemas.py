@@ -11,6 +11,10 @@ from lai.corpus.models import IngestionRecord, SourceManifest
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
+from lai.triage.contracts import NavigationOutcome, SafetyPolicy, TriageDecision, TriageRequest
+from lai.triage.referrals import ReferralRegister, load_referrals
+from lai.triage.rules import decide
+from lai.triage.templates import SafetyTemplates, load_templates
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,6 +35,22 @@ def main() -> None:
     record = ingest_document(manifest, raw, raw)
     graph = VersionGraph(nodes=document_nodes(record))
     examples = (
+        ("triage-request", TriageRequest, {"text": "SYNTHETIC documents"}),
+        (
+            "triage-decision",
+            TriageDecision,
+            decide({"text": "SYNTHETIC documents"}).model_dump(mode="json"),
+        ),
+        ("safety-policy", SafetyPolicy, SafetyPolicy().model_dump(mode="json")),
+        (
+            "navigation-outcome",
+            NavigationOutcome,
+            NavigationOutcome(decision=decide({"text": "SYNTHETIC documents"})).model_dump(
+                mode="json"
+            ),
+        ),
+        ("referral-register", ReferralRegister, load_referrals().model_dump(mode="json")),
+        ("safety-templates", SafetyTemplates, load_templates().model_dump(mode="json")),
         ("source-manifest", SourceManifest, manifest.model_dump(mode="json")),
         ("ingestion-record", IngestionRecord, record.model_dump(mode="json")),
         ("version-graph", VersionGraph, graph.model_dump(mode="json")),
@@ -56,7 +76,7 @@ def main() -> None:
         if schema != contract.model_json_schema():
             raise SystemExit(f"Committed schema differs from typed contract: {name}")
         Draft202012Validator(schema).validate(example)
-        print(f"{name} schema and synthetic example valid")
+        print(f"{name} schema and example valid")
 
 
 if __name__ == "__main__":

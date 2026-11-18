@@ -1,0 +1,10 @@
+{
+  "schema_version": "1",
+  "revision": "t4-pending-1",
+  "records": [
+    {"id": "legal-aid-primary", "kind": "legal_aid", "organisation": "Legal Aid Commission (verification pending)", "source_url": "https://legalaid.gov.lk/", "attempted_on": "2026-11-18", "blocker": "UNVERIFIED: primary-source HTTPS request blocked by environment destination policy (CONNECT 403)."},
+    {"id": "regional-directory-primary", "kind": "regional", "organisation": "Regional counter directory (verification pending)", "source_url": "https://moj.gov.lk/", "attempted_on": "2026-11-18", "blocker": "UNVERIFIED: primary-source HTTPS request blocked by environment destination policy (CONNECT 403). No regional addresses or numbers retained."},
+    {"id": "emergency-primary", "kind": "emergency", "organisation": "Emergency referral verification pending", "source_url": "https://moj.gov.lk/", "attempted_on": "2026-11-18", "blocker": "UNVERIFIED: emergency route details require accessible official evidence and review. No emergency numbers retained."},
+    {"id": "bar-review-primary", "kind": "attorney_review", "organisation": "Bar Association of Sri Lanka (verification pending)", "source_url": "https://basl.lk/", "attempted_on": "2026-11-18", "blocker": "UNVERIFIED: primary-source HTTPS request blocked by environment destination policy (CONNECT 403). No partnership or review service is asserted."}
+  ]
+}

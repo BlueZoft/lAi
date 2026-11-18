@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "SafetyTemplate": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "enum": [
+            "urgent",
+            "refuse",
+            "professional",
+            "limitation",
+            "abstain",
+            "extractive"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "review_status": {
+          "default": "UNREVIEWED",
+          "enum": [
+            "UNREVIEWED",
+            "APPROVED"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "attorney_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attorney Reviewed On"
+        },
+        "language_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language Reviewed On"
+        }
+      },
+      "required": [
+        "id",
+        "language",
+        "text"
+      ],
+      "title": "SafetyTemplate",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "revision": {
+      "title": "Revision",
+      "type": "string"
+    },
+    "templates": {
+      "items": {
+        "$ref": "#/$defs/SafetyTemplate"
+      },
+      "minItems": 1,
+      "title": "Templates",
+      "type": "array"
+    }
+  },
+  "required": [
+    "revision",
+    "templates"
+  ],
+  "title": "SafetyTemplates",
+  "type": "object"
+}

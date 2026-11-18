@@ -1,0 +1,106 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "rules_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Rules Version",
+      "type": "string"
+    },
+    "action": {
+      "enum": [
+        "immediate_escalation",
+        "professional_referral",
+        "refuse",
+        "abstain",
+        "navigate"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "urgency": {
+      "default": [],
+      "items": {
+        "enum": [
+          "domestic_violence",
+          "child_protection",
+          "sexual_violence",
+          "unlawful_detention",
+          "imminent_destitution",
+          "self_harm"
+        ],
+        "type": "string"
+      },
+      "title": "Urgency",
+      "type": "array"
+    },
+    "domains": {
+      "default": [],
+      "items": {
+        "enum": [
+          "procedural_administrative",
+          "employment",
+          "land",
+          "family",
+          "debt",
+          "criminal",
+          "substantive_rights",
+          "unknown"
+        ],
+        "type": "string"
+      },
+      "title": "Domains",
+      "type": "array"
+    },
+    "limitation_warning": {
+      "default": false,
+      "title": "Limitation Warning",
+      "type": "boolean"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Reasons",
+      "type": "array"
+    },
+    "template_ids": {
+      "items": {
+        "enum": [
+          "urgent",
+          "refuse",
+          "professional",
+          "limitation",
+          "abstain",
+          "extractive"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Template Ids",
+      "type": "array"
+    },
+    "referral_kinds": {
+      "default": [],
+      "items": {
+        "enum": [
+          "legal_aid",
+          "regional",
+          "emergency",
+          "attorney_review"
+        ],
+        "type": "string"
+      },
+      "title": "Referral Kinds",
+      "type": "array"
+    }
+  },
+  "required": [
+    "action",
+    "reasons",
+    "template_ids"
+  ],
+  "title": "TriageDecision",
+  "type": "object"
+}

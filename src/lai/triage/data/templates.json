@@ -1,0 +1,18 @@
+{
+  "schema_version": "1",
+  "revision": "t4-draft-1",
+  "templates": [
+    {"id": "urgent", "language": "en", "text": "This may need urgent help. If it is safe to do so, contact local emergency services or a trusted person now. This prototype cannot assess your situation."},
+    {"id": "urgent", "language": "si", "text": "මෙයට හදිසි උපකාර අවශ්‍ය විය හැක. ආරක්ෂිත නම්, දැන්ම ප්‍රදේශයේ හදිසි සේවාවක් හෝ විශ්වාසවන්ත පුද්ගලයෙකු අමතන්න. මෙම මූලාකෘතියට ඔබගේ තත්ත්වය තක්සේරු කළ නොහැක."},
+    {"id": "refuse", "language": "en", "text": "This prototype cannot provide a legal conclusion or advise on pleading, signing, litigation strategy or criminal defence. Please seek advice from an attorney-at-law."},
+    {"id": "refuse", "language": "si", "text": "මෙම මූලාකෘතියට නීතිමය නිගමනයක් හෝ නඩුකර, අත්සන් කිරීම, නඩු උපායමාර්ග හෝ අපරාධ නඩුවක විත්තිවාචකය පිළිබඳ උපදෙස් දිය නොහැක. නීතිඥයෙකුගෙන් උපදෙස් ලබා ගන්න."},
+    {"id": "professional", "language": "en", "text": "This matter needs individual advice from an attorney-at-law. This prototype cannot determine your rights or the action you should take."},
+    {"id": "professional", "language": "si", "text": "මෙම කරුණ සඳහා නීතිඥයෙකුගෙන් ඔබට අදාළ උපදෙස් අවශ්‍ය වේ. මෙම මූලාකෘතියට ඔබගේ අයිතිවාසිකම් හෝ ඔබ කළ යුතු දේ තීරණය කළ නොහැක."},
+    {"id": "limitation", "language": "en", "text": "Legal time limits may apply and may already have expired. Consult an attorney-at-law now. This prototype does not calculate a deadline."},
+    {"id": "limitation", "language": "si", "text": "නීතිමය කාල සීමා අදාළ විය හැකි අතර ඒවා දැනටමත් ඉකුත් වී තිබිය හැක. දැන්ම නීතිඥයෙකුගෙන් උපදෙස් ලබා ගන්න. මෙම මූලාකෘතිය අවසන් දිනයක් ගණනය නොකරයි."},
+    {"id": "abstain", "language": "en", "text": "This prototype does not have enough supported information to continue. An attorney-at-law can provide individual advice. If you need urgent help, contact local emergency services or a trusted person if it is safe to do so."},
+    {"id": "abstain", "language": "si", "text": "ඉදිරියට යාමට ප්‍රමාණවත් තහවුරු කළ තොරතුරු මෙම මූලාකෘතියට නැත. නීතිඥයෙකුගෙන් ඔබට අදාළ උපදෙස් ලබා ගත හැක. හදිසි උපකාර අවශ්‍ය නම්, ආරක්ෂිත විට හදිසි සේවාවක් හෝ විශ්වාසවන්ත පුද්ගලයෙකු අමතන්න."},
+    {"id": "extractive", "language": "en", "text": "Candidate source provisions are legal information. They do not establish which law applies to your situation. Obtain individual advice from an attorney-at-law."},
+    {"id": "extractive", "language": "si", "text": "යෝජිත මූලාශ්‍ර විධිවිධාන නීතිමය තොරතුරු පමණි. ඔබගේ තත්ත්වයට අදාළ නීතිය ඒවායින් තීරණය නොවේ. නීතිඥයෙකුගෙන් ඔබට අදාළ උපදෙස් ලබා ගන්න."}
+  ]
+}

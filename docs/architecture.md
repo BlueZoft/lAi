@@ -1,9 +1,10 @@
 # Architecture
 
-Status is T3, 18 November 2026. Intake, version evidence, source-anchored private
-hybrid retrieval and the health API are implemented. Public request routing,
-deterministic triage, gloss assembly and the user interface are pending. The
-diagram includes those planned components.
+Status is T4, 18 November 2026. Intake, version evidence, source-anchored private
+retrieval, default-closed deterministic triage and the health API are implemented.
+T5 must attach its product endpoint through `SafetyNavigator`. Gloss assembly
+and the user interface are pending. Safety copy awaits attorney/language review;
+referral source verification is blocked. The diagram includes planned components.
 
 ## Two targets
 

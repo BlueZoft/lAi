@@ -10,10 +10,12 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T3 provides offline corpus intake, provenance, quality quarantine, section parsing,
-a version-evidence graph and private hybrid retrieval. The HTTP API exposes a
-health endpoint. User-facing retrieval awaits deterministic T4 triage and T5
-assembly. Actual model quality and legal recall remain UNVERIFIED. Every release
+T4 adds default-closed deterministic triage before the existing private retrieval,
+with urgent escalation, forbidden-advice refusal and limitation flags. The HTTP
+API exposes health while T5 assembly is pending. Bilingual safety copy is
+UNREVIEWED. Referral verification is blocked by official-site network access;
+no active contact details are supplied. Actual model quality and legal recall
+remain UNVERIFIED. Every release
 gate starts closed. GitHub's repository page reported the repository as public
 during T1. Recommend making it private until the T8 gate passes, because unfinished
 legal material can be mistaken for a usable service.
@@ -61,6 +63,7 @@ restoring a cloud snapshot.
 | `make setup` | Frozen dependency installation and ignored local configuration |
 | `make lint` | Ruff lint and formatting checks |
 | `make test` | Deterministic unit and safety tests |
+| `make safety` | Deterministic safety, escalation and downstream short-circuit tests |
 | `make verify` | Lint, types, schemas, file guard and offline tests |
 | `make ingest` | Stage the tiny synthetic Act fixture into ignored `data/corpus/` |
 | `make serve` | Local health endpoint |
@@ -96,7 +99,7 @@ legal-document repository URLs remain UNVERIFIED pending identification.
   [corpus gaps](docs/corpus-gaps.md).
 - Inspect [the corpus inventory](docs/corpus-inventory.md),
   [intake guide](docs/corpus-intake.md), [retrieval guide](docs/retrieval.md),
-  [T3 evidence](docs/turn-logs/T3.md) and
+  [safety guide](docs/safety.md), [T4 evidence](docs/turn-logs/T4.md) and
   [source verification register](docs/source-verification.md).
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.

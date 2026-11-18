@@ -10,6 +10,9 @@ from lai.corpus.models import IngestionRecord, SourceManifest
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
+from lai.triage.contracts import NavigationOutcome, SafetyPolicy, TriageDecision, TriageRequest
+from lai.triage.referrals import ReferralRegister
+from lai.triage.templates import SafetyTemplates
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -43,6 +46,12 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
         ("retrieval-policy", RetrievalPolicy),
         ("retrieval-result", RetrievalResult),
         ("evaluation-dataset", EvaluationDataset),
+        ("triage-request", TriageRequest),
+        ("triage-decision", TriageDecision),
+        ("safety-policy", SafetyPolicy),
+        ("navigation-outcome", NavigationOutcome),
+        ("referral-register", ReferralRegister),
+        ("safety-templates", SafetyTemplates),
     ],
 )
 def test_corpus_schemas_match_typed_contracts(

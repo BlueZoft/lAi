@@ -1,0 +1,12 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "research_navigation_enabled": {
+      "default": false,
+      "title": "Research Navigation Enabled",
+      "type": "boolean"
+    }
+  },
+  "title": "SafetyPolicy",
+  "type": "object"
+}

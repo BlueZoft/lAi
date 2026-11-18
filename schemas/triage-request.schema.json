@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "UrgentSignals": {
+      "additionalProperties": false,
+      "properties": {
+        "domestic_violence": {
+          "default": false,
+          "title": "Domestic Violence",
+          "type": "boolean"
+        },
+        "child_protection": {
+          "default": false,
+          "title": "Child Protection",
+          "type": "boolean"
+        },
+        "sexual_violence": {
+          "default": false,
+          "title": "Sexual Violence",
+          "type": "boolean"
+        },
+        "unlawful_detention": {
+          "default": false,
+          "title": "Unlawful Detention",
+          "type": "boolean"
+        },
+        "imminent_destitution": {
+          "default": false,
+          "title": "Imminent Destitution",
+          "type": "boolean"
+        },
+        "self_harm": {
+          "default": false,
+          "title": "Self Harm",
+          "type": "boolean"
+        }
+      },
+      "title": "UrgentSignals",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "text": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Text",
+      "type": "string"
+    },
+    "language": {
+      "default": "en",
+      "enum": [
+        "en",
+        "si",
+        "ta",
+        "si-Latn"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "urgent": {
+      "$ref": "#/$defs/UrgentSignals"
+    }
+  },
+  "required": [
+    "text"
+  ],
+  "title": "TriageRequest",
+  "type": "object"
+}

@@ -1,7 +1,7 @@
 # Private retrieval and measurement
 
 T3 is an operator/research implementation. The HTTP API exposes health. Public
-query routing requires T4 deterministic triage, followed by T5 answer assembly.
+query routing must use T4 `SafetyNavigator`, followed by T5 answer assembly.
 The full launch gate in README applies throughout.
 
 ## Run the deterministic workflow
