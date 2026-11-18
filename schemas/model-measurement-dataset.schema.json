@@ -1,0 +1,473 @@
+{
+  "$defs": {
+    "EntitiesOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "entities",
+          "default": "entities",
+          "title": "Task",
+          "type": "string"
+        },
+        "entities": {
+          "items": {
+            "$ref": "#/$defs/Entity"
+          },
+          "maxItems": 8,
+          "title": "Entities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "entities"
+      ],
+      "title": "EntitiesOutput",
+      "type": "object"
+    },
+    "Entity": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "date",
+            "amount",
+            "district",
+            "employment_status"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "span": {
+          "$ref": "#/$defs/Span"
+        }
+      },
+      "required": [
+        "kind",
+        "span"
+      ],
+      "title": "Entity",
+      "type": "object"
+    },
+    "ExtractOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "extractive_summary",
+          "default": "extractive_summary",
+          "title": "Task",
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_sha256",
+        "spans"
+      ],
+      "title": "ExtractOutput",
+      "type": "object"
+    },
+    "IntentOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "intent",
+          "default": "intent",
+          "title": "Task",
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "procedural_administrative",
+            "employment",
+            "land",
+            "family",
+            "debt",
+            "criminal",
+            "substantive_rights",
+            "unknown"
+          ],
+          "title": "Domain",
+          "type": "string"
+        }
+      },
+      "required": [
+        "domain"
+      ],
+      "title": "IntentOutput",
+      "type": "object"
+    },
+    "LanguageOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "language",
+          "default": "language",
+          "title": "Task",
+          "type": "string"
+        },
+        "scripts": {
+          "items": {
+            "enum": [
+              "latin",
+              "sinhala",
+              "tamil",
+              "unsupported"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "title": "Scripts",
+          "type": "array"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si",
+            "ta",
+            "si-Latn",
+            "mixed",
+            "und"
+          ],
+          "title": "Language",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scripts",
+        "language"
+      ],
+      "title": "LanguageOutput",
+      "type": "object"
+    },
+    "MeasurementCase": {
+      "additionalProperties": false,
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/TaskRequest"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "entities": "#/$defs/EntitiesOutput",
+                  "extractive_summary": "#/$defs/ExtractOutput",
+                  "intent": "#/$defs/IntentOutput",
+                  "language": "#/$defs/LanguageOutput",
+                  "rewrite": "#/$defs/RewriteOutput",
+                  "transliterate": "#/$defs/TransliterationOutput"
+                },
+                "propertyName": "task"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/LanguageOutput"
+                },
+                {
+                  "$ref": "#/$defs/TransliterationOutput"
+                },
+                {
+                  "$ref": "#/$defs/IntentOutput"
+                },
+                {
+                  "$ref": "#/$defs/EntitiesOutput"
+                },
+                {
+                  "$ref": "#/$defs/RewriteOutput"
+                },
+                {
+                  "$ref": "#/$defs/ExtractOutput"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected"
+        }
+      },
+      "required": [
+        "request",
+        "expected"
+      ],
+      "title": "MeasurementCase",
+      "type": "object"
+    },
+    "RewriteOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "rewrite",
+          "default": "rewrite",
+          "title": "Task",
+          "type": "string"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "spans"
+      ],
+      "title": "RewriteOutput",
+      "type": "object"
+    },
+    "SourceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "sha256"
+      ],
+      "title": "SourceExcerpt",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "description": "Python Unicode code-point offsets, end exclusive; never byte offsets.",
+      "properties": {
+        "start": {
+          "maximum": 4095,
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "exclusiveMinimum": 0,
+          "maximum": 4096,
+          "title": "End",
+          "type": "integer"
+        },
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "text"
+      ],
+      "title": "Span",
+      "type": "object"
+    },
+    "TaskRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1",
+          "default": "1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "task": {
+          "enum": [
+            "language",
+            "transliterate",
+            "intent",
+            "entities",
+            "rewrite",
+            "extractive_summary"
+          ],
+          "title": "Task",
+          "type": "string"
+        },
+        "scenario": {
+          "$ref": "#/$defs/TriageRequest"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SourceExcerpt"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "task",
+        "scenario"
+      ],
+      "title": "TaskRequest",
+      "type": "object"
+    },
+    "TransliterationOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "transliterate",
+          "default": "transliterate",
+          "title": "Task",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TransliterationOutput",
+      "type": "object"
+    },
+    "TriageRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "language": {
+          "default": "en",
+          "enum": [
+            "en",
+            "si",
+            "ta",
+            "si-Latn"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "urgent": {
+          "$ref": "#/$defs/UrgentSignals"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TriageRequest",
+      "type": "object"
+    },
+    "UrgentSignals": {
+      "additionalProperties": false,
+      "properties": {
+        "domestic_violence": {
+          "default": false,
+          "title": "Domestic Violence",
+          "type": "boolean"
+        },
+        "child_protection": {
+          "default": false,
+          "title": "Child Protection",
+          "type": "boolean"
+        },
+        "sexual_violence": {
+          "default": false,
+          "title": "Sexual Violence",
+          "type": "boolean"
+        },
+        "unlawful_detention": {
+          "default": false,
+          "title": "Unlawful Detention",
+          "type": "boolean"
+        },
+        "imminent_destitution": {
+          "default": false,
+          "title": "Imminent Destitution",
+          "type": "boolean"
+        },
+        "self_harm": {
+          "default": false,
+          "title": "Self Harm",
+          "type": "boolean"
+        }
+      },
+      "title": "UrgentSignals",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "kind": {
+      "const": "synthetic",
+      "default": "synthetic",
+      "title": "Kind",
+      "type": "string"
+    },
+    "review_status": {
+      "default": "UNREVIEWED",
+      "enum": [
+        "UNREVIEWED",
+        "LANGUAGE_REVIEWED"
+      ],
+      "title": "Review Status",
+      "type": "string"
+    },
+    "review_evidence_ref": {
+      "anyOf": [
+        {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Review Evidence Ref"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/MeasurementCase"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "MeasurementDataset",
+  "type": "object"
+}

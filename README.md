@@ -10,8 +10,9 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T5 adds extractive answers, source-version-bound gloss review, a bounded API and
-a Sinhala-first interface through T4 safety routing. The default query interface
+T6 adds research-only bounded model contracts, deterministic fallbacks, a pinned
+local process adapter and independent laptop measurement tools. T5's extractive
+answers and Sinhala-first interface still use T4 safety routing. The default query interface
 remains closed pending review. Bilingual safety copy is
 UNREVIEWED. The referral register now contains 91 checked publisher listings,
 including 84 regional locations. Ambiguous regional phone fields and two
@@ -71,6 +72,7 @@ restoring a cloud snapshot.
 | `make serve` | Private UI, health and default-closed answer API |
 | `make review-packet` | Offline synthetic HTML packet; all copy remains UNREVIEWED |
 | `make eval` | Aggregate fake-backend measurements on five tiny synthetic queries |
+| `make model-demo` | Replay invented model-task labels into a private aggregate report; no inference |
 | `make test-local` | Five PostgreSQL tests in a disposable synthetic database |
 
 ## Two targets
@@ -109,6 +111,9 @@ remaining source and reviewer tasks.
   [source verification register](docs/source-verification.md).
 - Use [the answer/API guide](docs/answers.md) and [reviewer handoff](docs/reviewer-handoff.md).
   `make review-packet` writes `.local/t5-review.html`; reading it changes no approvals.
+- Follow [the bounded model and laptop guide](docs/model-contract.md) for strict
+  task contracts, CPU defaults, optional GPU probing and sequential measurements.
+  No model output is connected to the answer API; quality and capacity remain UNVERIFIED.
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.
 AGPL-3.0 would require corresponding source for modified network services, which

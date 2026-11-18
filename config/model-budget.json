@@ -1,0 +1,12 @@
+{
+  "context_tokens": 2048,
+  "output_tokens": 256,
+  "threads": 2,
+  "gpu_layers": 0,
+  "timeout_seconds": 120.0,
+  "output_bytes": 8192,
+  "minimum_available_ram_mib": 6144,
+  "model_file_limit_mib": 3072,
+  "process_ram_target_mib": 8192,
+  "total_gpu_target_mib": 3072
+}

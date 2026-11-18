@@ -10,6 +10,10 @@ from lai.answers.service import load_glosses
 from lai.corpus.graph import VersionGraph, document_nodes
 from lai.corpus.ingest import ingest_document
 from lai.corpus.models import IngestionRecord, SourceManifest
+from lai.model_tasks.contracts import TaskOutcome, TaskRequest
+from lai.model_tasks.local import InferenceBudget, ModelManifest
+from lai.model_tasks.measure import MeasurementDataset
+from lai.model_tasks.service import BoundedModel
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
@@ -37,6 +41,29 @@ def main() -> None:
     record = ingest_document(manifest, raw, raw)
     graph = VersionGraph(nodes=document_nodes(record))
     examples = (
+        ("model-task-request", TaskRequest, {"task": "intent", "scenario": {"text": "SYNTHETIC"}}),
+        ("model-task-outcome", TaskOutcome, BoundedModel().run(None).model_dump(mode="json")),
+        ("model-inference-budget", InferenceBudget, InferenceBudget().model_dump(mode="json")),
+        (
+            "local-model-manifest",
+            ModelManifest,
+            {
+                "model_id": "SYNTHETIC",
+                "revision": "synthetic-v1",
+                "runner_revision": "0" * 40,
+                "model_sha256": "0" * 64,
+                "executable_sha256": "0" * 64,
+                "parameters_billions": 4.0,
+                "licence_evidence_ref": "synthetic-test-only",
+            },
+        ),
+        (
+            "model-measurement-dataset",
+            MeasurementDataset,
+            MeasurementDataset.model_validate_json(
+                (ROOT / "tests/fixtures/model-tasks.json").read_bytes()
+            ).model_dump(mode="json"),
+        ),
         ("answer-request", AnswerRequest, {"scenario": {"text": "SYNTHETIC documents"}}),
         ("gloss-library", GlossLibrary, load_glosses().model_dump(mode="json")),
         (

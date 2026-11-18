@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "model_id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "revision": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Revision",
+      "type": "string"
+    },
+    "runner_revision": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Runner Revision",
+      "type": "string"
+    },
+    "model_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Model Sha256",
+      "type": "string"
+    },
+    "executable_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Executable Sha256",
+      "type": "string"
+    },
+    "quantisation": {
+      "const": "Q4_K_M",
+      "default": "Q4_K_M",
+      "title": "Quantisation",
+      "type": "string"
+    },
+    "parameters_billions": {
+      "maximum": 4.5,
+      "minimum": 3.0,
+      "title": "Parameters Billions",
+      "type": "number"
+    },
+    "licence_evidence_ref": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Licence Evidence Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "revision",
+    "runner_revision",
+    "model_sha256",
+    "executable_sha256",
+    "parameters_billions",
+    "licence_evidence_ref"
+  ],
+  "title": "ModelManifest",
+  "type": "object"
+}

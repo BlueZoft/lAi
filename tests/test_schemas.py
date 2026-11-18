@@ -8,6 +8,9 @@ from pydantic import BaseModel
 from lai.answers.contracts import AnswerDocument, AnswerRequest, GlossLibrary
 from lai.corpus.graph import VersionGraph
 from lai.corpus.models import IngestionRecord, SourceManifest
+from lai.model_tasks.contracts import TaskOutcome, TaskRequest
+from lai.model_tasks.local import InferenceBudget, ModelManifest
+from lai.model_tasks.measure import MeasurementDataset
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
@@ -41,6 +44,11 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
 @pytest.mark.parametrize(
     ("name", "contract"),
     [
+        ("model-task-request", TaskRequest),
+        ("model-task-outcome", TaskOutcome),
+        ("model-inference-budget", InferenceBudget),
+        ("local-model-manifest", ModelManifest),
+        ("model-measurement-dataset", MeasurementDataset),
         ("source-manifest", SourceManifest),
         ("ingestion-record", IngestionRecord),
         ("version-graph", VersionGraph),

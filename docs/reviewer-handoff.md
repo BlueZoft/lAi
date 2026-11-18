@@ -17,6 +17,11 @@ detention/destitution, reliable regional phones and current service eligibility/
 access. Reviewers are available and corpus URLs supplied. No new credential or
 environment decision is required for T5 engineering. Laptop measurement comes
 with T6; real-corpus/golden-set and launch evidence remain shared prerequisites.
+The T6 engineering delivery can proceed without those reviews, as can private
+T7 operations work. The new `model-contract.md` supplies independent CPU/GPU
+commands. Language reviewers should correct/expand the ignored synthetic task
+dataset and record evidence before any model capability claim or product wiring.
+No T6 action marks existing safety/UI/gloss/referral material approved.
 
 The user reports attorney and Sinhala reviewers are available. This records
 availability, not approval. Keep all launch flags closed and all 12 safety

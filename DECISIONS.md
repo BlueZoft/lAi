@@ -336,6 +336,44 @@ restricted and responses uncached with a restrictive CSP. These checks do not
 establish T7's full logging/retention/no-egress guarantees. The separate offline
 review packet is explicitly synthetic/UNREVIEWED and opens no product flow.
 
+## ADR-0020 — Research-only proposals with concrete deterministic fallback
+
+Accepted on 19 November 2026.
+
+Keep bounded language/script, transliteration, taxonomy, fact extraction, query
+span selection and source extraction in a separate research facade. Reuse T4
+before request validation or model admission; urgent/refused/limitation/risky
+routes never call a model. Measuring low-risk Tamil/Singlish does not change
+product abstention. Every outcome explicitly forbids product use. Leave the
+extractive answer API and review gates unchanged.
+
+Use strict discriminated JSON, exact ordered spans, source hashes, calendar-only
+date checks, fixed English district/status aliases and deterministic script/
+intent consistency checks. Reject unsupported prose rather than inspect it for
+plausibility. Failure returns deterministic scripts, unknown intent, no entities,
+the whole original query, or no transliteration/summary. Selection/transliteration
+meaning still requires human-labelled measurement; syntax is not legal evidence.
+
+## ADR-0021 — One-shot pinned llama.cpp and sequential laptop residency
+
+Accepted on 19 November 2026.
+
+Choose the local llama-completion process interface, with model/executable pins,
+stdin prompts, clean environment, constrained output and bounded pipe/deadline
+handling. The inspected llama.cpp parser supports this interface; no native
+build or real inference was executed. No heavy runtime dependency is added.
+Reject concurrent calls in a shared in-process slot; kill/reap each owned group
+on completion/failure. This avoids persistent model residency and leaves CPU
+fallback available, at the cost of cold loading and hash-check latency per call.
+
+Start CPU-only, 2,048 context tokens, 256 output tokens, two threads; optionally
+probe eight GPU layers with sampled RAM/VRAM guards. These are provisional caps,
+not a fit guarantee or hard OS isolation. Measure CPU BGE in a separate process
+which exits before instruct-model measurement. Keep fake replay explicitly fake,
+all capacity/Sinhala/legal quality UNVERIFIED and no model wired into navigation
+until independent evidence warrants a separate integration. T7 owns no-egress,
+resource isolation and full retention/logging controls.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

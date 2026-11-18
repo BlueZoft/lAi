@@ -1,0 +1,482 @@
+{
+  "$defs": {
+    "EntitiesOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "entities",
+          "default": "entities",
+          "title": "Task",
+          "type": "string"
+        },
+        "entities": {
+          "items": {
+            "$ref": "#/$defs/Entity"
+          },
+          "maxItems": 8,
+          "title": "Entities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "entities"
+      ],
+      "title": "EntitiesOutput",
+      "type": "object"
+    },
+    "Entity": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "date",
+            "amount",
+            "district",
+            "employment_status"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "span": {
+          "$ref": "#/$defs/Span"
+        }
+      },
+      "required": [
+        "kind",
+        "span"
+      ],
+      "title": "Entity",
+      "type": "object"
+    },
+    "ExtractOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "extractive_summary",
+          "default": "extractive_summary",
+          "title": "Task",
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_sha256",
+        "spans"
+      ],
+      "title": "ExtractOutput",
+      "type": "object"
+    },
+    "IntentOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "intent",
+          "default": "intent",
+          "title": "Task",
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "procedural_administrative",
+            "employment",
+            "land",
+            "family",
+            "debt",
+            "criminal",
+            "substantive_rights",
+            "unknown"
+          ],
+          "title": "Domain",
+          "type": "string"
+        }
+      },
+      "required": [
+        "domain"
+      ],
+      "title": "IntentOutput",
+      "type": "object"
+    },
+    "LanguageOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "language",
+          "default": "language",
+          "title": "Task",
+          "type": "string"
+        },
+        "scripts": {
+          "items": {
+            "enum": [
+              "latin",
+              "sinhala",
+              "tamil",
+              "unsupported"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "title": "Scripts",
+          "type": "array"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si",
+            "ta",
+            "si-Latn",
+            "mixed",
+            "und"
+          ],
+          "title": "Language",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scripts",
+        "language"
+      ],
+      "title": "LanguageOutput",
+      "type": "object"
+    },
+    "RewriteOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "rewrite",
+          "default": "rewrite",
+          "title": "Task",
+          "type": "string"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "spans"
+      ],
+      "title": "RewriteOutput",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "description": "Python Unicode code-point offsets, end exclusive; never byte offsets.",
+      "properties": {
+        "start": {
+          "maximum": 4095,
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "exclusiveMinimum": 0,
+          "maximum": 4096,
+          "title": "End",
+          "type": "integer"
+        },
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "text"
+      ],
+      "title": "Span",
+      "type": "object"
+    },
+    "TransliterationOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "const": "transliterate",
+          "default": "transliterate",
+          "title": "Task",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TransliterationOutput",
+      "type": "object"
+    },
+    "TriageDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "rules_version": {
+          "const": "1",
+          "default": "1",
+          "title": "Rules Version",
+          "type": "string"
+        },
+        "action": {
+          "enum": [
+            "immediate_escalation",
+            "professional_referral",
+            "refuse",
+            "abstain",
+            "navigate"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "urgency": {
+          "default": [],
+          "items": {
+            "enum": [
+              "domestic_violence",
+              "child_protection",
+              "sexual_violence",
+              "unlawful_detention",
+              "imminent_destitution",
+              "self_harm"
+            ],
+            "type": "string"
+          },
+          "title": "Urgency",
+          "type": "array"
+        },
+        "domains": {
+          "default": [],
+          "items": {
+            "enum": [
+              "procedural_administrative",
+              "employment",
+              "land",
+              "family",
+              "debt",
+              "criminal",
+              "substantive_rights",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "title": "Domains",
+          "type": "array"
+        },
+        "limitation_warning": {
+          "default": false,
+          "title": "Limitation Warning",
+          "type": "boolean"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reasons",
+          "type": "array"
+        },
+        "template_ids": {
+          "items": {
+            "enum": [
+              "urgent",
+              "refuse",
+              "professional",
+              "limitation",
+              "abstain",
+              "extractive"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Template Ids",
+          "type": "array"
+        },
+        "referral_kinds": {
+          "default": [],
+          "items": {
+            "enum": [
+              "legal_aid",
+              "regional",
+              "emergency",
+              "attorney_review"
+            ],
+            "type": "string"
+          },
+          "title": "Referral Kinds",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "reasons",
+        "template_ids"
+      ],
+      "title": "TriageDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "validated",
+        "fallback",
+        "blocked"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "reason": {
+      "enum": [
+        "validated_proposal",
+        "safety_route",
+        "invalid_request",
+        "unavailable",
+        "invalid_output",
+        "busy"
+      ],
+      "title": "Reason",
+      "type": "string"
+    },
+    "decision": {
+      "$ref": "#/$defs/TriageDecision"
+    },
+    "output": {
+      "anyOf": [
+        {
+          "discriminator": {
+            "mapping": {
+              "entities": "#/$defs/EntitiesOutput",
+              "extractive_summary": "#/$defs/ExtractOutput",
+              "intent": "#/$defs/IntentOutput",
+              "language": "#/$defs/LanguageOutput",
+              "rewrite": "#/$defs/RewriteOutput",
+              "transliterate": "#/$defs/TransliterationOutput"
+            },
+            "propertyName": "task"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/LanguageOutput"
+            },
+            {
+              "$ref": "#/$defs/TransliterationOutput"
+            },
+            {
+              "$ref": "#/$defs/IntentOutput"
+            },
+            {
+              "$ref": "#/$defs/EntitiesOutput"
+            },
+            {
+              "$ref": "#/$defs/RewriteOutput"
+            },
+            {
+              "$ref": "#/$defs/ExtractOutput"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Output"
+    },
+    "deterministic_output": {
+      "anyOf": [
+        {
+          "discriminator": {
+            "mapping": {
+              "entities": "#/$defs/EntitiesOutput",
+              "intent": "#/$defs/IntentOutput",
+              "language": "#/$defs/LanguageOutput",
+              "rewrite": "#/$defs/RewriteOutput"
+            },
+            "propertyName": "task"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/LanguageOutput"
+            },
+            {
+              "$ref": "#/$defs/IntentOutput"
+            },
+            {
+              "$ref": "#/$defs/EntitiesOutput"
+            },
+            {
+              "$ref": "#/$defs/RewriteOutput"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Deterministic Output"
+    },
+    "fallback": {
+      "default": "none",
+      "enum": [
+        "none",
+        "scripts_only",
+        "no_transliteration",
+        "unknown_intent",
+        "omit_entities",
+        "original_query",
+        "no_summary"
+      ],
+      "title": "Fallback",
+      "type": "string"
+    },
+    "product_enabled": {
+      "const": false,
+      "default": false,
+      "title": "Product Enabled",
+      "type": "boolean"
+    },
+    "language_quality": {
+      "const": "UNVERIFIED",
+      "default": "UNVERIFIED",
+      "title": "Language Quality",
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "reason",
+    "decision"
+  ],
+  "title": "TaskOutcome",
+  "type": "object"
+}

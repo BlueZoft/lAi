@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "SourceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "sha256"
+      ],
+      "title": "SourceExcerpt",
+      "type": "object"
+    },
+    "TriageRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "language": {
+          "default": "en",
+          "enum": [
+            "en",
+            "si",
+            "ta",
+            "si-Latn"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "urgent": {
+          "$ref": "#/$defs/UrgentSignals"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TriageRequest",
+      "type": "object"
+    },
+    "UrgentSignals": {
+      "additionalProperties": false,
+      "properties": {
+        "domestic_violence": {
+          "default": false,
+          "title": "Domestic Violence",
+          "type": "boolean"
+        },
+        "child_protection": {
+          "default": false,
+          "title": "Child Protection",
+          "type": "boolean"
+        },
+        "sexual_violence": {
+          "default": false,
+          "title": "Sexual Violence",
+          "type": "boolean"
+        },
+        "unlawful_detention": {
+          "default": false,
+          "title": "Unlawful Detention",
+          "type": "boolean"
+        },
+        "imminent_destitution": {
+          "default": false,
+          "title": "Imminent Destitution",
+          "type": "boolean"
+        },
+        "self_harm": {
+          "default": false,
+          "title": "Self Harm",
+          "type": "boolean"
+        }
+      },
+      "title": "UrgentSignals",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task": {
+      "enum": [
+        "language",
+        "transliterate",
+        "intent",
+        "entities",
+        "rewrite",
+        "extractive_summary"
+      ],
+      "title": "Task",
+      "type": "string"
+    },
+    "scenario": {
+      "$ref": "#/$defs/TriageRequest"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SourceExcerpt"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "task",
+    "scenario"
+  ],
+  "title": "TaskRequest",
+  "type": "object"
+}

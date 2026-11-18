@@ -1,0 +1,295 @@
+{
+  "schema_version": "1",
+  "kind": "synthetic",
+  "review_status": "UNREVIEWED",
+  "cases": [
+    {
+      "request": {
+        "task": "language",
+        "scenario": {
+          "text": "SYNTHETIC documents",
+          "language": "en"
+        }
+      },
+      "expected": {
+        "task": "language",
+        "scripts": [
+          "latin"
+        ],
+        "language": "en"
+      }
+    },
+    {
+      "request": {
+        "task": "language",
+        "scenario": {
+          "text": "ලේඛන පෝරම",
+          "language": "si"
+        }
+      },
+      "expected": {
+        "task": "language",
+        "scripts": [
+          "sinhala"
+        ],
+        "language": "si"
+      }
+    },
+    {
+      "request": {
+        "task": "language",
+        "scenario": {
+          "text": "ஆவணங்கள் படிவம்",
+          "language": "ta"
+        }
+      },
+      "expected": {
+        "task": "language",
+        "scripts": [
+          "tamil"
+        ],
+        "language": "ta"
+      }
+    },
+    {
+      "request": {
+        "task": "language",
+        "scenario": {
+          "text": "porma",
+          "language": "si-Latn"
+        }
+      },
+      "expected": {
+        "task": "language",
+        "scripts": [
+          "latin"
+        ],
+        "language": "si-Latn"
+      }
+    },
+    {
+      "request": {
+        "task": "language",
+        "scenario": {
+          "text": "SYNTHETIC ලේඛන",
+          "language": "si"
+        }
+      },
+      "expected": {
+        "task": "language",
+        "scripts": [
+          "latin",
+          "sinhala"
+        ],
+        "language": "mixed"
+      }
+    },
+    {
+      "request": {
+        "task": "transliterate",
+        "scenario": {
+          "text": "porma",
+          "language": "si-Latn"
+        }
+      },
+      "expected": {
+        "task": "transliterate",
+        "text": "පෝරම"
+      }
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "SYNTHETIC documents catalogue",
+          "language": "en"
+        }
+      },
+      "expected": {
+        "task": "intent",
+        "domain": "procedural_administrative"
+      }
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "ලේඛන පෝරම",
+          "language": "si"
+        }
+      },
+      "expected": {
+        "task": "intent",
+        "domain": "procedural_administrative"
+      }
+    },
+    {
+      "request": {
+        "task": "entities",
+        "scenario": {
+          "text": "SYNTHETIC 2026-01-02 LKR 100.00 Colombo unemployed",
+          "language": "en"
+        }
+      },
+      "expected": {
+        "task": "entities",
+        "entities": [
+          {
+            "kind": "date",
+            "span": {
+              "start": 10,
+              "end": 20,
+              "text": "2026-01-02"
+            }
+          },
+          {
+            "kind": "amount",
+            "span": {
+              "start": 21,
+              "end": 31,
+              "text": "LKR 100.00"
+            }
+          },
+          {
+            "kind": "district",
+            "span": {
+              "start": 32,
+              "end": 39,
+              "text": "Colombo"
+            }
+          },
+          {
+            "kind": "employment_status",
+            "span": {
+              "start": 40,
+              "end": 50,
+              "text": "unemployed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "task": "rewrite",
+        "scenario": {
+          "text": "SYNTHETIC documents catalogue",
+          "language": "en"
+        }
+      },
+      "expected": {
+        "task": "rewrite",
+        "spans": [
+          {
+            "start": 10,
+            "end": 19,
+            "text": "documents"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "task": "rewrite",
+        "scenario": {
+          "text": "ලේඛන පෝරම",
+          "language": "si"
+        }
+      },
+      "expected": {
+        "task": "rewrite",
+        "spans": [
+          {
+            "start": 0,
+            "end": 4,
+            "text": "ලේඛන"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "task": "extractive_summary",
+        "scenario": {
+          "text": "SYNTHETIC documents",
+          "language": "en"
+        },
+        "source": {
+          "text": "SYNTHETIC source. Keep the invented catalogue at the invented counter.",
+          "sha256": "7f6be2dce4eda15a04a2469829feaec51429a4850549ee6f6889a566c84b2bf1"
+        }
+      },
+      "expected": {
+        "task": "extractive_summary",
+        "source_sha256": "7f6be2dce4eda15a04a2469829feaec51429a4850549ee6f6889a566c84b2bf1",
+        "spans": [
+          {
+            "start": 0,
+            "end": 17,
+            "text": "SYNTHETIC source."
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "My partner hit me",
+          "language": "en"
+        }
+      },
+      "expected": null
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "child abuse",
+          "language": "en"
+        }
+      },
+      "expected": null
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "sexual assault",
+          "language": "en"
+        }
+      },
+      "expected": null
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "detained",
+          "language": "en"
+        }
+      },
+      "expected": null
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "homeless tonight",
+          "language": "en"
+        }
+      },
+      "expected": null
+    },
+    {
+      "request": {
+        "task": "intent",
+        "scenario": {
+          "text": "I want to kill myself",
+          "language": "en"
+        }
+      },
+      "expected": null
+    }
+  ]
+}

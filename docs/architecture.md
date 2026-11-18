@@ -1,11 +1,14 @@
 # Architecture
 
-Status is T5, 19 November 2026. Intake, version evidence, source-anchored retrieval,
+Status is T6, 19 November 2026. Intake, version evidence, source-anchored retrieval,
 triage, extractive assembly, a bounded answer API and Sinhala-first UI are implemented.
 The endpoint uses `SafetyNavigator`; default navigation and unreviewed copy stay
 closed. Actual gloss, UI and safety-copy review remain pending;
 referral publisher listings are checked, with regional phones and two specialist
 urgent routes withheld pending evidence/review. The diagram includes planned components.
+Research-only bounded model contracts and a pinned process adapter are implemented
+separately; no model is wired into the answer path. See `model-contract.md` for
+the measured/unmeasured boundary, failure fallbacks and laptop instructions.
 
 ## Two targets
 
@@ -44,14 +47,15 @@ flowchart TD
     DB --> R
 ```
 
-Triage executes before retrieval or any model call. Unsupported/malformed inputs
+Product triage executes before retrieval or any model call. Unsupported/malformed inputs
 stop safely. A model's intent classification cannot lower a deterministic risk
 classification or expand the allowed domain. Every urgent path returns human
-help without legal analysis. T4 must prove this through downstream-call spies.
+help without legal analysis. T4/T6 spies prove no downstream/model invocation for
+the tested urgent and malformed scenarios; language coverage is not exhaustive.
 
 The launch gate is a release evidence model. It does not classify user requests.
-T1 keeps product navigation unavailable regardless of the release configuration.
-The full runtime triage engine is due in T4.
+Default navigation remains disabled. T6's private harness can measure low-risk
+Tamil/Singlish tasks without changing product triage or the default closed API.
 
 ## Data and version contracts
 

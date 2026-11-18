@@ -34,6 +34,13 @@ Verification passes 379 offline tests and 270 safety tests. Local Chromium check
 passed; these do not establish legal/language approval. See `docs/turn-logs/T5.md`
 and annotated `t5-answers` for delivery evidence.
 
+T6 adds strict bounded-task contracts/prompts, source-span validators, concrete
+deterministic fallbacks, a pinned one-shot llama.cpp adapter and independent
+synthetic laptop measurements. See `docs/turn-logs/T6.md` and `docs/model-contract.md`.
+Final local verification passes 473 offline tests and 355 safety tests.
+No model is connected to the answer API. Hardware/language validation remains
+UNVERIFIED; reviewer availability does not approve any output.
+
 ## Source and corpus follow-up
 
 1. Use both the T2 inventory and the user's supplied `nuuuwan` Supreme Court,
@@ -104,10 +111,19 @@ and annotated `t5-answers` for delivery evidence.
 
 ## T6 — Local model contract
 
-1. Ship task specifications, strict JSON schemas, prompts, validators and
-   deterministic wrong/unavailable-model fallbacks with fake-based tests.
-2. Deliver independently executable Sinhala measurement and RAM/VRAM scripts for
-   the laptop, including CPU fallback and sequential residency measurements.
+Delivered contracts, prompts, validators, fallbacks, fake tests, process limits
+and scripts. Remaining TARGET B evidence does not block private T7 engineering:
+
+1. Acquire/licence-check a pinned 4B-class Q4_K_M model and build/pin the inspected
+   llama-completion interface. Actual native build/inference is UNVERIFIED.
+2. Run CPU embedding capacity first, let the process exit, then bounded-task CPU
+   measurement; optionally compare eight-layer GPU offload with CPU fallback.
+   Record sampled RAM/VRAM and cold latency under the guide's provisional budget.
+3. Have reviewers correct/expand the UNREVIEWED synthetic language labels,
+   including Sinhala, mixed scripts and Singlish. Measure semantic accuracy and
+   fallback rates; exact span/script/JSON checks establish no language competence.
+   Keep all proposals research-only until reviewed quality and safety evidence
+   justify any separately tested product integration. No legal prose generation.
 
 ## T7 — Operations and compliance
 

@@ -1,0 +1,71 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "context_tokens": {
+      "const": 2048,
+      "default": 2048,
+      "title": "Context Tokens",
+      "type": "integer"
+    },
+    "output_tokens": {
+      "const": 256,
+      "default": 256,
+      "title": "Output Tokens",
+      "type": "integer"
+    },
+    "threads": {
+      "const": 2,
+      "default": 2,
+      "title": "Threads",
+      "type": "integer"
+    },
+    "gpu_layers": {
+      "default": 0,
+      "enum": [
+        0,
+        8
+      ],
+      "title": "Gpu Layers",
+      "type": "integer"
+    },
+    "timeout_seconds": {
+      "default": 120.0,
+      "maximum": 120.0,
+      "minimum": 0.05,
+      "title": "Timeout Seconds",
+      "type": "number"
+    },
+    "output_bytes": {
+      "const": 8192,
+      "default": 8192,
+      "title": "Output Bytes",
+      "type": "integer"
+    },
+    "minimum_available_ram_mib": {
+      "const": 6144,
+      "default": 6144,
+      "title": "Minimum Available Ram Mib",
+      "type": "integer"
+    },
+    "model_file_limit_mib": {
+      "const": 3072,
+      "default": 3072,
+      "title": "Model File Limit Mib",
+      "type": "integer"
+    },
+    "process_ram_target_mib": {
+      "const": 8192,
+      "default": 8192,
+      "title": "Process Ram Target Mib",
+      "type": "integer"
+    },
+    "total_gpu_target_mib": {
+      "const": 3072,
+      "default": 3072,
+      "title": "Total Gpu Target Mib",
+      "type": "integer"
+    }
+  },
+  "title": "InferenceBudget",
+  "type": "object"
+}

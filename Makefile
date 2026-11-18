@@ -1,4 +1,4 @@
-.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval review-packet
+.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval review-packet model-demo
 
 UV ?= uv
 export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
@@ -6,6 +6,7 @@ RUN = $(UV) run --frozen --offline
 HOST ?= 127.0.0.1
 PORT ?= 8000
 INGEST_ARGS ?= --manifest tests/fixtures/synthetic-act.manifest.json --raw tests/fixtures/synthetic-act.txt --text tests/fixtures/synthetic-act.txt
+MODEL_REPORT ?= .local/t6-model-replay.json
 
 setup:
 	$(UV) sync --frozen
@@ -46,3 +47,6 @@ eval:
 
 review-packet:
 	$(RUN) python -m lai.answers.review --repository . --output .local/t5-review.html
+
+model-demo:
+	$(RUN) python -m lai.model_tasks.measure --mode fake --dataset tests/fixtures/model-tasks.json --output $(MODEL_REPORT)
