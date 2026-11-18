@@ -301,7 +301,10 @@ def decide(payload: object, policy: SafetyPolicy | None = None) -> TriageDecisio
         request = TriageRequest.model_validate(payload)
     except ValidationError:
         return TriageDecision(
-            action="abstain", reasons=("invalid_request",), template_ids=("abstain",)
+            action="abstain",
+            reasons=("invalid_request",),
+            limitation_warning=limitation,
+            template_ids=selected_templates("abstain", limitation),
         )
     if not text or any(
         unicodedata.category(char) in {"Cc", "Cs", "Co"}
@@ -310,7 +313,10 @@ def decide(payload: object, policy: SafetyPolicy | None = None) -> TriageDecisio
         for char in request.text
     ):
         return TriageDecision(
-            action="abstain", reasons=("invalid_text",), template_ids=("abstain",)
+            action="abstain",
+            reasons=("invalid_text",),
+            limitation_warning=limitation,
+            template_ids=selected_templates("abstain", limitation),
         )
     domains = tuple(key for key, terms in DOMAIN_TERMS.items() if contains(text, terms))
     domains = domains or ("unknown",)

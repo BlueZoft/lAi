@@ -189,6 +189,10 @@ def test_limitation_always_warns_without_computing_dates(text: str) -> None:
     decision = decide({"text": text})
     assert decision.limitation_warning and "limitation" in decision.template_ids
     assert "2020" not in decision.model_dump_json()
+    malformed = {"text": text, "unknown_field": True}
+    assert blocked(malformed)[1] == "abstain"
+    assert decide(malformed).limitation_warning
+    assert "limitation" in decide(malformed).template_ids
 
 
 @pytest.mark.parametrize(
