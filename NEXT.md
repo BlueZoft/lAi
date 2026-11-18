@@ -2,9 +2,10 @@
 
 ## T1 completion evidence
 
-Finish and record local verification, PostgreSQL startup, real Git push and
-remote CI observation in `docs/turn-logs/T1.md`. Any unresolved result must be
-labelled UNVERIFIED here before this turn ends.
+Local verification passed with 33 tests, PostgreSQL 16/pgvector started, the
+first commit was pushed to `main` and its GitHub Actions run passed. See
+`docs/turn-logs/T1.md` for executed commands and the annotated `t1-architecture`
+tag for the final commit's delivery receipt. The next implementation turn is T2.
 
 ## T2 — Corpus pipeline
 
