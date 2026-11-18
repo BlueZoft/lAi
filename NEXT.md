@@ -154,12 +154,19 @@ operator/counsel evidence does not block private T8 work:
 
 ## T8 — Evaluation and handoff
 
-1. Build the legal golden set with competent human verification. Run the specified
-   red-team classes, measure recall/safety and publish explicit GO/NO-GO gates.
-2. Write HANDOFF.md and ROADMAP.md, the one-page partnership approach and a
-   verified institutional hotline/intake handoff design. Verify the UNDP lead.
-3. Restate the full launch gate and visibility recommendation, run the full suite,
-   push the annotated `t8-evaluation` and `v0.0.0-prototype` tags.
+Engineering checkpoint delivered: synthetic acceptance, reviewed-golden-set schema,
+review instructions, HANDOFF.md, ROADMAP.md and conditional partnership/intake
+planning. The user confirms no reviewed legal set exists yet. Public use: NO-GO.
+
+1. Follow `docs/evaluation.md` to prepare actual reviewed calibration/held-out
+   legal labels and a separate negative safety ledger. Measure real BGE legal
+   recall and calibrate thresholds on TARGET B; proposed targets are unratified.
+2. Verify an actual primary publication for the UNDP programme/timetable before
+   claiming an existing integration. Bounded official-site checks returned no
+   supporting publication. No outreach or automatic forwarding exists.
+3. Complete the review/source/privacy/laptop evidence in ROADMAP.md, then hold
+   a separate accountable release decision. Recommend private visibility until
+   the full gate passes. Prototype tags confer no publication authority.
 
 ## External prerequisites
 

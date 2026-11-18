@@ -28,3 +28,5 @@ jobs:
         run: docker compose config --quiet
       - name: Validate standalone no-network runtime controls without startup
         run: uv run --frozen --offline python scripts/validate_runtime.py
+      - name: Synthetic acceptance report (public use remains NO-GO)
+        run: make acceptance

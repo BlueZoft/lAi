@@ -1,0 +1,148 @@
+{
+  "$defs": {
+    "EvaluationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "query": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "language_hint": {
+          "anyOf": [
+            {
+              "enum": [
+                "en",
+                "si",
+                "ta",
+                "si-Latn"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language Hint"
+        },
+        "relevant_chunk_ids": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Relevant Chunk Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "query",
+        "relevant_chunk_ids"
+      ],
+      "title": "EvaluationCase",
+      "type": "object"
+    },
+    "EvaluationDataset": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1",
+          "default": "1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "synthetic",
+            "legal"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "cases": {
+          "items": {
+            "$ref": "#/$defs/EvaluationCase"
+          },
+          "maxItems": 10000,
+          "minItems": 1,
+          "title": "Cases",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "cases"
+      ],
+      "title": "EvaluationDataset",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "dataset": {
+      "$ref": "#/$defs/EvaluationDataset"
+    },
+    "dataset_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Dataset Sha256",
+      "type": "string"
+    },
+    "scope": {
+      "items": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Scope",
+      "type": "array"
+    },
+    "attorney_reviewed_on": {
+      "format": "date",
+      "title": "Attorney Reviewed On",
+      "type": "string"
+    },
+    "language_reviewed_on": {
+      "format": "date",
+      "title": "Language Reviewed On",
+      "type": "string"
+    },
+    "review_evidence_ref": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Review Evidence Ref",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "calibration",
+        "held_out"
+      ],
+      "title": "Split",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset",
+    "dataset_sha256",
+    "scope",
+    "attorney_reviewed_on",
+    "language_reviewed_on",
+    "review_evidence_ref",
+    "split"
+  ],
+  "title": "GoldenSet",
+  "type": "object"
+}

@@ -180,6 +180,7 @@ FORBIDDEN_TERMS = (
     "is this legal",
     "is this illegal",
     "will i win",
+    "guarantees that i win",
     "should i sue",
     "should i",
     "legal advice",

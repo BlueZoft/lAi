@@ -1,6 +1,6 @@
 # Architecture
 
-Status is T7, 19 November 2026. Intake, version evidence, source-anchored retrieval,
+Status is T8, 19 November 2026. Intake, version evidence, source-anchored retrieval,
 triage, extractive assembly, a bounded answer API and Sinhala-first UI are implemented.
 The endpoint uses `SafetyNavigator`; default navigation and unreviewed copy stay
 closed. Actual gloss, UI and safety-copy review remain pending;
@@ -131,3 +131,7 @@ non-authoritative and referral-first. Private prototype until then.
 
 T1 evidence is development infrastructure and synthetic tests. It establishes
 neither legal accuracy nor deployment readiness.
+
+T8 adds a synthetic acceptance report and review-bound golden-set format. The
+user confirms legal labels are not yet reviewed; public outcome is NO-GO. See
+HANDOFF.md, ROADMAP.md and docs/evaluation.md for evidence needed before release.

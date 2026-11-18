@@ -10,7 +10,12 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T7 adds a standalone Unix-socket runtime with no container networking, tested
+T8 adds synthetic acceptance, a review-bound legal golden-set schema and handoff.
+**Public use is NO-GO**; reviewed legal labels and calibrated thresholds remain
+unavailable. See [HANDOFF.md](HANDOFF.md), [ROADMAP.md](ROADMAP.md) and
+[review instructions](docs/evaluation.md). Prototype tags authorise no deployment.
+
+T7 provides a standalone Unix-socket runtime with no container networking, tested
 synthetic encrypted backup/restore, content-free logs/metrics and scoped retention.
 PDPA primary texts were inspected; governance/notice documents remain unapproved
 counsel-review drafts. T6's bounded model research stays separate. T5's extractive
@@ -21,8 +26,8 @@ including 84 regional locations. Ambiguous regional phone fields and two
 specialist urgent routes remain withheld. Listing verification does not establish
 live availability or approve public display. Actual model quality and legal recall
 remain UNVERIFIED. Every release
-gate starts closed. GitHub's repository page reported the repository as public
-during T1. Recommend making it private until the T8 gate passes, because unfinished
+gate starts closed. GitHub’s API reports public visibility on 19 November 2026.
+Recommend making it private until the full gate passes, because unfinished
 legal material can be mistaken for a usable service.
 
 ## Quickstart
@@ -74,6 +79,7 @@ restoring a cloud snapshot.
 | `make ingest` | Stage the tiny synthetic Act fixture into ignored `data/corpus/` |
 | `make serve` | Private UI, health and default-closed answer API |
 | `make review-packet` | Offline synthetic HTML packet; all copy remains UNREVIEWED |
+| `make acceptance` | Synthetic acceptance and NO-GO report; no legal approval |
 | `make eval` | Aggregate fake-backend measurements on five tiny synthetic queries |
 | `make model-demo` | Replay invented model-task labels into a private aggregate report; no inference |
 | `make ops-build` | Explicit locked wheel download, then offline Docker image build |

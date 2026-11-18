@@ -425,6 +425,20 @@ marking the DPIA complete. Private engineering may continue while those actual
 decisions and reviews remain launch prerequisites. No public deployment or
 institution outreach follows from having documents or passing synthetic tests.
 
+## ADR-0025 — Review-bound evaluation and NO-GO checkpoint
+
+Accepted on 19 November 2026.
+
+Separate synthetic acceptance from legal validation. Bind golden-set reviews to
+exact labels, scope and held-out/calibration split. The user confirms no reviewed
+legal set exists yet; provide review instructions rather than invent approvals
+or measured legal thresholds. Proposed targets stay unratified and launch closed.
+A false-premise test exposed a guaranteed-win form reaching private retrieval;
+add a conservative refusal signal with no-downstream assertions. No exhaustive
+paraphrase coverage is claimed. UNDP evidence remains unverified after bounded
+attempts, so partnership/intake planning is conditional with no outreach/sharing.
+Prototype tags identify an engineering NO-GO checkpoint, not a public release.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

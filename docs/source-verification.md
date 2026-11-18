@@ -115,3 +115,11 @@ an explicit source inconsistency. Counsel must resolve completeness/application.
 T7's DPIA, DPMP, Schedule V notice and breach runbook are unapproved skeletons;
 all launch flags remain closed. No invented notification deadline or lawful
 basis was selected. No institution was contacted.
+
+## T8 UNDP lead — 19 November 2026
+
+S11 remains UNVERIFIED. Official UNDP Sri Lanka home returned 200; attempted
+project/search/press-release paths returned 404. No inspected publication verified
+the asserted programme, hotline/intake, 12-month timetable or commitment. See
+`partnership.md`. This bounded search does not establish that no programme exists.
+Cached responses remain outside Git. No institutional message was sent.
