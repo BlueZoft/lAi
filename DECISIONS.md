@@ -374,6 +374,57 @@ all capacity/Sinhala/legal quality UNVERIFIED and no model wired into navigation
 until independent evidence warrants a separate integration. T7 owns no-egress,
 resource isolation and full retention/logging controls.
 
+## ADR-0022 — No-network core and explicit host gateway boundary
+
+Accepted on 19 November 2026.
+
+Use a separate Compose file with `network_mode: none` for app and PostgreSQL,
+Unix sockets and no published ports. An internal bridge alone leaves DNS/host
+paths to investigate. Avoid claiming a full laptop boundary from that setting.
+Build from a pinned Python base, locked wheelhouse and local package with Docker
+build networking off, separately from explicit online installation/acquisition.
+Run app non-root with a read-only root, dropped capabilities and finite resources.
+
+Test each actual namespace with IPv4 TCP/UDP, IPv6 TCP and DNS probes; test Unix
+HTTP using invented data. Supply optional loopback Caddy/systemd templates whose
+host BPF enforcement must be verified on TARGET B. No host service was installed
+in the cloud. The default app has no real DB/model/source wiring and remains
+closed. A fresh synthetic project is the only stack the acceptance drill mutates.
+
+## ADR-0023 — No query record and content-free operations evidence
+
+Accepted on 19 November 2026.
+
+Keep no durable sessions/accounts/query history. Clear browser state on page
+exit/back-cache restore and five minutes of inactivity; cancellation/GC are not
+secure memory erasure. Emit only fixed event/severity logs and finite route/
+status/bucket metrics, without messages/exceptions/URLs/content or user labels.
+Disable Docker logs and PostgreSQL statement/parameter logging. Use scoped,
+marked timestamp directories for seven-day operations retention; scheduling,
+encrypted host storage and swap remain operator evidence requirements.
+
+Execute GnuPG-encrypted authenticated backup/decrypt/restore with three synthetic
+pgvector rows in a new database and compare logical hashes. Reject corruption
+before restore, keep plaintext in RAM, stop only the owned GnuPG agent, and remove
+the owned scratch stack/keys/dump. This deliberately bounded 16 MiB proof is not
+a real-corpus streaming backup or a claim that recovery-key custody is solved.
+
+## ADR-0024 — Verified text observations and unapproved governance
+
+Accepted on 19 November 2026.
+
+Inspect official Authority-linked Acts/orders rather than repeat the brief's
+dates. Record exact source digests and amended-section mapping. Gazette 2498/16
+states a 1 January 2027 commencement for its listed provisions; do not infer an
+exhaustive current-status negative for other Parts or ignore the later circular's
+inconsistent wording. Final instruments/applicability need qualified review.
+
+Deliver DPIA, DPMP, Schedule V notice and breach/counsel skeletons without choosing
+a lawful basis, inventing a controller/contact or notification deadline, or
+marking the DPIA complete. Private engineering may continue while those actual
+decisions and reviews remain launch prerequisites. No public deployment or
+institution outreach follows from having documents or passing synthetic tests.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

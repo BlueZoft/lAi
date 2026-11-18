@@ -1,4 +1,4 @@
-.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval review-packet model-demo
+.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval review-packet model-demo ops-build ops-check ops-prepare
 
 UV ?= uv
 export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
@@ -40,7 +40,7 @@ ingest:
 	$(RUN) python -m lai.corpus.cli ingest $(INGEST_ARGS)
 
 serve:
-	$(RUN) uvicorn lai.api:app --host $(HOST) --port $(PORT) --no-access-log
+	$(RUN) python -m lai.operations.runtime --loopback --host $(HOST) --port $(PORT)
 
 eval:
 	$(RUN) python -m lai.retrieval.cli demo
@@ -50,3 +50,13 @@ review-packet:
 
 model-demo:
 	$(RUN) python -m lai.model_tasks.measure --mode fake --dataset tests/fixtures/model-tasks.json --output $(MODEL_REPORT)
+
+ops-prepare:
+	$(RUN) python -m lai.operations.prepare
+
+ops-build:
+	$(RUN) python scripts/prepare_runtime_build.py
+	docker --host=unix:///var/run/docker.sock build --network=none --pull=false -f operations/Dockerfile -t lai-runtime:t7 .local/operations-build
+
+ops-check:
+	$(RUN) python -m lai.operations.drill

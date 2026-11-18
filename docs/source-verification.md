@@ -96,3 +96,22 @@ The user supplied three distinct corpus repository URLs and instructed use of
 both those links and T2, with official publishers governing conflicts. See the
 dated inventory reconciliation. Reviewer availability was confirmed by the user;
 actual reviews, template approvals and all launch flags remain pending.
+
+## T7 PDPA inspection — 19 November 2026
+
+The current enforced unrestricted environment reached the official Authority.
+S06 document identities and specific S07 order wording now have inspected primary
+PDF evidence: Act No. 9 of 2022, Amendment Act No. 22 of 2025, gazettes 2341/59,
+2366/08, 2427/34 and 2498/16, and Circular 01/2026. Exact URLs, byte hashes,
+findings/limits and the S08 amended-section mapping are in
+`pdpa-verification.md`. `[PERISHABLE: verified 2026-11]` applies there only to
+the specified inspected text observations, not overall legal compliance.
+
+Gazette 2498/16 appoints 1 January 2027 for sections 2/3, Part I and Part III;
+the older March 2025 paragraph was expressly repealed. The complete current
+status of Parts II/VII, subsequent orders and binding final rules remains
+UNVERIFIED. The later-dated circular's general wording about expected dates is
+an explicit source inconsistency. Counsel must resolve completeness/application.
+T7's DPIA, DPMP, Schedule V notice and breach runbook are unapproved skeletons;
+all launch flags remain closed. No invented notification deadline or lawful
+basis was selected. No institution was contacted.

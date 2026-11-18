@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 30s
+scrape_configs:
+  - job_name: lai-local
+    static_configs:
+      - targets: ["127.0.0.1:8000"]
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: "lai_http_.*"
+        action: keep

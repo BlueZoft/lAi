@@ -1,0 +1,94 @@
+name: lai-runtime-local
+
+services:
+  app:
+    image: lai-runtime:t7
+    pull_policy: never
+    network_mode: none
+    user: "1000:0"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    volumes:
+      - type: bind
+        source: ${LAI_OPERATIONS_DIR:-./.local/operations}/api-socket
+        target: /run/lai-api
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./operations/resolv.conf
+        target: /etc/resolv.conf
+        read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,mode=1770
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 64
+    ulimits:
+      core: 0
+    logging:
+      driver: none
+    healthcheck:
+      test: [CMD, python, -c, "import socket; s=socket.socket(socket.AF_UNIX); s.connect('/run/lai-api/http.sock'); s.close()"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+
+  db:
+    image: pgvector/pgvector:pg16@sha256:484e838076e04939d27d3e176e91c86eea96236126023be8d3059761122e579f
+    pull_policy: never
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, FOWNER, SETGID, SETUID]
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    environment:
+      POSTGRES_DB: lai_runtime
+      POSTGRES_USER: lai_ops
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_INITDB_ARGS: --auth-local=trust --auth-host=scram-sha-256
+    secrets: [postgres_password]
+    volumes:
+      - database:/var/lib/postgresql/data
+      - type: bind
+        source: ${LAI_OPERATIONS_DIR:-./.local/operations}/db-socket
+        target: /var/run/postgresql
+        bind:
+          create_host_path: false
+    command:
+      - postgres
+      - -c
+      - listen_addresses=
+      - -c
+      - log_statement=none
+      - -c
+      - log_min_duration_statement=-1
+      - -c
+      - log_min_error_statement=panic
+      - -c
+      - log_parameter_max_length=0
+      - -c
+      - log_parameter_max_length_on_error=0
+      - -c
+      - logging_collector=off
+    healthcheck:
+      test: [CMD, pg_isready, -U, lai_ops, -d, lai_runtime]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    mem_limit: 1g
+    cpus: 1
+    pids_limit: 128
+    ulimits:
+      core: 0
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: none
+
+secrets:
+  postgres_password:
+    file: ${LAI_OPERATIONS_DIR:-./.local/operations}/postgres.password
+
+volumes:
+  database:

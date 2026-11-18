@@ -14,6 +14,7 @@ from lai.model_tasks.contracts import TaskOutcome, TaskRequest
 from lai.model_tasks.local import InferenceBudget, ModelManifest
 from lai.model_tasks.measure import MeasurementDataset
 from lai.model_tasks.service import BoundedModel
+from lai.operations.retention import PrivacyPolicy
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
@@ -41,6 +42,13 @@ def main() -> None:
     record = ingest_document(manifest, raw, raw)
     graph = VersionGraph(nodes=document_nodes(record))
     examples = (
+        (
+            "privacy-policy",
+            PrivacyPolicy,
+            PrivacyPolicy.model_validate_json(
+                (ROOT / "config/privacy-policy.json").read_bytes()
+            ).model_dump(mode="json"),
+        ),
         ("model-task-request", TaskRequest, {"task": "intent", "scenario": {"text": "SYNTHETIC"}}),
         ("model-task-outcome", TaskOutcome, BoundedModel().run(None).model_dump(mode="json")),
         ("model-inference-budget", InferenceBudget, InferenceBudget().model_dump(mode="json")),

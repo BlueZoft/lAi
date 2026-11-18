@@ -10,7 +10,8 @@
   let capabilities = null,
     labels = null,
     controller = null,
-    epoch = 0;
+    epoch = 0,
+    idleTimer = null;
   const index = () => (language.value === "en" ? 1 : 0);
   const t = (key) => labels?.[key]?.[index()] || key;
   const node = (tag, text, cls) => {
@@ -49,6 +50,8 @@
     availability.hidden = ready;
   }
   function clear() {
+    if (idleTimer) window.clearTimeout(idleTimer);
+    idleTimer = null;
     epoch++;
     if (controller) controller.abort();
     controller = null;
@@ -56,6 +59,15 @@
     results.replaceChildren();
     refresh();
   }
+  function touch() {
+    if (idleTimer) window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(clear, 300000);
+  }
+  input.addEventListener("input", touch);
+  window.addEventListener("pagehide", clear);
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) clear();
+  });
   function render(data) {
     results.replaceChildren(node("h2", t(data.status)));
     for (const message of data.messages || [])
@@ -169,6 +181,7 @@
       if (generation !== epoch) return;
       if (!reply.ok) throw new Error();
       render(data);
+      touch();
     } catch (error) {
       if (generation === epoch && error.name !== "AbortError")
         results.replaceChildren(node("p", t("error"), "notice"));

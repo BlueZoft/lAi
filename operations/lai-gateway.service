@@ -1,0 +1,21 @@
+[Unit]
+Description=LAi laptop loopback gateway (operator-edited template)
+After=network.target
+
+[Service]
+User=REPLACE_LAPTOP_USER
+ExecStart=/usr/bin/caddy run --config REPLACE_ABSOLUTE_CHECKOUT_PATH/operations/Caddyfile
+Restart=no
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+RestrictAddressFamilies=AF_UNIX AF_INET
+IPAddressDeny=any
+IPAddressAllow=localhost
+LimitCORE=0
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

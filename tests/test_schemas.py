@@ -11,6 +11,7 @@ from lai.corpus.models import IngestionRecord, SourceManifest
 from lai.model_tasks.contracts import TaskOutcome, TaskRequest
 from lai.model_tasks.local import InferenceBudget, ModelManifest
 from lai.model_tasks.measure import MeasurementDataset
+from lai.operations.retention import PrivacyPolicy
 from lai.retrieval.evaluation import EvaluationDataset
 from lai.retrieval.models import RetrievalPolicy, RetrievalResult
 from lai.safety import LaunchGate
@@ -44,6 +45,7 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
 @pytest.mark.parametrize(
     ("name", "contract"),
     [
+        ("privacy-policy", PrivacyPolicy),
         ("model-task-request", TaskRequest),
         ("model-task-outcome", TaskOutcome),
         ("model-inference-budget", InferenceBudget),

@@ -23,6 +23,14 @@ commands. Language reviewers should correct/expand the ignored synthetic task
 dataset and record evidence before any model capability claim or product wiring.
 No T6 action marks existing safety/UI/gloss/referral material approved.
 
+T7 adds `dpia.md`, `dpmp.md`, `privacy-notice.md`, `breach-runbook.md` and the
+primary-text mapping in `pdpa-verification.md`. Counsel/operator decisions are
+actual controller/contact, basis/conditions, DPO criteria, rights/breach rules,
+current commencement and the circular/gazette inconsistency. Review the final
+Sinhala notice before any real collection. Laptop gateway/OS/key-custody/retention
+evidence and real-scale recovery are also pending. None prevents private T8
+engineering; none is automatically approved by synthetic tests.
+
 The user reports attorney and Sinhala reviewers are available. This records
 availability, not approval. Keep all launch flags closed and all 12 safety
 templates UNREVIEWED until the actual reviews are recorded. No reviewer names,

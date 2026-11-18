@@ -1,6 +1,6 @@
 # Architecture
 
-Status is T6, 19 November 2026. Intake, version evidence, source-anchored retrieval,
+Status is T7, 19 November 2026. Intake, version evidence, source-anchored retrieval,
 triage, extractive assembly, a bounded answer API and Sinhala-first UI are implemented.
 The endpoint uses `SafetyNavigator`; default navigation and unreviewed copy stay
 closed. Actual gloss, UI and safety-copy review remain pending;
@@ -9,6 +9,10 @@ urgent routes withheld pending evidence/review. The diagram includes planned com
 Research-only bounded model contracts and a pinned process adapter are implemented
 separately; no model is wired into the answer path. See `model-contract.md` for
 the measured/unmeasured boundary, failure fallbacks and laptop instructions.
+T7 isolates the default-closed app and its separate source database with no
+container networking and Unix sockets. Synthetic encrypted recovery and namespace
+egress checks were executed. Laptop gateway/OS controls remain unverified;
+operations/governance guides distinguish those boundaries explicitly.
 
 ## Two targets
 
@@ -109,10 +113,11 @@ and models, and measure the actual high-water marks before adopting a backend.
 Avoid concurrent embedding and instruct-model GPU residency until measurement
 proves that they fit. A 4 GB GPU is a constraint to test, not evidence of fit.
 
-Installation downloads are explicit. Request-time services will have egress
-disabled, bind to laptop loopback and use ephemeral sessions. T7 must exercise
-network isolation, safe logs, retention/deletion and backup/restore against a
-synthetic database. No paid runtime APIs, hosted vectors or production systems
+Installation downloads are explicit. The T7 core services have no network
+interface beyond namespace loopback; a proposed separate host gateway binds to
+laptop loopback and needs independent host-policy verification. The tested
+synthetic path has safe logs, ephemeral state, retention controls and encrypted
+backup/restore. No paid runtime APIs, hosted vectors or production systems
 are part of this design. Basic use remains free unless a future reviewed change
 satisfies the stated institutional delivery condition and budget.
 

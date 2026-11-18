@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "server_query_persistence": {
+      "const": false,
+      "default": false,
+      "title": "Server Query Persistence",
+      "type": "boolean"
+    },
+    "accounts": {
+      "const": false,
+      "default": false,
+      "title": "Accounts",
+      "type": "boolean"
+    },
+    "browser_storage": {
+      "const": false,
+      "default": false,
+      "title": "Browser Storage",
+      "type": "boolean"
+    },
+    "browser_idle_seconds": {
+      "const": 300,
+      "default": 300,
+      "title": "Browser Idle Seconds",
+      "type": "integer"
+    },
+    "query_logs": {
+      "const": false,
+      "default": false,
+      "title": "Query Logs",
+      "type": "boolean"
+    },
+    "metric_retention_hours": {
+      "const": 1,
+      "default": 1,
+      "title": "Metric Retention Hours",
+      "type": "integer"
+    },
+    "report_retention_days": {
+      "default": 7,
+      "maximum": 7,
+      "minimum": 1,
+      "title": "Report Retention Days",
+      "type": "integer"
+    },
+    "encrypted_backup_retention_days": {
+      "default": 7,
+      "maximum": 7,
+      "minimum": 1,
+      "title": "Encrypted Backup Retention Days",
+      "type": "integer"
+    }
+  },
+  "title": "PrivacyPolicy",
+  "type": "object"
+}

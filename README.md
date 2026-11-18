@@ -10,8 +10,10 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T6 adds research-only bounded model contracts, deterministic fallbacks, a pinned
-local process adapter and independent laptop measurement tools. T5's extractive
+T7 adds a standalone Unix-socket runtime with no container networking, tested
+synthetic encrypted backup/restore, content-free logs/metrics and scoped retention.
+PDPA primary texts were inspected; governance/notice documents remain unapproved
+counsel-review drafts. T6's bounded model research stays separate. T5's extractive
 answers and Sinhala-first interface still use T4 safety routing. The default query interface
 remains closed pending review. Bilingual safety copy is
 UNREVIEWED. The referral register now contains 91 checked publisher listings,
@@ -39,8 +41,9 @@ database password. The default uv cache lives under ignored `.local/`, which
 works with the cloud container's read-only home directory. An existing
 `UV_CACHE_DIR` setting takes precedence. `verify` runs lint, types, schema checks,
 repository hygiene and tests with Internet sockets disabled. After installation, verification uses
-no network, GPU, database or model. `serve` binds to `127.0.0.1:8000` and disables
-access logs. `GET /health` reports `navigator_enabled: false`.
+no network, GPU, database or model. `serve` binds to `127.0.0.1:8000` with a fixed
+content-free formatter and no access logs. This host development command does
+not prove network isolation. `GET /health` reports `navigator_enabled: false`.
 
 For the optional synthetic development database, install Docker with Compose v2.
 This creates a dedicated local volume, never a production connection.
@@ -56,8 +59,8 @@ docker compose stop db
 The local driver uses a private Unix socket under `.local/postgres-socket` when
 available. This supports the cloud's rootless internal network, whose configured
 loopback port is not published by the daemon. The connector also supports loopback
-port 54329 when available. Runtime
-egress testing and the full laptop application arrive in T7. Image pulls and
+port 54329 when available. The separate T7 runtime uses no networking and Unix
+sockets; its cloud proof does not establish whole-laptop isolation. Image pulls and
 dependency installation need network access. Live processes are restarted after
 restoring a cloud snapshot.
 
@@ -73,6 +76,8 @@ restoring a cloud snapshot.
 | `make review-packet` | Offline synthetic HTML packet; all copy remains UNREVIEWED |
 | `make eval` | Aggregate fake-backend measurements on five tiny synthetic queries |
 | `make model-demo` | Replay invented model-task labels into a private aggregate report; no inference |
+| `make ops-build` | Explicit locked wheel download, then offline Docker image build |
+| `make ops-check` | Fresh synthetic network/HTTP/encrypted backup/restore drill; own project cleaned up |
 | `make test-local` | Five PostgreSQL tests in a disposable synthetic database |
 
 ## Two targets
@@ -114,6 +119,11 @@ remaining source and reviewer tasks.
 - Follow [the bounded model and laptop guide](docs/model-contract.md) for strict
   task contracts, CPU defaults, optional GPU probing and sequential measurements.
   No model output is connected to the answer API; quality and capacity remain UNVERIFIED.
+- Use [the private operations runbook](docs/operations.md) and
+  [PDPA source evidence](docs/pdpa-verification.md). The [DPIA](docs/dpia.md),
+  [DPMP](docs/dpmp.md), [notice](docs/privacy-notice.md) and
+  [breach runbook](docs/breach-runbook.md) are incomplete drafts. Controller/bases,
+  actual reviews, laptop gateway/OS controls and launch approval remain pending.
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.
 AGPL-3.0 would require corresponding source for modified network services, which

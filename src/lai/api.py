@@ -3,6 +3,7 @@
 import json
 from datetime import date, datetime
 from importlib.resources import files
+from time import perf_counter
 from typing import Any
 from zoneinfo import ZoneInfo
 
@@ -15,6 +16,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from lai import __version__
 from lai.answers.contracts import AnswerDocument, DisplayLanguage
 from lai.answers.service import AnswerService
+from lai.operations.privacy import Metrics, route_group
 from lai.retrieval.models import RetrievalResult
 from lai.triage.contracts import TriageRequest
 from lai.triage.pipeline import SafetyNavigator
@@ -38,6 +40,7 @@ def unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
 
 def create_app(service: AnswerService | None = None) -> FastAPI:
     service = service or AnswerService(SafetyNavigator(DisabledPath()))
+    metrics = Metrics()
     application = FastAPI(
         title="LAi private prototype",
         version=__version__,
@@ -51,7 +54,11 @@ def create_app(service: AnswerService | None = None) -> FastAPI:
 
     @application.middleware("http")
     async def private_headers(request: Request, call_next: Any) -> Response:
+        started = perf_counter()
         response: Response = await call_next(request)
+        metrics.observe(
+            route_group(request.url.path), response.status_code, perf_counter() - started
+        )
         response.headers.update(
             {
                 "Cache-Control": "no-store",
@@ -74,6 +81,10 @@ def create_app(service: AnswerService | None = None) -> FastAPI:
     @application.get("/health")
     def health() -> dict[str, str | bool]:
         return {"status": "prototype", "version": __version__, "navigator_enabled": False}
+
+    @application.get("/metrics")
+    def operational_metrics() -> Response:
+        return Response(metrics.render(), media_type="text/plain; version=0.0.4")
 
     @application.get("/")
     def home() -> HTMLResponse:

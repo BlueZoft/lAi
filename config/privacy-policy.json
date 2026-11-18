@@ -1,0 +1,11 @@
+{
+  "schema_version": "1",
+  "server_query_persistence": false,
+  "accounts": false,
+  "browser_storage": false,
+  "browser_idle_seconds": 300,
+  "query_logs": false,
+  "metric_retention_hours": 1,
+  "report_retention_days": 7,
+  "encrypted_backup_retention_days": 7
+}

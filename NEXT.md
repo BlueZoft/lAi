@@ -41,6 +41,15 @@ Final local verification passes 473 offline tests and 355 safety tests.
 No model is connected to the answer API. Hardware/language validation remains
 UNVERIFIED; reviewer availability does not approve any output.
 
+T7 delivers a separate network-none Unix-socket runtime, content-free logging/
+metrics, browser expiry and scoped retention, with an executed fresh synthetic
+encrypted PostgreSQL backup/restore and blocked network probes. Official PDPA
+Acts/orders were inspected; governance documents remain unapproved. See
+`docs/turn-logs/T7.md`, `docs/operations.md` and `docs/pdpa-verification.md`.
+No public/DPIA/review flag was enabled. T8 private evaluation is next.
+Final local verification passes 499 offline tests and 379 safety tests; the
+synthetic drill restores all three invented rows and rejects damaged ciphertext.
+
 ## Source and corpus follow-up
 
 1. Use both the T2 inventory and the user's supplied `nuuuwan` Supreme Court,
@@ -127,12 +136,21 @@ and scripts. Remaining TARGET B evidence does not block private T7 engineering:
 
 ## T7 — Operations and compliance
 
-1. Build and test laptop-only no-egress Compose, ephemeral sessions, minimisation,
-   retention/deletion and logs/metrics that cannot capture identifying facts.
-2. Execute backup and restore of a synthetic database and preserve real output.
-3. Verify all PDPA assertions against primary publications. Produce mapped DPIA,
-   DPMP, Schedule V notice and breach skeletons plus questions for counsel.
-   Legal status assertions in `docs/source-verification.md` are UNVERIFIED.
+Delivered engineering controls and the synthetic recovery proof. Remaining
+operator/counsel evidence does not block private T8 work:
+
+1. Repeat `make ops-check` on TARGET B. Verify actual laptop UID mapping,
+   gateway/systemd BPF no-egress, loopback listeners, encrypted disk/swap, browser
+   environment, key custody/recovery, scheduled cleanup and optional local metrics
+   retention. Cloud container proof establishes none of those host controls.
+2. Name accountable controller/privacy contacts, choose bases/conditions and DPO
+   designation with counsel; review DPIA/DPMP/Schedule V/breach documents and
+   actual Sinhala notice. Resolve current final rules/orders and the circular/
+   gazette inconsistency. Specific inspected text is verified; complete current
+   applicability/commencement and legal compliance remain UNVERIFIED.
+3. Measure real-corpus encrypted streaming backup/restore at laptop scale before
+   relying on recovery. The implemented proof uses three invented rows and a
+   16 MiB cap. Keep query history out of all source databases/backups.
 
 ## T8 — Evaluation and handoff
 

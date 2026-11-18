@@ -1,0 +1,13 @@
+{
+    admin off
+    auto_https off
+}
+
+http://127.0.0.1:8000 {
+    bind 127.0.0.1
+    request_body {
+        max_size 16KB
+    }
+    reverse_proxy unix/REPLACE_ABSOLUTE_CHECKOUT_PATH/.local/operations/api-socket/http.sock
+    # Access logging is disabled by default. Do not add request/debug logs.
+}

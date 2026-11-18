@@ -153,6 +153,14 @@ assert(["127.0.0.1", "localhost"].includes(new URL(base).hostname));
       ),
     );
     await page.screenshot({ path: "/tmp/lai-t5-mobile.png", fullPage: true });
+    await page.clock.install();
+    await page.fill("#scenario", "SYNTHETIC idle session");
+    await page.clock.fastForward(300001);
+    assert.equal(await page.inputValue("#scenario"), "");
+    assert.equal(await page.locator("#results").innerText(), "");
+    await page.fill("#scenario", "SYNTHETIC leaving page");
+    await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide")));
+    assert.equal(await page.inputValue("#scenario"), "");
     assert.deepEqual(errors, []);
     console.log(
       JSON.stringify({
@@ -164,6 +172,8 @@ assert(["127.0.0.1", "localhost"].includes(new URL(base).hostname));
         clear_aborts: true,
         storage_empty: true,
         mobile_no_overflow: true,
+        idle_expiry: true,
+        pagehide_clear: true,
         page_errors: errors.length,
         external_page_requests: outbound.length,
       }),

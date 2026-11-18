@@ -26,3 +26,5 @@ jobs:
         run: make verify
       - name: Validate Compose structure without starting a database
         run: docker compose config --quiet
+      - name: Validate standalone no-network runtime controls without startup
+        run: uv run --frozen --offline python scripts/validate_runtime.py
