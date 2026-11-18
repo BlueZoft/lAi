@@ -121,7 +121,48 @@ package/distribution members, with no raw research artefacts. Compose and
 whitespace checks exited 0. After completing the documentation, `make verify`
 again passed all 324 tests in 1.95s and the real stored-evidence audit again
 checked 91 listings and 84 regional locations. The file guard passed 105 files.
-Staged checks and CI receipts follow after execution.
+## Commit, push and remote CI receipt
+
+Inspected the staged 19-file change and ran `git diff --cached --check` and
+`make hygiene` (105 files passed). The referral JSON is 111,825 bytes, below the
+1 MB limit. No raw sources, cookies, corpus documents or weights were staged.
+Remote `main` still matched the starting T4 SHA; `t4-referrals` did not exist.
+
+Executed the authorised commit and native Git push:
+
+```sh
+git -c user.name=BlueZoft -c user.email=BlueZoft@users.noreply.github.com commit -m 'feat: verify referral listings and reconcile corpus sources'
+git push origin main
+```
+
+```text
+[main fa41736] feat: verify referral listings and reconcile corpus sources
+19 files changed, 3150 insertions(+), 84 deletions(-)
+866a916..fa41736 main -> main
+fa41736f4cb168be04c95aa7f08b0fe9943a5a73
+```
+
+GitHub API access works in this environment. Read the push workflow list and
+then the exact run; matched the full SHA and branch before accepting completion.
+
+```sh
+curl --fail --silent --show-error --max-time 25 'https://api.github.com/repos/BlueZoft/lAi/actions/runs?event=push&branch=main&per_page=10' --output /tmp/lai-referrals-ci-first.json
+curl --fail --silent --show-error --max-time 25 'https://api.github.com/repos/BlueZoft/lAi/actions/runs/44378198148' --output /tmp/lai-referrals-ci-first-run.json
+```
+
+```text
+id: 44378198148
+head_sha: fa41736f4cb168be04c95aa7f08b0fe9943a5a73
+head_branch: main
+status: completed
+conclusion: success
+```
+
+[Successful implementation CI](https://github.com/BlueZoft/lAi/actions/runs/44378198148).
+The evidence commit records this observed receipt. Its final SHA, exact CI run
+and remote annotated-tag checks are retained in the `t4-referrals` annotation.
+The tag-triggered workflow is also checked before the final manifest. Existing
+`t4-safety` history/tag and environment publication are preserved.
 
 ## Remaining work
 
