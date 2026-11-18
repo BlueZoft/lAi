@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lai-navigator"
+version = "0.0.0"
+description = "Private prototype of a non-authoritative Sri Lankan legal information navigator"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "pydantic>=2.10,<3",
+  "uvicorn>=0.34,<1",
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28,<1",
+  "jsonschema>=4.23,<5",
+  "mypy>=1.15,<2",
+  "pytest>=8.3,<10",
+  "pytest-socket>=0.7,<1",
+  "ruff>=0.11,<1",
+  "types-jsonschema>=4.23",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lai"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --disable-socket --allow-unix-socket -m 'not local and not gpu and not network'"
+markers = [
+  "local: requires laptop services, corpus, OCR or models",
+  "gpu: requires measured GPU resources",
+  "network: requires explicitly authorised external access",
+  "safety: deterministic safety and launch restrictions",
+]

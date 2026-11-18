@@ -1,0 +1,12 @@
+{
+  "attorney_taxonomy_reviewed": false,
+  "attorney_glosses_reviewed": false,
+  "attorney_escalations_reviewed": false,
+  "dpia_complete": false,
+  "golden_set_passed": false,
+  "offered_domain_gaps_closed": false,
+  "institutional_partner_engaged": false,
+  "service_free": false,
+  "clearly_non_authoritative": false,
+  "referral_first": false
+}

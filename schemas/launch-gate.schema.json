@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "description": "All evidence must be supplied explicitly before a public release is considered.",
+  "properties": {
+    "attorney_taxonomy_reviewed": {
+      "default": false,
+      "title": "Attorney Taxonomy Reviewed",
+      "type": "boolean"
+    },
+    "attorney_glosses_reviewed": {
+      "default": false,
+      "title": "Attorney Glosses Reviewed",
+      "type": "boolean"
+    },
+    "attorney_escalations_reviewed": {
+      "default": false,
+      "title": "Attorney Escalations Reviewed",
+      "type": "boolean"
+    },
+    "dpia_complete": {
+      "default": false,
+      "title": "Dpia Complete",
+      "type": "boolean"
+    },
+    "golden_set_passed": {
+      "default": false,
+      "title": "Golden Set Passed",
+      "type": "boolean"
+    },
+    "offered_domain_gaps_closed": {
+      "default": false,
+      "title": "Offered Domain Gaps Closed",
+      "type": "boolean"
+    },
+    "institutional_partner_engaged": {
+      "default": false,
+      "title": "Institutional Partner Engaged",
+      "type": "boolean"
+    },
+    "service_free": {
+      "default": false,
+      "title": "Service Free",
+      "type": "boolean"
+    },
+    "clearly_non_authoritative": {
+      "default": false,
+      "title": "Clearly Non Authoritative",
+      "type": "boolean"
+    },
+    "referral_first": {
+      "default": false,
+      "title": "Referral First",
+      "type": "boolean"
+    }
+  },
+  "title": "LaunchGate",
+  "type": "object"
+}
