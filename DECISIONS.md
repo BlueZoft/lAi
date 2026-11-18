@@ -302,6 +302,40 @@ official publishers govern conflicts; retain mirror provenance and investigate
 different versions rather than silently consolidating them. Reviewer availability
 does not set approval flags. Provide a concrete reviewer handoff.
 
+## ADR-0018 — Revalidate sources and bind reviewed gloss text/version
+
+Accepted on 19 November 2026.
+
+Pass through T4 before downstream work, then recheck every selected section
+against CAS and scoped version evidence before display. Any invalid selected
+source closes the answer. Multiple distinct provisions remain mandatory. No new
+conclusion, fee, timeline, deadline or translation is generated. Missing glosses
+retain original text with the reviewed professional-referral message and current
+scoped contact listings.
+
+Bind gloss review to acquisition/chunk, source revision/language/section hash,
+display language, review dates/evidence reference and reviewed-text SHA-256.
+Changed versions/languages or edited gloss text cannot reuse approval. Four
+synthetic seeds remain UNREVIEWED. Metadata records assertions; actual reviewer
+evidence and the complete launch gate remain required.
+
+## ADR-0019 — Closed local UI and bounded ephemeral API
+
+Accepted on 19 November 2026.
+
+Use FastAPI with local HTML/CSS/vanilla JavaScript for the single-form interface;
+this substitutes for HTMX/React to avoid a frontend build/runtime dependency.
+Default to Sinhala, preserve quotes with textContent and retain full bilingual
+provenance/currency warnings. Clear aborts pending responses. Queries use POST
+bodies and no browser storage, URLs or cookies.
+
+Default copy is unreviewed and navigation disabled. Injected synthetic fixtures
+test the approved path without approving shipped copy. JSON is bounded to
+16 KiB/16 nesting levels, duplicate keys rejected, errors redacted, hosts/origins
+restricted and responses uncached with a restrictive CSP. These checks do not
+establish T7's full logging/retention/no-egress guarantees. The separate offline
+review packet is explicitly synthetic/UNREVIEWED and opens no product flow.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

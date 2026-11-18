@@ -1,9 +1,9 @@
 # Architecture
 
-Status is T4, 19 November 2026. Intake, version evidence, source-anchored private
-retrieval, default-closed deterministic triage and the health API are implemented.
-T5 must attach its product endpoint through `SafetyNavigator`. Gloss assembly
-and the user interface are pending. Safety copy awaits attorney/language review;
+Status is T5, 19 November 2026. Intake, version evidence, source-anchored retrieval,
+triage, extractive assembly, a bounded answer API and Sinhala-first UI are implemented.
+The endpoint uses `SafetyNavigator`; default navigation and unreviewed copy stay
+closed. Actual gloss, UI and safety-copy review remain pending;
 referral publisher listings are checked, with regional phones and two specialist
 urgent routes withheld pending evidence/review. The diagram includes planned components.
 

@@ -5,6 +5,8 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
+from lai.answers.contracts import AnswerDocument, AnswerRequest, GlossLibrary
+from lai.answers.service import load_glosses
 from lai.corpus.graph import VersionGraph, document_nodes
 from lai.corpus.ingest import ingest_document
 from lai.corpus.models import IngestionRecord, SourceManifest
@@ -35,6 +37,17 @@ def main() -> None:
     record = ingest_document(manifest, raw, raw)
     graph = VersionGraph(nodes=document_nodes(record))
     examples = (
+        ("answer-request", AnswerRequest, {"scenario": {"text": "SYNTHETIC documents"}}),
+        ("gloss-library", GlossLibrary, load_glosses().model_dump(mode="json")),
+        (
+            "answer-document",
+            AnswerDocument,
+            AnswerDocument(
+                status="review_required",
+                as_of=record.manifest.source.fetched_at.date(),
+                decision=decide({"text": "SYNTHETIC documents"}),
+            ).model_dump(mode="json"),
+        ),
         ("triage-request", TriageRequest, {"text": "SYNTHETIC documents"}),
         (
             "triage-decision",

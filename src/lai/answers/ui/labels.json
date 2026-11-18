@@ -1,0 +1,103 @@
+{
+  "eyebrow": [
+    "පුද්ගලික මූලාකෘතිය · සමාලෝචනය සඳහා",
+    "Private prototype · For review"
+  ],
+  "title": [
+    "මූලාශ්‍රයෙන් තොරතුරු.\nවෘත්තිකයෙකුගෙන් උපදෙස්.",
+    "Information from sources.\nAdvice from professionals."
+  ],
+  "intro": [
+    "මෙම මූලාකෘතිය නීතිමය උපදෙස් ලබා නොදෙයි. මහජන භාවිතය සඳහා විවෘත කර නැත.",
+    "This prototype does not provide legal advice. It is not open for public use."
+  ],
+  "closed": [
+    "නීතිඥ සහ භාෂා සමාලෝචනය අවශ්‍යයි. විමසීම් දැනට අක්‍රියයි.",
+    "Attorney and language review is required. Queries are currently disabled."
+  ],
+  "prompt": ["ඔබගේ විමසීම", "Your enquiry"],
+  "privacy": [
+    "සමාලෝචනයට කෘත්‍රිම උදාහරණ පමණක් භාවිත කරන්න. පුද්ගලික තොරතුරු ඇතුළත් නොකරන්න.",
+    "Use invented examples for this review. Do not enter personal information."
+  ],
+  "queryLanguage": ["විමසුම් භාෂාව", "Query language"],
+  "clear": ["මකන්න", "Clear"],
+  "search": ["මූලාශ්‍ර බලන්න", "View sources"],
+  "footer": [
+    "මහජන සේවාවක් ලෙස නිකුත් කර නැත. නීතිමය නිගමන ලබා නොදෙයි.",
+    "Not released as a public service. Does not provide legal conclusions."
+  ],
+  "busy": ["මූලාශ්‍ර පරීක්ෂා කරමින්…", "Checking sources…"],
+  "error": [
+    "විමසීම සම්පූර්ණ කළ නොහැක. පෝරමය මකා නැවත උත්සාහ කරන්න.",
+    "The request could not be completed. Clear the form and try again."
+  ],
+  "review_required": [
+    "මෙම ප්‍රතිචාරය පෙන්වීමට පෙර සමාලෝචනය අවශ්‍යයි.",
+    "Review is required before this response can be shown."
+  ],
+  "candidates": ["යෝජිත මූලාශ්‍ර විධිවිධාන", "Candidate source provisions"],
+  "immediate_escalation": ["හදිසි උපකාර", "Urgent help"],
+  "professional_referral": ["වෘත්තීය සහාය", "Professional assistance"],
+  "refuse": [
+    "මෙම මූලාකෘතියේ විෂය පථයෙන් පිටතයි",
+    "Outside this prototype’s scope"
+  ],
+  "abstain": ["ඉදිරියට යා නොහැක", "Unable to continue"],
+  "sourceLanguage": ["මුල් මූලාශ්‍ර භාෂාව", "Original source language"],
+  "missing": [
+    "මෙම අනුවාදයට සමාලෝචිත පැහැදිලි කිරීමක් නොමැත. මූලාශ්‍ර පෙළ භාවිත කර නීතිඥයෙකුගෙන් ඔබට අදාළ උපදෙස් ලබා ගන්න.",
+    "No reviewed explanation is available for this version. Use the source text and seek individual advice from an attorney-at-law."
+  ],
+  "currency": [
+    "වත්මන් නීතිමය තත්ත්වය සහ සම්පූර්ණත්වය තහවුරු කර නැත. ලබාගත් දිනයෙන් වත්මන් බලපැවැත්ම තහවුරු නොවේ.",
+    "Current legal status and completeness are unverified. Acquisition dates do not establish current force."
+  ],
+  "provenance": ["මූලාශ්‍ර සහ අනුවාද විස්තර", "Source and version details"],
+  "referrals": [
+    "ප්‍රකාශිත වෘත්තීය සහ සහාය සම්බන්ධතා",
+    "Published professional / support contacts"
+  ],
+  "listing": [
+    "ප්‍රකාශකයාගේ ලැයිස්තුවකි. සජීවී ලබාගත හැකි බව පරීක්ෂා කර නැත. යෝග්‍යතාව ඔබගේ තත්ත්වය අනුව සලකා බැලිය යුතුය.",
+    "Publisher listing; live availability has not been tested. Suitability requires individual consideration."
+  ],
+  "noReferral": [
+    "යෝග්‍ය වත්මන් සම්බන්ධතාවක් මෙම ලේඛනයේ නොමැත.",
+    "A suitable current contact is not available in this register."
+  ],
+  "reviewed": ["සමාලෝචිත පැහැදිලි කිරීම", "Reviewed explanation"],
+  "warning": [
+    "තවත් මූලාශ්‍ර හෝ සමාලෝචන පරීක්ෂා අවශ්‍යයි.",
+    "Further source or review checks remain outstanding."
+  ],
+  "phone": ["දුරකථනය", "Telephone"],
+  "address": ["ලිපිනය", "Address"],
+  "channel": ["සේවා වර්ගය", "Channel"],
+  "checked": ["පරීක්ෂා කළ දිනය", "Listing checked"],
+  "due": ["නැවත පරීක්ෂා කළ යුතු දිනය", "Recheck due"],
+  "citation": {
+    "instrument_type": ["නීති ලේඛන වර්ගය", "Instrument type"],
+    "instrument_id": ["ලේඛන හැඳුනුම", "Instrument ID"],
+    "number": ["අංකය", "Number"],
+    "year": ["වර්ෂය", "Year"],
+    "section": ["වගන්තිය", "Section"],
+    "language": ["මූලාශ්‍ර භාෂාව", "Source language"],
+    "source_url": ["මූලාශ්‍ර සබැඳිය", "Source URL"],
+    "canonical_url": ["ප්‍රධාන සබැඳිය", "Canonical URL"],
+    "retrieved_at": ["මූලාශ්‍රය ලබාගත් දිනය", "Source acquired"],
+    "source_revision": ["මූලාශ්‍ර අනුවාදය", "Source revision"],
+    "amendment_status": ["සංශෝධන තත්ත්වය", "Amendment status"],
+    "commencement_status": ["බලාත්මක වීමේ තත්ත්වය", "Commencement status"],
+    "staleness_warnings": [
+      "යාවත්කාලීන බව පිළිබඳ සටහන්",
+      "Currency / coverage warnings"
+    ],
+    "record_id": ["ලබාගැනීමේ හැඳුනුම", "Acquisition ID"],
+    "raw_sha256": ["මුල් දත්ත SHA-256", "Original SHA-256"],
+    "text_sha256": ["පෙළ SHA-256", "Text SHA-256"],
+    "section_sha256": ["වගන්ති SHA-256", "Section SHA-256"],
+    "start": ["පෙළ ආරම්භය", "Source span start"],
+    "end": ["පෙළ අවසානය", "Source span end"]
+  }
+}

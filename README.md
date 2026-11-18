@@ -10,9 +10,9 @@ golden-set thresholds pass, the corpus gap register is closed for every domain
 offered, and either an institutional partner is engaged or the service is free,
 clearly non-authoritative and referral-first.**
 
-T4 adds default-closed deterministic triage before the existing private retrieval,
-with urgent escalation, forbidden-advice refusal and limitation flags. The HTTP
-API exposes health while T5 assembly is pending. Bilingual safety copy is
+T5 adds extractive answers, source-version-bound gloss review, a bounded API and
+a Sinhala-first interface through T4 safety routing. The default query interface
+remains closed pending review. Bilingual safety copy is
 UNREVIEWED. The referral register now contains 91 checked publisher listings,
 including 84 regional locations. Ambiguous regional phone fields and two
 specialist urgent routes remain withheld. Listing verification does not establish
@@ -68,7 +68,8 @@ restoring a cloud snapshot.
 | `make safety` | Deterministic safety, escalation and downstream short-circuit tests |
 | `make verify` | Lint, types, schemas, file guard and offline tests |
 | `make ingest` | Stage the tiny synthetic Act fixture into ignored `data/corpus/` |
-| `make serve` | Local health endpoint |
+| `make serve` | Private UI, health and default-closed answer API |
+| `make review-packet` | Offline synthetic HTML packet; all copy remains UNREVIEWED |
 | `make eval` | Aggregate fake-backend measurements on five tiny synthetic queries |
 | `make test-local` | Five PostgreSQL tests in a disposable synthetic database |
 
@@ -106,6 +107,8 @@ remaining source and reviewer tasks.
   [safety guide](docs/safety.md), [T4 evidence](docs/turn-logs/T4.md),
   [referral verification](docs/referral-verification.md) and
   [source verification register](docs/source-verification.md).
+- Use [the answer/API guide](docs/answers.md) and [reviewer handoff](docs/reviewer-handoff.md).
+  `make review-packet` writes `.local/t5-review.html`; reading it changes no approvals.
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.
 AGPL-3.0 would require corresponding source for modified network services, which

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LAi · පුද්ගලික මූලාකෘතිය / Private prototype</title>
+    <link rel="stylesheet" href="/assets/app.css" />
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/"
+        >LAi<span>නීතිමය තොරතුරු / Legal information</span></a
+      >
+      <label class="language"
+        >භාෂාව / Language<select id="display-language">
+          <option value="si">සිංහල</option>
+          <option value="en">English</option>
+        </select></label
+      >
+    </header>
+    <main>
+      <p class="eyebrow" data-copy="eyebrow">
+        පුද්ගලික මූලාකෘතිය · සමාලෝචනය සඳහා
+      </p>
+      <h1 data-copy="title">
+        මූලාශ්‍රයෙන් තොරතුරු.<br />වෘත්තිකයෙකුගෙන් උපදෙස්.
+      </h1>
+      <p class="intro" data-copy="intro">
+        මෙම මූලාකෘතිය නීතිමය උපදෙස් ලබා නොදෙයි. මහජන භාවිතය සඳහා විවෘත කර නැත.
+      </p>
+      <div id="availability" class="notice" role="status" data-copy="closed">
+        නීතිඥ සහ භාෂා සමාලෝචනය අවශ්‍යයි. විමසීම් දැනට අක්‍රියයි.
+      </div>
+      <form id="scenario-form" autocomplete="off">
+        <label for="scenario" data-copy="prompt">ඔබගේ විමසීම</label>
+        <p id="privacy-hint" class="hint" data-copy="privacy">
+          සමාලෝචනයට කෘත්‍රිම උදාහරණ පමණක් භාවිත කරන්න. පුද්ගලික තොරතුරු ඇතුළත්
+          නොකරන්න.
+        </p>
+        <textarea
+          id="scenario"
+          maxlength="1024"
+          rows="4"
+          aria-describedby="privacy-hint"
+          autocomplete="off"
+          spellcheck="false"
+          disabled
+        ></textarea>
+        <div class="form-footer">
+          <label for="query-language"
+            ><span data-copy="queryLanguage">විමසුම් භාෂාව</span
+            ><select id="query-language" disabled>
+              <option value="si">සිංහල</option>
+              <option value="en">English</option>
+              <option value="ta">தமிழ்</option>
+              <option value="si-Latn">Singlish</option>
+            </select></label
+          >
+          <div class="actions">
+            <button
+              type="button"
+              id="clear"
+              class="secondary"
+              data-copy="clear"
+            >
+              මකන්න</button
+            ><button type="submit" id="submit" disabled data-copy="search">
+              මූලාශ්‍ර බලන්න
+            </button>
+          </div>
+        </div>
+      </form>
+      <section id="results" aria-live="polite" aria-atomic="false"></section>
+      <noscript
+        >JavaScript is required for the private query interface.</noscript
+      >
+    </main>
+    <footer>
+      <span>LAi · Private prototype</span
+      ><span data-copy="footer"
+        >මහජන සේවාවක් ලෙස නිකුත් කර නැත. නීතිමය නිගමන ලබා නොදෙයි.</span
+      >
+    </footer>
+  </body>
+</html>

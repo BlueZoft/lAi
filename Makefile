@@ -1,4 +1,4 @@
-.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval
+.PHONY: setup lint typecheck schema hygiene test safety test-local verify ingest serve eval review-packet
 
 UV ?= uv
 export UV_CACHE_DIR ?= $(CURDIR)/.local/uv-cache
@@ -43,3 +43,6 @@ serve:
 
 eval:
 	$(RUN) python -m lai.retrieval.cli demo
+
+review-packet:
+	$(RUN) python -m lai.answers.review --repository . --output .local/t5-review.html

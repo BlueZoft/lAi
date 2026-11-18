@@ -1,0 +1,273 @@
+:root {
+  color-scheme: light;
+  --ink: #18342e;
+  --muted: #566961;
+  --paper: #f5f3ec;
+  --line: #ccd4c9;
+  --accent: #24594c;
+  font:
+    17px/1.65 system-ui,
+    "Noto Sans Sinhala",
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+}
+header,
+footer {
+  max-width: 1120px;
+  margin: auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+}
+header {
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font:
+    600 2rem/1.1 Georgia,
+    serif;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand span {
+  display: block;
+  font:
+    normal 0.7rem/1.7 system-ui,
+    sans-serif;
+  letter-spacing: 0;
+  margin-top: 0.3rem;
+}
+.language {
+  font-size: 0.78rem;
+  display: grid;
+  gap: 0.2rem;
+}
+main {
+  max-width: 840px;
+  margin: 3.5rem auto 5rem;
+  padding: 0 1.5rem;
+}
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 650;
+}
+h1 {
+  white-space: pre-line;
+  font-size: clamp(1.65rem, 4.5vw, 2.8rem);
+  font-weight: 550;
+  line-height: 1.65;
+  letter-spacing: -0.035em;
+  margin: 1rem 0;
+}
+.intro {
+  color: var(--muted);
+  max-width: 660px;
+}
+.notice {
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.2rem;
+  background: #e9eee4;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+form {
+  background: #fffef9;
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+label {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0.4rem 0 1rem;
+}
+textarea,
+select,
+button {
+  font: inherit;
+}
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #80948a;
+  border-radius: 3px;
+  resize: vertical;
+  color: var(--ink);
+  background: #fffefb;
+}
+textarea:disabled {
+  background: #f0f0e9;
+  border-color: var(--line);
+}
+select {
+  display: block;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fffefb;
+  color: var(--ink);
+  font-size: 0.83rem;
+}
+button {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: white;
+  background: var(--accent);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+.secondary {
+  color: var(--accent);
+  background: transparent;
+}
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin-top: 1rem;
+}
+.actions {
+  display: flex;
+  gap: 0.6rem;
+}
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #a66b22;
+  outline-offset: 3px;
+}
+#results {
+  margin-top: 2rem;
+}
+.provision,
+.referral {
+  border: 1px solid var(--line);
+  background: #fffef9;
+  padding: 1.4rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+h2 {
+  font-size: 1.3rem;
+}
+h3 {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+.quote {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    1rem/1.8 Georgia,
+    "Noto Serif Sinhala",
+    serif;
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+.gloss {
+  padding: 1rem;
+  background: #edf1e9;
+}
+.caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.warning {
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+dl {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+dt {
+  font-weight: 600;
+}
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  align-items: start;
+}
+footer span:last-child {
+  max-width: 32rem;
+}
+ul {
+  padding-left: 1.4rem;
+}
+@media (max-width: 600px) {
+  header,
+  footer {
+    padding: 1rem;
+  }
+  main {
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+  form {
+    padding: 1rem;
+  }
+  .form-footer,
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions {
+    margin-top: 0.5rem;
+  }
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+  dd {
+    margin-bottom: 0.6rem;
+  }
+  .language {
+    max-width: 8rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+}

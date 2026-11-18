@@ -1,0 +1,791 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "citation": {
+          "$ref": "#/$defs/Citation"
+        },
+        "dense_similarity": {
+          "title": "Dense Similarity",
+          "type": "number"
+        },
+        "sparse_score": {
+          "title": "Sparse Score",
+          "type": "number"
+        },
+        "fusion_score": {
+          "title": "Fusion Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "text",
+        "citation",
+        "dense_similarity",
+        "sparse_score",
+        "fusion_score"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "title": "Instrument Type",
+          "type": "string"
+        },
+        "instrument_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "number": {
+          "minLength": 1,
+          "title": "Number",
+          "type": "string"
+        },
+        "year": {
+          "title": "Year",
+          "type": "integer"
+        },
+        "section": {
+          "title": "Section",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si",
+            "ta"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "canonical_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Canonical Url"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "source_revision": {
+          "title": "Source Revision",
+          "type": "string"
+        },
+        "raw_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Sha256",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "section_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Section Sha256",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        },
+        "amendment_status": {
+          "enum": [
+            "unknown",
+            "amendment_recorded",
+            "repeal_recorded"
+          ],
+          "title": "Amendment Status",
+          "type": "string"
+        },
+        "commencement_status": {
+          "enum": [
+            "unknown",
+            "commencement_recorded"
+          ],
+          "title": "Commencement Status",
+          "type": "string"
+        },
+        "staleness_warnings": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Staleness Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "instrument_type",
+        "instrument_id",
+        "number",
+        "year",
+        "section",
+        "language",
+        "source_url",
+        "canonical_url",
+        "retrieved_at",
+        "source_revision",
+        "raw_sha256",
+        "text_sha256",
+        "section_sha256",
+        "start",
+        "end",
+        "amendment_status",
+        "commencement_status",
+        "staleness_warnings"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "DisplayProvision": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "gloss": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Gloss"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "explanation_status": {
+          "enum": [
+            "reviewed",
+            "text_and_referral"
+          ],
+          "title": "Explanation Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate",
+        "explanation_status"
+      ],
+      "title": "DisplayProvision",
+      "type": "object"
+    },
+    "Gloss": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "chunk_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "source_record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Record Id",
+          "type": "string"
+        },
+        "source_revision": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Source Revision",
+          "type": "string"
+        },
+        "source_language": {
+          "enum": [
+            "en",
+            "si",
+            "ta"
+          ],
+          "title": "Source Language",
+          "type": "string"
+        },
+        "section_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Section Sha256",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "scope": {
+          "const": "procedural_explanation",
+          "default": "procedural_explanation",
+          "title": "Scope",
+          "type": "string"
+        },
+        "review_status": {
+          "default": "UNREVIEWED",
+          "enum": [
+            "UNREVIEWED",
+            "APPROVED"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "attorney_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attorney Reviewed On"
+        },
+        "language_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language Reviewed On"
+        },
+        "review_evidence_ref": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Review Evidence Ref"
+        },
+        "reviewed_text_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed Text Sha256"
+        }
+      },
+      "required": [
+        "id",
+        "chunk_id",
+        "source_record_id",
+        "source_revision",
+        "source_language",
+        "section_sha256",
+        "language",
+        "text"
+      ],
+      "title": "Gloss",
+      "type": "object"
+    },
+    "Referral": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "legal_aid",
+            "regional",
+            "emergency",
+            "attorney_review"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "organisation": {
+          "title": "Organisation",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "attempted_on": {
+          "format": "date",
+          "title": "Attempted On",
+          "type": "string"
+        },
+        "status": {
+          "default": "UNVERIFIED",
+          "enum": [
+            "UNVERIFIED",
+            "VERIFIED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "blocker": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocker"
+        },
+        "verified_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified On"
+        },
+        "review_due": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Review Due"
+        },
+        "source_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Sha256"
+        },
+        "verification_method": {
+          "anyOf": [
+            {
+              "const": "primary_source_inspection",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verification Method"
+        },
+        "service_description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Service Description"
+        },
+        "region": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Region"
+        },
+        "address": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Address"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "pattern": "^\\+?[0-9][0-9 ()-]{1,28}[0-9]$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Phone"
+        },
+        "additional_phones": {
+          "default": [],
+          "items": {
+            "pattern": "^\\+?[0-9][0-9 ()-]{1,28}[0-9]$",
+            "type": "string"
+          },
+          "title": "Additional Phones",
+          "type": "array"
+        },
+        "hours": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hours"
+        },
+        "channel": {
+          "anyOf": [
+            {
+              "enum": [
+                "general_office",
+                "regional_counter",
+                "emergency_response",
+                "complaints",
+                "specialist_support",
+                "mental_health_support"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Channel"
+        },
+        "urgent_categories": {
+          "default": [],
+          "items": {
+            "enum": [
+              "domestic_violence",
+              "child_protection",
+              "sexual_violence",
+              "unlawful_detention",
+              "imminent_destitution",
+              "self_harm"
+            ],
+            "type": "string"
+          },
+          "title": "Urgent Categories",
+          "type": "array"
+        },
+        "cautions": {
+          "default": [],
+          "items": {
+            "enum": [
+              "published_listing_only",
+              "availability_not_call_tested",
+              "regional_phone_withheld",
+              "general_office_only",
+              "no_review_commitment",
+              "complaints_not_emergency_response",
+              "directory_text_has_repetition"
+            ],
+            "type": "string"
+          },
+          "title": "Cautions",
+          "type": "array"
+        },
+        "directory_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Directory Url"
+        },
+        "directory_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Directory Sha256"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "organisation",
+        "source_url",
+        "attempted_on"
+      ],
+      "title": "Referral",
+      "type": "object"
+    },
+    "TriageDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "rules_version": {
+          "const": "1",
+          "default": "1",
+          "title": "Rules Version",
+          "type": "string"
+        },
+        "action": {
+          "enum": [
+            "immediate_escalation",
+            "professional_referral",
+            "refuse",
+            "abstain",
+            "navigate"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "urgency": {
+          "default": [],
+          "items": {
+            "enum": [
+              "domestic_violence",
+              "child_protection",
+              "sexual_violence",
+              "unlawful_detention",
+              "imminent_destitution",
+              "self_harm"
+            ],
+            "type": "string"
+          },
+          "title": "Urgency",
+          "type": "array"
+        },
+        "domains": {
+          "default": [],
+          "items": {
+            "enum": [
+              "procedural_administrative",
+              "employment",
+              "land",
+              "family",
+              "debt",
+              "criminal",
+              "substantive_rights",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "title": "Domains",
+          "type": "array"
+        },
+        "limitation_warning": {
+          "default": false,
+          "title": "Limitation Warning",
+          "type": "boolean"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reasons",
+          "type": "array"
+        },
+        "template_ids": {
+          "items": {
+            "enum": [
+              "urgent",
+              "refuse",
+              "professional",
+              "limitation",
+              "abstain",
+              "extractive"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Template Ids",
+          "type": "array"
+        },
+        "referral_kinds": {
+          "default": [],
+          "items": {
+            "enum": [
+              "legal_aid",
+              "regional",
+              "emergency",
+              "attorney_review"
+            ],
+            "type": "string"
+          },
+          "title": "Referral Kinds",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "reasons",
+        "template_ids"
+      ],
+      "title": "TriageDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "candidates",
+        "immediate_escalation",
+        "professional_referral",
+        "refuse",
+        "abstain",
+        "review_required"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "language": {
+      "default": "si",
+      "enum": [
+        "en",
+        "si"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "as_of": {
+      "format": "date",
+      "title": "As Of",
+      "type": "string"
+    },
+    "decision": {
+      "$ref": "#/$defs/TriageDecision"
+    },
+    "messages": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Messages",
+      "type": "array"
+    },
+    "provisions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DisplayProvision"
+      },
+      "title": "Provisions",
+      "type": "array"
+    },
+    "referrals": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Referral"
+      },
+      "title": "Referrals",
+      "type": "array"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "status",
+    "as_of",
+    "decision"
+  ],
+  "title": "AnswerDocument",
+  "type": "object"
+}

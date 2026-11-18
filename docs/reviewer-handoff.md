@@ -1,5 +1,23 @@
 # T4 reviewer handoff
 
+T5 adds a concrete offline packet: run `make review-packet` and open
+`.local/t5-review.html`. It includes four UNREVIEWED synthetic gloss seeds,
+12 safety messages and Sinhala/English UI labels. Building/reading it changes no
+approval. It supports review of the mechanism/copy; real provisions need their
+own exact version-bound gloss review.
+
+For each real gloss, provide the source acquisition/chunk, revision, language and
+section hash; reviewed English/Sinhala text; actual attorney/language-review dates;
+and an evidence reference. The reviewed-text SHA-256 must match the exact text.
+A different acquisition, revision, text or language invalidates the match. See
+`answers.md` for the schema and complete behaviour.
+
+Pending from the maintainer's side: actual sign-off, safe specialist routes for
+detention/destitution, reliable regional phones and current service eligibility/
+access. Reviewers are available and corpus URLs supplied. No new credential or
+environment decision is required for T5 engineering. Laptop measurement comes
+with T6; real-corpus/golden-set and launch evidence remain shared prerequisites.
+
 The user reports attorney and Sinhala reviewers are available. This records
 availability, not approval. Keep all launch flags closed and all 12 safety
 templates UNREVIEWED until the actual reviews are recorded. No reviewer names,

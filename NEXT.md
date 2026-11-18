@@ -28,6 +28,12 @@ regional locations, 324 offline tests and 221 safety tests. See
 `docs/turn-logs/T4-referrals.md`. Regional phone fields and two specialist urgent
 routes remain withheld; source-listing verification does not approve public use.
 
+T5 adds source-revalidated extractive answers, version/language/text-bound gloss
+approvals, a bounded API, Sinhala-first UI and an offline synthetic review packet.
+Verification passes 378 offline tests and 269 safety tests. Local Chromium checks
+passed; these do not establish legal/language approval. See `docs/turn-logs/T5.md`
+and annotated `t5-answers` for delivery evidence.
+
 ## Source and corpus follow-up
 
 1. Use both the T2 inventory and the user's supplied `nuuuwan` Supreme Court,
@@ -83,12 +89,18 @@ routes remain withheld; source-listing verification does not approve public use.
    and Singlish. Current multilingual seeds and obfuscation tests establish
    deterministic examples only. Tamil/Singlish non-urgent navigation abstains.
 
-## T5 — Assembly and interface
+## T5 external review and real-source follow-up
 
-1. Implement verbatim rendering with complete provenance and staleness warnings.
-2. Add version-bound gloss schema and UNREVIEWED synthetic seeds. Only reviewed
-   glosses may be displayed. Missing glosses use text and professional referral.
-3. Add bounded API endpoints, minimal Sinhala-first UI and API safety tests.
+1. Review the packet: `make review-packet`, then open `.local/t5-review.html`.
+   Four gloss seeds are invented and UNREVIEWED. Reviewing them approves no real
+   law. Review all 12 fixed safety messages and Sinhala/English UI labels too.
+2. Supply real glosses with exact acquisition/chunk, source revision/language/hash,
+   display language, actual review dates/evidence reference and gloss-text checksum.
+   Unreviewed, changed or mismatched glosses stay hidden. Missing glosses retain
+   original text plus the professional-referral path.
+3. Keep public navigation closed until the full launch gate passes. Real corpus
+   rights/quality/source status, threshold calibration, reviews and full runtime
+   privacy/egress evidence remain pending alongside the existing T4 review tasks.
 
 ## T6 — Local model contract
 

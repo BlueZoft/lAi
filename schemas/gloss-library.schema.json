@@ -1,0 +1,165 @@
+{
+  "$defs": {
+    "Gloss": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "chunk_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "source_record_id": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Record Id",
+          "type": "string"
+        },
+        "source_revision": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Source Revision",
+          "type": "string"
+        },
+        "source_language": {
+          "enum": [
+            "en",
+            "si",
+            "ta"
+          ],
+          "title": "Source Language",
+          "type": "string"
+        },
+        "section_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Section Sha256",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "si"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "scope": {
+          "const": "procedural_explanation",
+          "default": "procedural_explanation",
+          "title": "Scope",
+          "type": "string"
+        },
+        "review_status": {
+          "default": "UNREVIEWED",
+          "enum": [
+            "UNREVIEWED",
+            "APPROVED"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "attorney_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attorney Reviewed On"
+        },
+        "language_reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language Reviewed On"
+        },
+        "review_evidence_ref": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Review Evidence Ref"
+        },
+        "reviewed_text_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed Text Sha256"
+        }
+      },
+      "required": [
+        "id",
+        "chunk_id",
+        "source_record_id",
+        "source_revision",
+        "source_language",
+        "section_sha256",
+        "language",
+        "text"
+      ],
+      "title": "Gloss",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "revision": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Revision",
+      "type": "string"
+    },
+    "glosses": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Gloss"
+      },
+      "title": "Glosses",
+      "type": "array"
+    }
+  },
+  "required": [
+    "revision"
+  ],
+  "title": "GlossLibrary",
+  "type": "object"
+}

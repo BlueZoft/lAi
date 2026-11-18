@@ -1,0 +1,155 @@
+{
+  "schema_version": "1",
+  "status": "candidates",
+  "language": "en",
+  "as_of": "2026-11-19",
+  "decision": {
+    "rules_version": "1",
+    "action": "navigate",
+    "urgency": [],
+    "domains": [
+      "procedural_administrative"
+    ],
+    "limitation_warning": false,
+    "reasons": [
+      "private_procedural_navigation"
+    ],
+    "template_ids": [
+      "extractive",
+      "professional"
+    ],
+    "referral_kinds": []
+  },
+  "messages": [
+    "SYNTHETIC reviewed fixture extractive en",
+    "SYNTHETIC reviewed fixture professional en"
+  ],
+  "provisions": [
+    {
+      "candidate": {
+        "chunk_id": "1b752dfe407d5544536dc29dc90c9accfc4905f3d8699561bf15a7d3bbfffa0e",
+        "text": "3. The example catalogue can display several invented entries with complete source anchors.\n   This section is synthetic and must never be presented as an actual law.",
+        "citation": {
+          "record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+          "instrument_type": "act",
+          "instrument_id": "synthetic-office-instrument",
+          "number": "SYNTHETIC-A",
+          "year": 2099,
+          "section": "3",
+          "language": "en",
+          "source_url": "https://example.invalid/synthetic-act",
+          "canonical_url": null,
+          "retrieved_at": "2026-11-18T00:00:00Z",
+          "source_revision": "synthetic-revision-1",
+          "raw_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "text_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "section_sha256": "3e39fc5dbcba3b13244a1ba8258ad61bfc1f885565853cbfa36cf3dbf04c9908",
+          "start": 496,
+          "end": 662,
+          "amendment_status": "unknown",
+          "commencement_status": "unknown",
+          "staleness_warnings": [
+            "coverage_unverified",
+            "legal_currency_unverified"
+          ]
+        },
+        "dense_similarity": 0.1386750490563073,
+        "sparse_score": 1.0,
+        "fusion_score": 0.03252247488101534
+      },
+      "gloss": {
+        "id": "synthetic-reviewed-en",
+        "chunk_id": "1b752dfe407d5544536dc29dc90c9accfc4905f3d8699561bf15a7d3bbfffa0e",
+        "source_record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+        "source_revision": "synthetic-revision-1",
+        "source_language": "en",
+        "section_sha256": "3e39fc5dbcba3b13244a1ba8258ad61bfc1f885565853cbfa36cf3dbf04c9908",
+        "language": "en",
+        "text": "SYNTHETIC reviewed explanation",
+        "scope": "procedural_explanation",
+        "review_status": "APPROVED",
+        "attorney_reviewed_on": "2026-11-19",
+        "language_reviewed_on": "2026-11-19",
+        "review_evidence_ref": "synthetic-review-only",
+        "reviewed_text_sha256": "d2c4f5469c0b1c6c91587ee21a93a1738ba840386320ee47afebfa1dabebf05f"
+      },
+      "explanation_status": "reviewed"
+    },
+    {
+      "candidate": {
+        "chunk_id": "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc",
+        "text": "1. The synthetic office keeps an invented catalogue of example forms for testing software.\n   (1) Each example entry uses invented identifiers and contains no personal information.",
+        "citation": {
+          "record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+          "instrument_type": "act",
+          "instrument_id": "synthetic-office-instrument",
+          "number": "SYNTHETIC-A",
+          "year": 2099,
+          "section": "1",
+          "language": "en",
+          "source_url": "https://example.invalid/synthetic-act",
+          "canonical_url": null,
+          "retrieved_at": "2026-11-18T00:00:00Z",
+          "source_revision": "synthetic-revision-1",
+          "raw_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "text_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "section_sha256": "48916ad5dc56fcd023a3993cd39e482e3556d32c6640b5eb3ed6e712a196a57c",
+          "start": 126,
+          "end": 306,
+          "amendment_status": "unknown",
+          "commencement_status": "unknown",
+          "staleness_warnings": [
+            "coverage_unverified",
+            "legal_currency_unverified"
+          ]
+        },
+        "dense_similarity": 0.12500000000000003,
+        "sparse_score": 1.0,
+        "fusion_score": 0.032266458495966696
+      },
+      "gloss": null,
+      "explanation_status": "text_and_referral"
+    },
+    {
+      "candidate": {
+        "chunk_id": "3b2d0abf08f45362ab2a503992da80d40b402c3ab7b41f1d7e990be14851bef2",
+        "text": "2. The invented catalogue records the example document language and its source reference.\n   (1) This fixture states no real procedure, fee, right or deadline.",
+        "citation": {
+          "record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+          "instrument_type": "act",
+          "instrument_id": "synthetic-office-instrument",
+          "number": "SYNTHETIC-A",
+          "year": 2099,
+          "section": "2",
+          "language": "en",
+          "source_url": "https://example.invalid/synthetic-act",
+          "canonical_url": null,
+          "retrieved_at": "2026-11-18T00:00:00Z",
+          "source_revision": "synthetic-revision-1",
+          "raw_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "text_sha256": "1dc5a793103c6454f10ec28ba70cd0872b7c69485608eababcdc3c2cec2da4eb",
+          "section_sha256": "5a17ee3d75b7f19ead684f5e78cc448db3f0f666fc4496647dae3acc4ad05572",
+          "start": 308,
+          "end": 467,
+          "amendment_status": "unknown",
+          "commencement_status": "unknown",
+          "staleness_warnings": [
+            "coverage_unverified",
+            "legal_currency_unverified"
+          ]
+        },
+        "dense_similarity": 0.1386750490563073,
+        "sparse_score": 1.0,
+        "fusion_score": 0.03200204813108039
+      },
+      "gloss": null,
+      "explanation_status": "text_and_referral"
+    }
+  ],
+  "referrals": [],
+  "warnings": [
+    "referral_unavailable",
+    "reviewed_gloss_unavailable",
+    "thresholds_unvalidated"
+  ]
+}

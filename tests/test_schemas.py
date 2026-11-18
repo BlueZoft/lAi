@@ -5,6 +5,7 @@ import pytest
 from jsonschema import Draft202012Validator, ValidationError
 from pydantic import BaseModel
 
+from lai.answers.contracts import AnswerDocument, AnswerRequest, GlossLibrary
 from lai.corpus.graph import VersionGraph
 from lai.corpus.models import IngestionRecord, SourceManifest
 from lai.retrieval.evaluation import EvaluationDataset
@@ -52,6 +53,9 @@ def test_schema_rejects_malformed_evidence(invalid: dict[str, object]) -> None:
         ("navigation-outcome", NavigationOutcome),
         ("referral-register", ReferralRegister),
         ("safety-templates", SafetyTemplates),
+        ("answer-request", AnswerRequest),
+        ("answer-document", AnswerDocument),
+        ("gloss-library", GlossLibrary),
     ],
 )
 def test_corpus_schemas_match_typed_contracts(

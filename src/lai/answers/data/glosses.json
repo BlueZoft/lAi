@@ -1,0 +1,70 @@
+{
+  "schema_version": "1",
+  "revision": "t5-synthetic-unreviewed-1",
+  "glosses": [
+    {
+      "id": "synthetic-1-en",
+      "chunk_id": "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc",
+      "source_record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+      "source_revision": "synthetic-revision-1",
+      "source_language": "en",
+      "section_sha256": "48916ad5dc56fcd023a3993cd39e482e3556d32c6640b5eb3ed6e712a196a57c",
+      "language": "en",
+      "text": "UNREVIEWED SYNTHETIC: This invented section describes a sample catalogue entry.",
+      "scope": "procedural_explanation",
+      "review_status": "UNREVIEWED",
+      "attorney_reviewed_on": null,
+      "language_reviewed_on": null,
+      "review_evidence_ref": null,
+      "reviewed_text_sha256": null
+    },
+    {
+      "id": "synthetic-1-si",
+      "chunk_id": "15b1424fff6697a67c0ad6cb49dfa5486438823cae71b81df9556ad06839c2dc",
+      "source_record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+      "source_revision": "synthetic-revision-1",
+      "source_language": "en",
+      "section_sha256": "48916ad5dc56fcd023a3993cd39e482e3556d32c6640b5eb3ed6e712a196a57c",
+      "language": "si",
+      "text": "UNREVIEWED SYNTHETIC: මෙම කෘත්‍රිම කොටස ආදර්ශ ලේඛනයක් පිළිබඳවයි.",
+      "scope": "procedural_explanation",
+      "review_status": "UNREVIEWED",
+      "attorney_reviewed_on": null,
+      "language_reviewed_on": null,
+      "review_evidence_ref": null,
+      "reviewed_text_sha256": null
+    },
+    {
+      "id": "synthetic-2-en",
+      "chunk_id": "3b2d0abf08f45362ab2a503992da80d40b402c3ab7b41f1d7e990be14851bef2",
+      "source_record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+      "source_revision": "synthetic-revision-1",
+      "source_language": "en",
+      "section_sha256": "5a17ee3d75b7f19ead684f5e78cc448db3f0f666fc4496647dae3acc4ad05572",
+      "language": "en",
+      "text": "UNREVIEWED SYNTHETIC: This invented section describes a sample catalogue entry.",
+      "scope": "procedural_explanation",
+      "review_status": "UNREVIEWED",
+      "attorney_reviewed_on": null,
+      "language_reviewed_on": null,
+      "review_evidence_ref": null,
+      "reviewed_text_sha256": null
+    },
+    {
+      "id": "synthetic-2-si",
+      "chunk_id": "3b2d0abf08f45362ab2a503992da80d40b402c3ab7b41f1d7e990be14851bef2",
+      "source_record_id": "d26f67eb4201d7589dee2c498592d9fa6b0d606bdd063d0168d25ade795eed13",
+      "source_revision": "synthetic-revision-1",
+      "source_language": "en",
+      "section_sha256": "5a17ee3d75b7f19ead684f5e78cc448db3f0f666fc4496647dae3acc4ad05572",
+      "language": "si",
+      "text": "UNREVIEWED SYNTHETIC: මෙම කෘත්‍රිම කොටස ආදර්ශ ලේඛනයක් පිළිබඳවයි.",
+      "scope": "procedural_explanation",
+      "review_status": "UNREVIEWED",
+      "attorney_reviewed_on": null,
+      "language_reviewed_on": null,
+      "review_evidence_ref": null,
+      "reviewed_text_sha256": null
+    }
+  ]
+}
