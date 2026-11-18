@@ -13,8 +13,10 @@ clearly non-authoritative and referral-first.**
 T4 adds default-closed deterministic triage before the existing private retrieval,
 with urgent escalation, forbidden-advice refusal and limitation flags. The HTTP
 API exposes health while T5 assembly is pending. Bilingual safety copy is
-UNREVIEWED. Referral verification is blocked by official-site network access;
-no active contact details are supplied. Actual model quality and legal recall
+UNREVIEWED. The referral register now contains 91 checked publisher listings,
+including 84 regional locations. Ambiguous regional phone fields and two
+specialist urgent routes remain withheld. Listing verification does not establish
+live availability or approve public display. Actual model quality and legal recall
 remain UNVERIFIED. Every release
 gate starts closed. GitHub's repository page reported the repository as public
 during T1. Recommend making it private until the T8 gate passes, because unfinished
@@ -89,9 +91,11 @@ text and offer a professional referral. Deterministic triage runs first and can
 stop retrieval. Model output never decides escalation or generates legal advice.
 
 Start with administrative navigation. Dangerous matters require escalation.
-Legal claims and contact numbers await primary-source verification. The
-inventory records observed upstream counts and extraction limits. Your own
-legal-document repository URLs remain UNVERIFIED pending identification.
+Legal applicability and remaining contact gaps need primary evidence and review. The
+inventory records observed upstream counts and extraction limits. The supplied
+Supreme Court, Appeal Court and Acts repository links are reconciled with T2;
+verified official publishers govern conflicts. See the referral report for the
+remaining source and reviewer tasks.
 
 - Read [the architecture](docs/architecture.md), [decisions](DECISIONS.md) and
   [contributor rules](AGENTS.md).
@@ -99,7 +103,8 @@ legal-document repository URLs remain UNVERIFIED pending identification.
   [corpus gaps](docs/corpus-gaps.md).
 - Inspect [the corpus inventory](docs/corpus-inventory.md),
   [intake guide](docs/corpus-intake.md), [retrieval guide](docs/retrieval.md),
-  [safety guide](docs/safety.md), [T4 evidence](docs/turn-logs/T4.md) and
+  [safety guide](docs/safety.md), [T4 evidence](docs/turn-logs/T4.md),
+  [referral verification](docs/referral-verification.md) and
   [source verification register](docs/source-verification.md).
 
 The implementation uses Apache-2.0 for straightforward institutional reuse.

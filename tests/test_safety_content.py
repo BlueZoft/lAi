@@ -28,10 +28,12 @@ def synthetic_verified() -> dict[str, object]:
         "source_sha256": "0" * 64,
         "verification_method": "primary_source_inspection",
         "service_description": "SYNTHETIC metadata for validator testing only",
+        "channel": "general_office",
+        "cautions": ["published_listing_only"],
     }
 
 
-def test_pending_register_withholds_all_contact_details() -> None:
+def test_register_distinguishes_listings_and_pending_specialist_routes() -> None:
     register = load_referrals()
     assert {item.kind for item in register.records} == {
         "legal_aid",
@@ -39,17 +41,25 @@ def test_pending_register_withholds_all_contact_details() -> None:
         "emergency",
         "attorney_review",
     }
-    assert all(item.status == "UNVERIFIED" and item.blocker for item in register.records)
-    assert not active_referrals(("legal_aid", "regional", "emergency", "attorney_review"), AS_OF)
+    assert len(register.records) == 93
+    assert sum(item.status == "VERIFIED" for item in register.records) == 91
+    observed = date(2026, 11, 19)
+    assert len(active_referrals(("legal_aid", "attorney_review"), observed)) == 2
+    assert not active_referrals(("emergency",), observed)
+    assert not active_referrals(("emergency",), observed, urgency=("unlawful_detention",))
+    assert not active_referrals(("emergency",), observed, urgency=("imminent_destitution",))
     for item in register.records:
-        assert not any(
-            (item.address, item.phone, item.hours, item.region, item.service_description)
-        )
+        if item.status == "UNVERIFIED":
+            assert item.blocker and not any(
+                (item.address, item.phone, item.hours, item.region, item.service_description)
+            )
 
 
 @pytest.mark.parametrize("field", ["phone", "address", "region", "hours", "service_description"])
 def test_unverified_record_cannot_smuggle_contact_details(field: str) -> None:
-    pending = load_referrals().records[0].model_dump(mode="json")
+    pending = next(
+        item for item in load_referrals().records if item.status == "UNVERIFIED"
+    ).model_dump(mode="json")
     pending[field] = "SYNTHETIC withheld detail"
     with pytest.raises(ValidationError):
         Referral.model_validate_json(json.dumps(pending))
@@ -100,6 +110,32 @@ def test_all_fixed_templates_are_present_in_both_languages_and_unreviewed() -> N
         if item.id == "limitation" and item.language == "en"
     )
     assert "may already have expired" in limitation and "now" in limitation
+
+
+def test_regional_evidence_withholds_ambiguous_phones_and_filters_localities() -> None:
+    observed = date(2026, 11, 19)
+    regions = active_referrals(("regional",), observed)
+    assert len(regions) == 84
+    assert all(item.address and item.directory_sha256 and item.directory_url for item in regions)
+    assert all(item.phone is None and not item.additional_phones for item in regions)
+    assert all("regional_phone_withheld" in item.cautions for item in regions)
+    assert len(active_referrals(("regional",), observed, region="kandy")) == 1
+    assert not active_referrals(("regional",), observed, region="SYNTHETIC unsupported area")
+
+
+def test_emergency_services_are_scoped_and_expire_separately() -> None:
+    observed = date(2026, 11, 19)
+    child = active_referrals(("emergency",), observed, urgency=("child_protection",))
+    assert {item.id for item in child} == {
+        "police-emergency-119",
+        "police-women-children-109",
+        "ncpa-childline-1929",
+    }
+    mental = active_referrals(("emergency",), observed, urgency=("self_harm",))
+    assert {item.channel for item in mental} == {"mental_health_support", "emergency_response"}
+    assert not active_referrals(("emergency",), date(2026, 12, 4), urgency=("self_harm",))
+    assert not any(item.organisation.startswith("Sri Lanka Police") for item in mental)
+    assert all("availability_not_call_tested" in item.cautions for item in (*child, *mental))
 
 
 @pytest.mark.parametrize(

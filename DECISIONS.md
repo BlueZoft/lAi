@@ -276,6 +276,32 @@ provisional engineering maximum. Current contacts, regional counters, emergency
 routes and the attorney-review route remain explicitly UNVERIFIED. This external
 T4 work must resume after settings application; it is not completed by schema tests.
 
+## ADR-0017 — Publisher-bound listings and scoped emergency selection
+
+Accepted on 19 November 2026; follows ADR-0016's resolved access prerequisite.
+
+Use the responsible publisher's inspected page for contact fields. The Commission
+contact page governs over conflicting older Ministry contacts. Preserve the
+Commission-to-map authority link and both hashes for regional locations. Withhold
+regional phones because scientific-notation fields and a head-office fax mismatch
+do not establish trustworthy telephone contacts. The linked blank PDF supplies no
+usable directory evidence. BASL remains a general-office enquiry route with no
+inferred review/referral programme commitment.
+
+Version 2 adds channels, cautions, extra published phones, directory evidence and
+urgent categories. Emergency selection requires a matching urgency; complaints,
+support and medical response remain distinct. No police channel is automatically
+selected for detention or self-harm. Keep two specialist urgent routes pending.
+Listing checks establish published metadata, not availability, safeguarding
+suitability, representation or display approval. Use provisional 30-day general
+and 14-day emergency rechecks within the existing 90-day maximum. Raw artefacts
+remain outside Git; byte/field auditing is separate from manual scope inspection.
+
+Use the user's corpus links alongside T2, deduplicating the repeated URL. Verified
+official publishers govern conflicts; retain mirror provenance and investigate
+different versions rather than silently consolidating them. Reviewer availability
+does not set approval flags. Provide a concrete reviewer handoff.
+
 ## Changes from the brief
 
 The repository already has an initial README commit, so preserve that history.

@@ -4,6 +4,53 @@ Observed on 18 November 2026 through public GitHub HTML, pinned raw files and
 native read-only Git requests. Repository commits and content hashes below
 identify the inspected snapshots. Real source bodies remain outside Git.
 
+The opening sections preserve T2's observations. The 19 November follow-up below
+records the user's supplied links and resolves the previously missing selection.
+
+## Supplied-source reconciliation — 19 November 2026
+
+The user supplied Supreme Court, Appeal Court and Acts repositories under
+`nuuuwan`, repeating the Supreme Court URL. These are three distinct selections,
+combined with T2's index/pipeline inventory. The user explicitly directed that
+official publishers govern conflicts. Mirrors remain acquisition sources;
+different bytes/versions require investigation, not silent consolidation.
+
+| Supplied repository | Observed main HEAD | Data branch / relation to T2 |
+| --- | --- | --- |
+| [lk_supreme_court_judgements](https://github.com/nuuuwan/lk_supreme_court_judgements) | `a3b3618a5b4485e8a4bb83fa7dd136e2e1346024` | `data`: `dd3d2b605e94e67ddbc61c51f8bbc68d324e12cb`; README reports 2,729 documents/1.7 GB, matching T2's reported index total |
+| [lk_appeal_court_judgements](https://github.com/nuuuwan/lk_appeal_court_judgements) | `67c092cd2c786ac1a82cad22463eb3c4d7a829cb` | `data`: `1a081fe4c1bfefd0d628d11deab15005952c413c`; README reports 18,827 documents/14.1 GB, matching T2's reported index total |
+| [lk_acts](https://github.com/nuuuwan/lk_acts) | `d62c23c744fc4b5aaddbb08da70d1bc94cc74d6e` | Same pipeline commit inspected in T2; `lk_acts_data` remains a different layout from `lk_legal_docs/data_lk_acts` |
+
+These court totals were read from pinned READMEs, not recounted from the complete
+corpora. No judgment PDF, case text or party data was downloaded here. Both court
+code licences contain MIT text (SHA-256
+`48c61df00681372cdd1bc8246dc25015c81d14c5e9e664273a5dc09e6b91a442`).
+Original judicial-publication rights remain separate and UNVERIFIED. README
+hashes are `99f6a82dfcbc58f27e4266f64c4e98a0b5e3704df56ebebaf77ca99fcf507650`
+(Supreme Court) and `bbdadefbf76c81613ec8b96b6950590a1c0292ae9188202cdfeee6f6949f302a`
+(Appeal Court).
+
+The READMEs identify `https://supremecourt.lk` and `https://courtofappeal.lk`
+as publishers. Supreme Court apex and `www` roots returned HTTP 403; the Appeal
+Court root returned 200. Reachability establishes no judgment's authenticity,
+extraction fidelity, rights or legal effect. No mirror/official equivalence was
+verified. Official-source reconciliation remains required before legal display.
+
+Public GitHub API account searches for legal, judgement, acts, gazette, bills
+and hansard found the supplied repositories plus `lk_legal_docs`,
+`lk_legal_docs_app`, `lk_acts_data`, `lk_acts_2022`, `lk_acts_app_2022`,
+`lk_acts_simple_2023`, `lk_hansard` and `hansard_lk_2021`. App/legacy names are
+discovery leads, not approved canonical corpora. Existing T2 index/pipeline
+observations are reused. Zero name-search hits for bills/gazettes establish no
+absence: T2's central index exposes legal datasets through collection branches.
+This bounded search is not an exhaustive audit of nested account contents.
+
+Pinned READMEs, licence text and search metadata remain ignored under
+`data/research/inventory/2026-11-19/`. Further ingestion requires T2 provenance,
+quality, deduplication and version checks, judgment-data minimisation, official
+source reconciliation and rights/review evidence. The user reports reviewers
+are available; no review or launch approval was inferred.
+
 ## Maintainer repositories
 
 The public repository listing exposed eleven repositories. Their root trees and
@@ -29,7 +76,8 @@ was written. No absent credential was inferred from that missing information.
 | lAi | `c36b4cb2a2356276abce0ef19fb5e6626996ee06` | 18 |
 
 This table records public discovery scope. Maintainer corpus selection remains
-pending. [Public repository listing](https://github.com/BlueZoft?tab=repositories)
+pending at T2; see the follow-up below for the user's later selection.
+[Public repository listing](https://github.com/BlueZoft?tab=repositories)
 
 ## Dataset index and coverage
 

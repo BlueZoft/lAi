@@ -143,7 +143,7 @@
         "phone": {
           "anyOf": [
             {
-              "pattern": "^\\+?[0-9 ()-]{3,30}$",
+              "pattern": "^\\+?[0-9][0-9 ()-]{1,28}[0-9]$",
               "type": "string"
             },
             {
@@ -152,6 +152,15 @@
           ],
           "default": null,
           "title": "Phone"
+        },
+        "additional_phones": {
+          "default": [],
+          "items": {
+            "pattern": "^\\+?[0-9][0-9 ()-]{1,28}[0-9]$",
+            "type": "string"
+          },
+          "title": "Additional Phones",
+          "type": "array"
         },
         "hours": {
           "anyOf": [
@@ -164,6 +173,84 @@
           ],
           "default": null,
           "title": "Hours"
+        },
+        "channel": {
+          "anyOf": [
+            {
+              "enum": [
+                "general_office",
+                "regional_counter",
+                "emergency_response",
+                "complaints",
+                "specialist_support",
+                "mental_health_support"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Channel"
+        },
+        "urgent_categories": {
+          "default": [],
+          "items": {
+            "enum": [
+              "domestic_violence",
+              "child_protection",
+              "sexual_violence",
+              "unlawful_detention",
+              "imminent_destitution",
+              "self_harm"
+            ],
+            "type": "string"
+          },
+          "title": "Urgent Categories",
+          "type": "array"
+        },
+        "cautions": {
+          "default": [],
+          "items": {
+            "enum": [
+              "published_listing_only",
+              "availability_not_call_tested",
+              "regional_phone_withheld",
+              "general_office_only",
+              "no_review_commitment",
+              "complaints_not_emergency_response",
+              "directory_text_has_repetition"
+            ],
+            "type": "string"
+          },
+          "title": "Cautions",
+          "type": "array"
+        },
+        "directory_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Directory Url"
+        },
+        "directory_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Directory Sha256"
         }
       },
       "required": [
@@ -180,8 +267,8 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "const": "1",
-      "default": "1",
+      "const": "2",
+      "default": "2",
       "title": "Schema Version",
       "type": "string"
     },

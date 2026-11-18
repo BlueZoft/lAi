@@ -86,16 +86,18 @@ assertions; independent review evidence and launch approval are still required.
 
 ## Referral evidence and expiry
 
-`src/lai/triage/data/referrals.json` records four pending kinds: Legal Aid
-Commission, regional counters, emergency routes and the Bar Association route
-to attorney review. Initial HTTPS requests to the three research-target domains
-failed with CONNECT 403. The user approved six host grants, which are saved as a
-draft; application and primary-source inspection remain prerequisites.
+The version-2 register contains 91 publisher listings checked on 19 November
+2026: the Commission head office, 84 regional locations, BASL's general office
+and five scoped emergency/support channels. Two specialist urgent routes remain
+UNVERIFIED. Pending records cannot contain contact/service details. Regional
+phones are withheld because the publisher's map data is ambiguous. See
+`referral-verification.md` for exact sources, hashes, conflicts and limits.
 
-There are no verified active records. Pending records cannot contain a phone,
-address, hours, region or service description. They store the attempted date and
-blocker. Do not infer free representation, eligibility, emergency availability,
-a regional location or a partnership from their organisation labels or URLs.
+`active_referrals` requires an explicit matching urgency to return emergency
+records. A complaints channel, mental-health helpline and ambulance service
+remain distinct through their channel labels. No police record is automatically
+selected for unlawful detention or self-harm. A regional filter matches the
+published locality label; it does not establish a legal catchment area.
 
 To activate a record after access is available:
 
@@ -105,25 +107,38 @@ To activate a record after access is available:
 2. Preserve the evidence outside Git and record its SHA-256, exact source URL,
    inspected date and `primary_source_inspection` method. Record contact/service
    scope exactly. Review contradictions before using any field.
-3. Set `VERIFIED` and a review due date within at most 90 days. This is a
-   provisional engineering expiry, not an availability guarantee. Use shorter
-   periods where needed. Add specific emergency primary hosts only after review.
+3. Set `VERIFIED` and a review due date within at most 90 days. The present
+   general/directory listings use 30 days and emergency channels use 14 days.
+   These provisional engineering intervals do not guarantee availability.
 4. Run `make verify`. `active_referrals` excludes unverified, future and expired
    records and filters requested kinds. It performs no runtime network fetch.
 5. Obtain the required attorney/safeguarding and product review before display.
 
-The allowlist checks target Ministry/Commission hosts for general referrals and
-Bar Association hosts for the review route. A hostname alone never proves source
-content or a current service. Actual phone reachability was not tested. No
-institution was contacted. Publication/visibility changes remain outside T4.
+Allowed primary hosts are scoped by referral kind, including the Police, NCPA,
+NIMH and Suwa Seriya for emergency/support listings. Regional records bind the
+Commission contact page to its linked map export with both content hashes.
+No runtime fetch occurs. Actual telephone reachability, individual eligibility
+and public-copy approval remain unverified. No institution was contacted.
+
+After explicitly acquiring source artefacts outside Git, run the offline audit:
+
+```sh
+uv --cache-dir .local/uv-cache run --frozen --offline python \
+  scripts/check_referral_evidence.py --directory data/research/referrals/2026-11-19
+```
+
+It verifies stored hashes, source/date bindings, telephone strings, exact regional
+addresses and the publisher-to-map link. Human source inspection still determines
+service scope and hours; the audit is not a live availability or legal review.
 
 ## Executed checks and limits
 
-T4 verification passed 318 offline tests with the database stopped. The 215 safety
+The T4 follow-up passed 324 offline tests. The 221 safety
 tests include all six urgency classes in four language seed groups, adversarial
 formatting/override attempts, malformed requests, explicit flags, forbidden
 advice, limitation flags, gated domains, downstream exceptions, template review
 and referral expiry. Independent spies cover entry, analysis, model and retrieval.
 A permitted private path exercises those spies; a separate integration test uses
 the real T3 retriever with synthetic sources. All service/hardware tests remain
-excluded. See `turn-logs/T4.md` for commands, failures and delivery receipts.
+excluded. See `turn-logs/T4.md` and `turn-logs/T4-referrals.md` for actual commands,
+failures and delivery receipts.

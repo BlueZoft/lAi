@@ -2,9 +2,9 @@
 
 The table preserves the project brief's research inputs and their T1 verification
 requirements. T2 metadata observations below update the dataset discovery and
-counts. Legal status, contact details and legal retrieval performance remain
-UNVERIFIED. Nothing here authorises display as verified law or an accurate
-contact directory.
+counts. Legal status and retrieval performance remain UNVERIFIED. The follow-up
+below records checked publisher contact listings with explicit limits. Nothing
+here authorises display as verified law or guarantees a contact's availability.
 Future checks must record source, inspected content, date and reviewer role.
 Verified legal claims use `[PERISHABLE: verified YYYY-MM]` after that check.
 
@@ -70,3 +70,29 @@ Association review/referral service remain UNVERIFIED. No partnership is asserte
 dates and blockers. These are excluded by `active_referrals`. There are no active
 phone numbers, addresses, hours or regional-service claims. See `docs/safety.md`
 for the evidence/expiry contract and the remaining primary-source procedure.
+
+## T4 referral follow-up — 19 November 2026
+
+The user's published environment is a different instance, observed with current,
+enforced unrestricted networking. The prior destination-policy blocker is
+resolved for the Ministry, Commission, BASL and inspected emergency publishers.
+No environment configuration change or publication was performed by the agent.
+
+S09 now has directly inspected listing evidence: the Commission contact page,
+its publisher-linked 85-entry map (84 regional locations plus head office), and
+the Ministry's Commission page. Regional phones are withheld because map values
+use scientific notation and the head-office map value matches a fax. The
+Ministry's older contacts/count/income threshold do not establish current
+eligibility. Source bytes, exact links and hashes are recorded in
+`referral-verification.md`; live access/eligibility remain UNVERIFIED.
+
+S10 has a checked BASL general-office listing. A dedicated attorney review/
+referral programme or partnership commitment was not established. Police, NCPA,
+NIMH and Suwa Seriya pages supply five distinct scoped emergency/support records.
+Specialist urgent routes for detention and destitution remain UNVERIFIED pending
+safeguarding review. No telephone call, email or institution outreach was made.
+
+The user supplied three distinct corpus repository URLs and instructed use of
+both those links and T2, with official publishers governing conflicts. See the
+dated inventory reconciliation. Reviewer availability was confirmed by the user;
+actual reviews, template approvals and all launch flags remain pending.

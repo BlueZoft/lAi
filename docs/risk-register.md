@@ -29,5 +29,7 @@ validation for real user scenarios has been completed.
 T4 adds executed spy tests for R01/R02 and review/expiry gates for R08/R12.
 All risks remain OPEN. Lexical coverage has unmeasured false negatives and false
 positives; fixed Sinhala/English copy has no completed human review; official
-referral verification is blocked by live network access. Navigation and public
-release remain disabled. See `safety.md` and `turn-logs/T4.md` for evidence.
+the initial network blocker was resolved in the 19 November follow-up. Regional
+phone ambiguity, specialist urgent-route gaps and service availability remain
+unresolved. Navigation and public release remain disabled. See `safety.md` and
+`turn-logs/T4-referrals.md` for the current evidence.

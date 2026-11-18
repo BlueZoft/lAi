@@ -22,19 +22,24 @@ T4 implements deterministic safety routing, all six urgent classes, forbidden
 advice/limitation flags, strict contracts, review-gated bilingual copy and an
 expiry-gated referral register. Verification passes 318 offline tests, including
 215 safety tests. See `docs/turn-logs/T4.md` and the `t4-safety` tag receipt.
-Official referral verification remains blocked; the register has no active
-contacts. This is an explicit incomplete T4 external prerequisite.
+The original network blocker was resolved by the user's published environment.
+The `t4-referrals` follow-up records 91 checked publisher listings, including 84
+regional locations, 324 offline tests and 221 safety tests. See
+`docs/turn-logs/T4-referrals.md`. Regional phone fields and two specialist urgent
+routes remain withheld; source-listing verification does not approve public use.
 
 ## Source and corpus follow-up
 
-1. Obtain the maintainer's actual legal-document repository URLs. Eleven public
-   repository roots/READMEs were inspected, and no corpus was identified there.
-   Private/unlisted and nested corpus contents remain UNVERIFIED. A question is
-   pending. Add the identified sources to the inventory before selecting them.
+1. Use both the T2 inventory and the user's supplied `nuuuwan` Supreme Court,
+   Appeal Court and Acts links, deduplicating the repeated Supreme Court URL.
+   The 19 November follow-up identifies their branches/licences and additional
+   account repositories. Verify official source bytes before legal display;
+   official publishers govern conflicts. Never silently merge differing versions.
 2. Inspect official publisher content and original PDF terms when access is
-   available. Current requests to `documents.gov.lk` and `huggingface.co` are
-   blocked by destination policy. GitHub's API is also blocked, while HTML/raw/Git
-   routes work. Full mirror equivalence and rights remain UNVERIFIED.
+   available. GitHub API searches now work in the new unrestricted environment.
+   The Supreme Court apex and `www` roots returned HTTP 403; the Appeal Court
+   root returned 200. Corpus equivalence/rights remain UNVERIFIED. Earlier T2
+   destination denials are historical, not evidence about every current host.
 3. On TARGET B, implement and measure upstream batch adapters, OCR and extraction
    reproducibility. Add verified legacy-font conversion only with source-aligned
    evidence. Sinhala/Tamil structural parsers and schedules remain unsupported.
@@ -58,18 +63,22 @@ contacts. This is an explicit incomplete T4 external prerequisite.
 
 ## T4 external verification and review follow-up
 
-1. Apply the user-approved six-domain network draft in environment settings.
-   Draft persistence does not establish live access. Recheck official sources:
-   `moj.gov.lk`, `legalaid.gov.lk` and `basl.lk`, plus their `www` forms.
-   Initial HTTPS requests were denied by destination policy (CONNECT 403).
-2. Verify Legal Aid Commission services, regional counters, emergency routes and
-   the Bar Association route to attorney review. Save dated primary-source
-   evidence, digest and review expiry in the versioned register before activating
-   details. No contact numbers, addresses, hours or service commitments are active.
-3. Obtain attorney/safeguarding and Sinhala language review of the taxonomy,
+1. Resolve regional directory source defects. The Commission-linked map has 85
+   entries including head office; all phone values use scientific notation, and
+   the head-office value matches the contact page's fax. The linked PDF renders
+   blank. Regional locations are retained; their phone fields are withheld.
+2. Have safeguarding/attorney reviewers establish suitable urgent routes for
+   unlawful detention and imminent destitution. General legal-aid enquiries are
+   not a verified 24-hour specialist service. Emergency selections are scoped;
+   police contacts are not automatically offered for detention or self-harm.
+3. The user reports reviewers are available. Record their actual attorney/
+   safeguarding and Sinhala language review of the taxonomy,
    rules and all 12 fixed templates. All copy remains UNREVIEWED and withheld by
    the approved-message selector. Negation/quotation deliberately does not cancel
    an urgent signal. Measure false negatives and positives on reviewed scenarios.
+   Use `docs/reviewer-handoff.md`; availability alone is not approval. Confirm
+   current eligibility, opening/access and appropriate contact channels. BASL is
+   a general-office enquiry route, with no verified review-service commitment.
 4. Expand measured language coverage, especially dialects, code-switching, Tamil
    and Singlish. Current multilingual seeds and obfuscation tests establish
    deterministic examples only. Tamil/Singlish non-urgent navigation abstains.
@@ -112,6 +121,6 @@ GitHub's repository page reports Public in T1. Recommend making the repository
 private until the launch gate passes. A maintainer must apply that visibility
 decision separately from this authorised code delivery.
 
-All attorney reviews, Sinhala review, source-status verification, laptop capacity
+All actual attorney reviews, Sinhala review, legal-source status, laptop capacity
 measurements, full legal-recall evaluation and institution engagement remain
 UNVERIFIED. Keep every public-launch evidence flag closed until supported.
