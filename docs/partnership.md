@@ -10,14 +10,15 @@ to validate scope, contact eligibility/access, regional routes, urgent alternati
 professional review and a manageable review cadence. BASL's checked listing is
 a general-office enquiry, not an agreed review programme.
 
-**Evidence boundary:** the brief's UNDP “Reimagining Legal Aid” hotline/digital
-intake within 12 months assertion remains UNVERIFIED. On 19 November, the official
-UNDP Sri Lanka home page was reachable; attempted `/srilanka/projects/jure`,
-`/srilanka/search?search_api_fulltext=legal%20aid` and the guessed press-release
-path were checked separately. Reachability and guessed URLs establish no
-programme, timetable or commitment. Retain attempted responses outside Git;
-obtain an actual dated primary publication and institutional confirmation before
-describing an integration as existing. No email/telephone/message was sent.
+**Evidence boundary:** the follow-up found the actual UNDP-published Legal Aid
+Dialogue report and summary, both listed on 12 July 2026. The summary's physical
+page 7 lists “launch legal aid hotline and digital intake system” under
+“Immediate (within 12 months)”. See [primary-source evidence and hashes](partnership-verification.md).
+This verifies a published reform priority, not a currently available service or
+an LAi integration commitment. Current implementation, operator/channel details
+and any agreement remain UNVERIFIED; no calendar launch deadline is inferred.
+Earlier unsuccessful URL attempts remain recorded in the T8 log. No
+email/telephone/message was sent, and no active referral record was changed.
 
 **Offer and ask:** demonstrate a closed synthetic prototype and its NO-GO
 ledger, then seek a small defined review pilot only after separate user approval

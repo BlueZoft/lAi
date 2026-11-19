@@ -20,7 +20,7 @@ Verified legal claims use `[PERISHABLE: verified YYYY-MM]` after that check.
 | S08 | Lawful basis/minimisation, section 11/Schedule V notice with automated-logic information, section 12 DPMP, section 20 DPO for specified processing, section 24 prior impact assessment, section 23 breaches, section 26 cross-border instruments | T7 primary-text mapping, DPIA/DPMP/notice/breach skeletons and questions for counsel. Do not assert compliance from this list |
 | S09 | Legal Aid Commission provides free advice and lawyers, with regional counters | T4 verify current service description, numbers and regional routes against Ministry/Commission sources, store versioned records |
 | S10 | Bar Association of Sri Lanka can provide a route to attorney review | Verify official referral/review approach and terms. No representation or partnership is implied |
-| S11 | UNDP Reimagining Legal Aid in Sri Lanka prioritises a hotline and digital intake within 12 months | T8 verify current programme/publication and write a conditional integration/partnership approach |
+| S11 | UNDP Reimagining Legal Aid in Sri Lanka prioritises a hotline and digital intake within 12 months | Follow-up verified the publication and recommendation wording; current implementation/LAi commitment remains UNVERIFIED. See `partnership-verification.md`. |
 
 Starting locations below are research leads. T1's network probe and any denials
 are recorded in the turn log. Reachability alone never verifies page content.
@@ -123,3 +123,20 @@ project/search/press-release paths returned 404. No inspected publication verifi
 the asserted programme, hotline/intake, 12-month timetable or commitment. See
 `partnership.md`. This bounded search does not establish that no programme exists.
 Cached responses remain outside Git. No institutional message was sent.
+
+## T8 partnership follow-up — 19 November 2026
+
+The publisher's actual site-search interface located the full report, summary
+and Dialogue press release. Their pages and linked PDFs were inspected, hashed
+and retained outside Git. The 12 July 2026 summary publication, physical PDF
+page 7, explicitly lists a legal aid hotline and digital intake system under
+“Immediate (within 12 months)” in its 2026–2028 priorities. That document-text
+observation is now verified; see `partnership-verification.md` for exact URLs,
+hashes, page references and limits.
+
+S11 is a published reform recommendation, not evidence of an operational system
+or an integration agreement. The implementation status, channels, permissions,
+eligibility and any commitment to LAi remain UNVERIFIED. No launch date, hotline
+number or partnership has been inferred. The earlier unsuccessful T8 search is
+historical and is superseded only for the newly evidenced publication wording.
+No referral/copy/launch approval, environment setting or visibility was changed.

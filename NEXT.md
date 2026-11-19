@@ -50,6 +50,17 @@ No public/DPIA/review flag was enabled. T8 private evaluation is next.
 Final local verification passes 499 offline tests and 379 safety tests; the
 synthetic drill restores all three invented rows and rejects damaged ciphertext.
 
+T8's engineering checkpoint is complete at `t8-evaluation` and
+`v0.0.0-prototype`, with 504 offline tests and 381 safety tests recorded. The user
+confirms the reviewed legal golden set is not yet available; review instructions
+are in `docs/evaluation.md`. Public use remains NO-GO.
+
+The subsequent partnership source follow-up verified the actual report/summary
+and the published hotline/digital-intake priority. See
+`docs/turn-logs/T8-partnership.md` and `docs/partnership-verification.md`.
+Current implementation and any LAi partnership remain UNVERIFIED. The original
+delivery tags and all review/launch flags are unchanged.
+
 ## Source and corpus follow-up
 
 1. Use both the T2 inventory and the user's supplied `nuuuwan` Supreme Court,
@@ -161,9 +172,10 @@ planning. The user confirms no reviewed legal set exists yet. Public use: NO-GO.
 1. Follow `docs/evaluation.md` to prepare actual reviewed calibration/held-out
    legal labels and a separate negative safety ledger. Measure real BGE legal
    recall and calibrate thresholds on TARGET B; proposed targets are unratified.
-2. Verify an actual primary publication for the UNDP programme/timetable before
-   claiming an existing integration. Bounded official-site checks returned no
-   supporting publication. No outreach or automatic forwarding exists.
+2. The partnership follow-up verified the UNDP-published report and its immediate
+   hotline/digital-intake priority; see `docs/partnership-verification.md`.
+   Verify current implementation/channel conditions and obtain an actual agreement
+   before describing an integration as existing. No outreach or automatic forwarding exists.
 3. Complete the review/source/privacy/laptop evidence in ROADMAP.md, then hold
    a separate accountable release decision. Recommend private visibility until
    the full gate passes. Prototype tags confer no publication authority.

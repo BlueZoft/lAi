@@ -11,7 +11,7 @@ completion of their commits does not complete external evidence prerequisites.
 | 4 | Maintainer on laptop | Real BGE/model/OCR quality, resource/latency and sequential residency measurements; reviewed Sinhala/Singlish behaviour; CPU fallback |
 | 5 | Review team | Calibrated thresholds and untouched held-out legal/language evaluation, uncertainty and red-team failure review; no synthetic-score substitution |
 | 6 | Operator/counsel | Controller/basis/DPO/notice decisions, complete accepted DPIA/DPMP, final rules/order checks, laptop host isolation/key-custody/deletion/recovery proof |
-| 7 | Operator/institution if pursued | Verified programme/service scope, conditional referral agreement and separately assessed minimal intake; no automatic sharing |
+| 7 | Operator/institution if pursued | Published priority verified in `docs/partnership-verification.md`; verify current service/implementation, actual referral agreement and separately assessed minimal intake; no automatic sharing |
 | 8 | Maintainer plus accountable reviewers | Review complete evidence ledger and gate; only then consider separate visibility/publication authorisation |
 
 Weekly maintenance should prioritise one measurable source/review or laptop task,
