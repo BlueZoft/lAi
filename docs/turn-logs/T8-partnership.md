@@ -90,3 +90,27 @@ is unchanged. Future institutional outreach needs separate user direction.
 Native Git commit/push and a new annotated `t8-partnership` record this follow-up;
 main CI is observed before annotating, then tag-triggered CI and peeled remote
 refs are checked before the final delivery manifest.
+
+## Observed delivery receipt
+
+Staged only the six documentation files and inspected their diff. Ran
+`git diff --cached --check` and `make hygiene`: 185 files passed. Checked that
+every URL/digest in the five-item manifest appears in the evidence note and its
+local Markdown link resolves. No raw PDF, HTML, search configuration or runtime
+file was staged. Native remote main still matched the starting SHA; the new
+follow-up tag did not exist. Committed and pushed:
+
+```text
+3aeeeac2241dcc0f18b856af7f4e783d30261f0f
+docs: verify legal aid dialogue hotline and intake priority
+6 files changed, 205 insertions(+), 13 deletions(-)
+37fb8e8..3aeeeac main -> main
+```
+
+Read the GitHub push-workflow list and exact API run
+`/repos/BlueZoft/lAi/actions/runs/44439418287`, comparing full SHA, branch main,
+status completed and conclusion success.
+[Successful source-follow-up CI](https://github.com/BlueZoft/lAi/actions/runs/44439418287).
+This receipt-only update changes no executable behaviour. Final main CI is
+retained in the immutable new annotation; its subsequent tag workflow is checked
+before reporting delivery. Original T8/prototype tags remain at their original SHA.
